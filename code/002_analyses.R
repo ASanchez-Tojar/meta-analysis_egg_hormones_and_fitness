@@ -5346,81 +5346,196 @@ levels(meta.final_ok_ok$Fitness_trait_all)
 # to similar traits are evaluated together. For example, all proxies related
 # to offspring growth.
 
+# # For this, I first create a new column
+# meta.final_ok_ok$Fitness_trait_all_group <- meta.final_ok_ok$Fitness_trait_all
+# 
+# meta.final_ok_ok$Fitness_trait_all_group <- as.character(meta.final_ok_ok$Fitness_trait_all_group)
+# 
+# # Growth
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth rate (mass)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth (PC1)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth (PC2)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth (tarsus)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth rate (mass)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth rate"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == remove?
+#                                            "growth rate (ulna)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth rate (flipper length)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "mass gain"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth (mass)"] <- "growth"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "growth rate (tarsus)"] <- "growth"
+# 
+# 
+# # Wing
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "flipper length"] <- "wing"
+# 
+# # Structural body size
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "structural body size (mass and tarsus)"] <- "structural body size"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "structural body size (mass and bill length)"] <- "structural body size"
+# 
+# # Hatching success
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "hatching failure"] <- "hatching success"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "hatching probability"] <- "hatching success"
+# 
+# 
+# # Hatching number
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "egg mortality"] <- "hatching number"
+# 
+# 
+# # Fledging success
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "fledgling probability"] <- "fledgling success"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "pre-fledgling survival probability"] <- "fledgling success"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "fledgling success (fledglings/hatchings)"] <- "fledgling success"
+# 
+# # Offspring survival 
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "offspring mortality"] <- "offspring survival"
+# 
+# # Offspring survival years
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "offspring survival years"] <- "offspring recruit"
+# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+#                                            "recruitment"] <- "offspring recruit"
+# 
+# meta.final_ok_ok$Fitness_trait_all_group <- as.factor(meta.final_ok_ok$Fitness_trait_all_group)
+# levels(meta.final_ok_ok$Fitness_trait_all_group)
+# # 19 levels
+# 
+# # I now check if all levels have at least 5 effect sizes (minimum number of 
+# # effect sizes that we stated in our pre-registration that we need for running
+# # statistical models)
+# table(meta.final_ok_ok$Fitness_trait_all_group)
+# # Levels for which we do not have enough effect sizes: head-bill length, head length,
+# # maternal life time reproductive success, and maternal longevity.
+# 
+# 
+# # I retain those traits for which we have more than 5 effect sizes:
+# 
+# meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok, 
+#                                                     meta.final_ok_ok$Fitness_trait_all_group == "beak flank width" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "clutch size" |  
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "culmen" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "fledgling number" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "fledgling success" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "gape width" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "hatching number" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "hatching success" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "mass" |  
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring recruit" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring survival" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "structural body size"| 
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "tarsus" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "growth" |
+#                                                       meta.final_ok_ok$Fitness_trait_all_group == "wing"))
+# 
+# # I will reorder variables to better understand results
+# meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_ok_withinstudyID$Fitness_trait_all_group, 
+#                                                                  levels = c("clutch size", 
+#                                                                             "hatching number",
+#                                                                             "hatching success",
+#                                                                             "beak flank width",
+#                                                                             "culmen",
+#                                                                             "gape width",
+#                                                                             "mass",
+#                                                                             "tarsus",
+#                                                                             "wing",
+#                                                                             "structural body size",
+#                                                                             "growth",
+#                                                                             "fledgling number",
+#                                                                             "fledgling success",
+#                                                                             "offspring survival",
+#                                                                             "offspring recruit"))
+
 # For this, I first create a new column
 meta.final_ok_ok$Fitness_trait_all_group <- meta.final_ok_ok$Fitness_trait_all
 
 meta.final_ok_ok$Fitness_trait_all_group <- as.character(meta.final_ok_ok$Fitness_trait_all_group)
 
 # Growth
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth rate (mass)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth (PC1)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth (PC2)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth (tarsus)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth rate (mass)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth rate"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-                                           "growth rate (ulna)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth rate (flipper length)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "mass gain"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth (mass)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "growth rate (tarsus)"] <- "growth"
 
 
 # Wing
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "flipper length"] <- "wing"
 
 # Structural body size
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "structural body size (mass and tarsus)"] <- "structural body size"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "structural body size (mass and bill length)"] <- "structural body size"
 
 # Hatching success
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "hatching failure"] <- "hatching success"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "hatching probability"] <- "hatching success"
 
 
 # Hatching number
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "egg mortality"] <- "hatching number"
 
 
 # Fledging success
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-                                           "fledgling probability"] <- "fledgling success"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "pre-fledgling survival probability"] <- "fledgling success"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "fledgling success (fledglings/hatchings)"] <- "fledgling success"
 
-# Offspring survival 
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+# Offspring survival
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "offspring mortality"] <- "offspring survival"
 
 # Offspring survival years
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "offspring survival years"] <- "offspring recruit"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
                                            "recruitment"] <- "offspring recruit"
 
 meta.final_ok_ok$Fitness_trait_all_group <- as.factor(meta.final_ok_ok$Fitness_trait_all_group)
 levels(meta.final_ok_ok$Fitness_trait_all_group)
 # 19 levels
 
-# I now check if all levels have at least 5 effect sizes (minimum number of 
+# I now check if all levels have at least 5 effect sizes (minimum number of
 # effect sizes that we stated in our pre-registration that we need for running
 # statistical models)
 table(meta.final_ok_ok$Fitness_trait_all_group)
@@ -5430,7 +5545,7 @@ table(meta.final_ok_ok$Fitness_trait_all_group)
 
 # I retain those traits for which we have more than 5 effect sizes:
 
-meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok, 
+meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok,
                                                     meta.final_ok_ok$Fitness_trait_all_group == "beak flank width" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "clutch size" |  
                                                       meta.final_ok_ok$Fitness_trait_all_group == "culmen" |
@@ -5442,14 +5557,14 @@ meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok,
                                                       meta.final_ok_ok$Fitness_trait_all_group == "mass" |  
                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring recruit" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring survival" |
-                                                      meta.final_ok_ok$Fitness_trait_all_group == "structural body size"| 
+                                                      meta.final_ok_ok$Fitness_trait_all_group == "structural body size"|
                                                       meta.final_ok_ok$Fitness_trait_all_group == "tarsus" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "growth" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "wing"))
 
 # I will reorder variables to better understand results
-meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_ok_withinstudyID$Fitness_trait_all_group, 
-                                                                 levels = c("clutch size", 
+meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_ok_withinstudyID$Fitness_trait_all_group,
+                                                                 levels = c("clutch size",
                                                                             "hatching number",
                                                                             "hatching success",
                                                                             "beak flank width",
