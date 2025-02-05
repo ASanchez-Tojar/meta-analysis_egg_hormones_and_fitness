@@ -13,7 +13,7 @@
 # Description of script and Instructions
 ################################################################################
 
-# Script used to generate figures for the following meta-analysis:
+# Script used to generate figure with map for the following meta-analysis:
 
 # Do egg hormones have fitness consequences in wild birds? A systematic review 
 # and meta-analysis
@@ -22,6 +22,12 @@
 # Alfredo Sanchez-Tojar. 
 
 # preprint available at: https://doi.org/10.1101/2024.10.29.620852
+
+# Note that for all figures – they were exported as .svg format using R's export 
+# function. Then, we used the free vector graphics editor Inkscape to enhance 
+# their appearance. Specifically, we adjusted the size and font of the legends 
+# and modified the colors of the data. Finally, we exported each figure in .png 
+# format, which is the version we submitted to the journal.
 
 ################################################################################
 # Packages needed
