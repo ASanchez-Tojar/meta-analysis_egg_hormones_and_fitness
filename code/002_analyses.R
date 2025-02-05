@@ -37,7 +37,11 @@
 # pacman::p_load(metafor, plyr, stringr, rotl, ape, orchaRd, dplyr, 
 #                devtools, tidyverse, patchwork, R.rsp, emmeans, ggplot2, maps, 
 #                phytools, flextable, wesanderson)
-pacman::p_load(metafor)
+pacman::p_load(rotl,
+               ape,
+               ggplot2,
+               ggcorrplot,
+               metafor)
 
 # cleaning up
 rm(list = ls())
@@ -191,25 +195,25 @@ meta.final_ok_ok_mom <- read.csv("data/processed_data/meta-analysis_egg_hormones
 # that all species names were correct and that synonyms or typos were not present
 # in the database.
 # resolved_names <- tnrs_match_names(as.character(unique(meta.final_ok_ok$Species)))
-# # 
-# # Saving the taxonomic data created on the 10th November 2023 to speed the
+# #
+# # Saving the taxonomic data created on the 5th Feb 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names, file = "data/taxa_Open_Tree_of_Life.RData")
+# save(resolved_names, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life.RData")
 
-# Loading the taxonomic data created on the 10th November 2023
-load("data/taxa_Open_Tree_of_Life.RData") #resolved_names
+# Loading the taxonomic data created on the 5th Feb 2025
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life.RData") #resolved_names
 
 # # extracting phylogenetic information
 # my_tree <- tol_induced_subtree(ott_ids =
 #                                resolved_names[,"ott_id"],
 #                               label_format = "name")
 # # Quick tree plotting
-# plot(my_tree, no.margin = TRUE)
-# # 
+# # plot(my_tree, no.margin = TRUE)
+# #
 # # We need to check for the existence of polytomies
-# is.binary(my_tree) 
+# is.binary(my_tree)
 # # Yes, meaning there are no polytomies. Let's go on.
-#  
+# 
 # # To confirm that our tree covers all the species we wanted it to include, and
 # # make sure that the species names in our database match those in the tree, we
 # # use the following code
@@ -217,38 +221,51 @@ load("data/taxa_Open_Tree_of_Life.RData") #resolved_names
 # #
 # intersect(as.character(my_tree$tip.label),
 #            as.character(meta.final_ok_ok$Species))
-#  
+# 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok$Species), 
-#        as.character(my_tree$tip.label)) 
-# # 
+# setdiff(as.character(meta.final_ok_ok$Species),
+#        as.character(my_tree$tip.label))
+# #
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree$tip.label),
-#          as.character(meta.final_ok_ok$Species)) 
+#          as.character(meta.final_ok_ok$Species))
 # # No error or inconsistencies found.
-# #  
+# #
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# # 10th November 2023
-# save(my_tree, file = "data/tree.Rdata")
+# # 5th Feb 2025
+# save(my_tree, file = "data/outputs/phylogenetic_files/tree.Rdata")
 
 # We can now load the saved tree
-load("data/tree.Rdata") #my_tree
+load("data/outputs/phylogenetic_files/tree.Rdata") #my_tree
 
 # # Compute branch lengths of tree
 # phylo_branch <- compute.brlen(my_tree, method = "Grafen", power = 1)
-#   
+# 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch) 
+# is.ultrametric(phylo_branch)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor <- vcv(phylo_branch, cor = T)
-#   
+# 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor, file = "data/phylo_cor.Rdata")
+# save(phylo_cor, file = "data/outputs/phylogenetic_files/phylo_cor.Rdata")
+
+# visual exploration of the phylogenetic correlation matrix
+ggcorrplot::ggcorrplot(phylo_cor, sig.level = 0.05, lab_size = 1,
+                       p.mat = NULL,insig = c("pch", "blank"),
+                       pch = 1, pch.col = "black", pch.cex = 1, tl.cex = 1.5) +
+  theme(axis.text.x = element_text(size = 7, margin = margin(-2, 0, 0, 0)),
+        axis.text.y = element_text(size = 7, margin = margin(0, -2, 0, 0)),
+        panel.grid.minor = element_line(size = 3)) +
+  geom_tile(fill = "white") +
+  geom_tile(height = 0.8, width = 0.8) +
+  scale_fill_gradient2(low = "#E69F00",mid = "white", high = "#56B4E9",
+                       midpoint = 0.5, breaks = c(0, 1),
+                       limit = c(0,1)) + labs(fill = "Correlation")
 
 # we can now load the saved matrix
-load("data/phylo_cor.Rdata") #phylo_cor
+load("data/outputs/phylogenetic_files/phylo_cor.Rdata") #phylo_cor
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok$Species_phylo <- meta.final_ok_ok$Species
@@ -291,29 +308,29 @@ for (i in 1 : dim(combinations)[1]) {
 diag(VCV_ESVar) <- meta.final_ok_ok[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar, 'data/VCV_ESVar.csv')
+# write.csv(VCV_ESVar, 'data/outputs/variance-covariance_matrices/VCV_ESVar.csv')
 
 
 ################################################################################
 # Main effect model
 
-# # STATISTICAL MODEL:
-# meta.model <- rma.mv(cor, 
-#                      VCV_ESVar, 
-#                      mods = ~ 1,
-#                      random = list(~ 1 | StudyID,
-#                                   ~ 1 | LaboratoryID,
-#                                  ~ 1 | PopulationID,
-#                                  ~ 1 | Species,
-#                                  ~ 1 | Species_phylo,
-#                                  ~ 1 | EffectID), 
-#                      method = "REML",
-#                      R = list(Species_phylo = phylo_cor),
-#                      test = "t", 
-#                      data = meta.final_ok_ok)
+# STATISTICAL MODEL:
+meta.model <- rma.mv(cor,
+                     VCV_ESVar,
+                     mods = ~ 1,
+                     random = list(~ 1 | StudyID,
+                                  ~ 1 | LaboratoryID,
+                                 ~ 1 | PopulationID,
+                                 ~ 1 | Species,
+                                 ~ 1 | Species_phylo,
+                                 ~ 1 | EffectID),
+                     method = "REML",
+                     R = list(Species_phylo = phylo_cor),
+                     test = "t",
+                     data = meta.final_ok_ok)
 
 # save(meta.model, file = "data/models/meta_model.Rdata")
-load(file = "data/models/meta_model.Rdata") #meta.model
+load(file = "data/outputs/statistical_models/meta_model.Rdata") #meta.model
 
 # Printing the summary results of the model
 print(meta.model, digits = 3)
