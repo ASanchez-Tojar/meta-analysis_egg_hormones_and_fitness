@@ -3106,12 +3106,12 @@ nrow(meta.final_ok_sensitivity_rom)
 
 
 db.rom <- escalc(measure = "ROM", 
-                 n1i = as.numeric(meta.final_ok_sensitivity_rom$control_n_total), 
-                 n2i = as.numeric(meta.final_ok_sensitivity_rom$exp_n_total), 
-                 m1i = as.numeric(meta.final_ok_sensitivity_rom$Control_Mean), 
-                 m2i = as.numeric(meta.final_ok_sensitivity_rom$Exp_Mean), 
-                 sd1i = as.numeric(meta.final_ok_sensitivity_rom$sd_control), 
-                 sd2i = as.numeric(meta.final_ok_sensitivity_rom$sd_exp))
+                 n2i = as.numeric(meta.final_ok_sensitivity_rom$control_n_total),
+                 n1i = as.numeric(meta.final_ok_sensitivity_rom$exp_n_total),
+                 m2i = as.numeric(meta.final_ok_sensitivity_rom$Control_Mean),
+                 m1i = as.numeric(meta.final_ok_sensitivity_rom$Exp_Mean),
+                 sd2i = as.numeric(meta.final_ok_sensitivity_rom$sd_control),
+                 sd1i = as.numeric(meta.final_ok_sensitivity_rom$sd_exp))
 
 # yi is the correlation, vi the variance
 # i will therefore add this information to the general db.
