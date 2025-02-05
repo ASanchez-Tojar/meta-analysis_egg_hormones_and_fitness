@@ -41,7 +41,12 @@ pacman::p_load(rotl,
                ape,
                ggplot2,
                ggcorrplot,
-               metafor)
+               metafor,
+               orchaRd,
+               wesanderson,
+               patchwork,
+               tidyverse,
+               ggtree)
 
 # cleaning up
 rm(list = ls())
@@ -251,6 +256,9 @@ load("data/outputs/phylogenetic_files/tree.Rdata") #my_tree
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # save(phylo_cor, file = "data/outputs/phylogenetic_files/phylo_cor.Rdata")
 
+# we can now load the saved matrix
+load("data/outputs/phylogenetic_files/phylo_cor.Rdata") #phylo_cor
+
 # visual exploration of the phylogenetic correlation matrix
 ggcorrplot::ggcorrplot(phylo_cor, sig.level = 0.05, lab_size = 1,
                        p.mat = NULL,insig = c("pch", "blank"),
@@ -263,9 +271,6 @@ ggcorrplot::ggcorrplot(phylo_cor, sig.level = 0.05, lab_size = 1,
   scale_fill_gradient2(low = "#E69F00",mid = "white", high = "#56B4E9",
                        midpoint = 0.5, breaks = c(0, 1),
                        limit = c(0,1)) + labs(fill = "Correlation")
-
-# we can now load the saved matrix
-load("data/outputs/phylogenetic_files/phylo_cor.Rdata") #phylo_cor
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok$Species_phylo <- meta.final_ok_ok$Species
@@ -315,26 +320,26 @@ diag(VCV_ESVar) <- meta.final_ok_ok[, "cor_var"]
 # Main effect model
 
 # STATISTICAL MODEL:
-meta.model <- rma.mv(cor,
-                     VCV_ESVar,
-                     mods = ~ 1,
-                     random = list(~ 1 | StudyID,
-                                  ~ 1 | LaboratoryID,
-                                 ~ 1 | PopulationID,
-                                 ~ 1 | Species,
-                                 ~ 1 | Species_phylo,
-                                 ~ 1 | EffectID),
-                     method = "REML",
-                     R = list(Species_phylo = phylo_cor),
-                     test = "t",
-                     data = meta.final_ok_ok)
-
-# save(meta.model, file = "data/models/meta_model.Rdata")
+# meta.model <- rma.mv(cor,
+#                      VCV_ESVar,
+#                      mods = ~ 1,
+#                      random = list(~ 1 | StudyID,
+#                                   ~ 1 | LaboratoryID,
+#                                  ~ 1 | PopulationID,
+#                                  ~ 1 | Species,
+#                                  ~ 1 | Species_phylo,
+#                                  ~ 1 | EffectID),
+#                      method = "REML",
+#                      R = list(Species_phylo = phylo_cor),
+#                      test = "t",
+#                      data = meta.final_ok_ok)
+# 
+# save(meta.model, file = "data/outputs/statistical_models/meta_model.Rdata")
 load(file = "data/outputs/statistical_models/meta_model.Rdata") #meta.model
 
 # Printing the summary results of the model
 print(meta.model, digits = 3)
-# There is an overall negative effect (-0.073) not statistically significant.
+# There is an overall negative effect (-0.072) not statistically significant.
 
 # Printing the results again, but adding the credibility/prediction interval, 
 # which uses the heterogeneity to generate an interval that should contain 95%
@@ -362,13 +367,13 @@ round(sum(meta.model$sigma2), 3)
 # # I2, CV and M
 # round(h.calc(meta.model),2)
 round(i2_ml(meta.model), 3)
-round(cv_ml(meta.model), 3)
-round(m1_ml(meta.model), 3)
+round(orchaRd::cvh2_ml(meta.model), 3)
+round(orchaRd::m2_ml(meta.model), 3)
 
 
 # Visualize heterogeneity
 ## make dataframe
-h_status <- h.calc(meta.model)
+h_status <- h.calc2(meta.model)
 
 # adding sigmas
 h_status$sigma2s <- c(sum(meta.model$sigma2),
@@ -430,7 +435,7 @@ p.I2 <- ggplot(h_status, aes(levels, I2s_Shinichi/100)) +
   ) 
 
 # CV
-p.CV <- ggplot(h_status, aes(levels, CVs)) +
+p.CV <- ggplot(h_status, aes(levels, CVHs)) +
   geom_col(alpha = 1, color = wes_palette('GrandBudapest1', 4, 
                                           type = 'discrete')[3], 
            fill = wes_palette('GrandBudapest1', 4, type = 'discrete')[3]) +
@@ -581,26 +586,26 @@ tree.p3 <- tree.p2 + geom_facet(panel = "Effect size", data = db_effect,
 ################################################################################
 # First, I create the phylogenetic tree and matrix.
 
-# PHYLOGENETIC TREE:
+# # PHYLOGENETIC TREE:
 # resolved_names_off <- tnrs_match_names(as.character(unique(meta.final_ok_ok_off$Species)))
 # 
-# # Saving the taxonomic data created on the 10th November 2023 to speed the
+# # Saving the taxonomic data created on the 5th Feb 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_off, file = "data/taxa_Open_Tree_of_Life_off.RData")
+# save(resolved_names_off, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_off.RData")
 
-# Loading the taxonomic data created on the 10th November 2023
-load("data/taxa_Open_Tree_of_Life_off.RData") #resolved_names_off
+# Loading the taxonomic data created on the 5th Feb 2025
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_off.RData") #resolved_names_off
 
 # # extracting phylogenetic information
 # my_tree_off <- tol_induced_subtree(ott_ids =
 #                                      resolved_names_off[,"ott_id"],
 #                                    label_format = "name")
 # 
-# # Quick tree plotting
-# plot(my_tree_off, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_off, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_off) 
+# is.binary(my_tree_off)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -612,36 +617,36 @@ load("data/taxa_Open_Tree_of_Life_off.RData") #resolved_names_off
 #           as.character(meta.final_ok_ok_off$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_off$Species), 
-#         as.character(my_tree_off$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_off$Species),
+#         as.character(my_tree_off$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_off$tip.label),
-#         as.character(meta.final_ok_ok_off$Species)) 
+#         as.character(meta.final_ok_ok_off$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# # 10th November 2023
-# save(my_tree_off, file = "data/tree_off.Rdata")
+# # 5th Feb 2025
+# save(my_tree_off, file = "data/outputs/phylogenetic_files/tree_off.Rdata")
 
 # We can now load the saved tree
-load("data/tree_off.Rdata") #my_tree_off
+load("data/outputs/phylogenetic_files/tree_off.Rdata") #my_tree_off
 
 # # Compute branch lengths of tree
 # phylo_branch_off <- compute.brlen(my_tree_off, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_off) 
+# is.ultrametric(phylo_branch_off)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_off <- vcv(phylo_branch_off, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_off, file = "data/phylo_cor_off.Rdata")
+# save(phylo_cor_off, file = "data/outputs/phylogenetic_files/phylo_cor_off.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_off.Rdata") #phylo_branch_off
+load("data/outputs/phylogenetic_files/phylo_cor_off.Rdata") #phylo_branch_off
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_off$Species_phylo_off <- meta.final_ok_ok_off$Species
@@ -680,26 +685,26 @@ for (i in 1 : dim(combinations_off)[1]) {
 diag(VCV_ESVar_off) <- meta.final_ok_ok_off[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_off, 'data/VCV_ESVar_off.csv')
+# write.csv(VCV_ESVar_off, 'data/outputs/variance-covariance_matrices/VCV_ESVar_off.csv')
 
 
-# # STATISTICAL MODEL:
-# meta.model.off <- rma.mv(cor, 
-#                        VCV_ESVar_off, 
+# STATISTICAL MODEL:
+# meta.model.off <- rma.mv(cor,
+#                        VCV_ESVar_off,
 #                         mods = ~ 1,
 #                         random = list(~ 1 | StudyID,
 #                                       ~ 1 | LaboratoryID,
 #                                       ~ 1 | PopulationID,
 #                                       ~ 1 | Species,
 #                                       ~ 1 | Species_phylo_off,
-#                                       ~ 1 | EffectID), 
+#                                       ~ 1 | EffectID),
 #                         method = "REML",
 #                         R = list(Species_phylo_off = phylo_cor_off),
-#                         test = "t", 
+#                         test = "t",
 #                         data = meta.final_ok_ok_off)
-
-#  save(meta.model.off, file = "data/models/meta_model.Rdata")
-load(file = "data/models/meta_model.off.Rdata") #meta.model.off
+# 
+# save(meta.model.off, file = "data/outputs/statistical_models/meta_model.off.Rdata")
+load(file = "data/outputs/statistical_models/meta_model.off.Rdata") #meta.model.off
 
 # Printing the summary results of the model
 print(meta.model.off, digits = 3)
@@ -1009,8 +1014,8 @@ diag(VCV_ESVar_off_androgens) <- meta.final_ok_ok_off_androgens[, "cor_var"]
 #                                test = "t", 
 #                               data = meta.final_ok_ok_off_androgens)
 
-# save(meta.regression.bh1.1, file = "data/models/meta_regression_bh1_1.RData")
-load(file = "data/models/meta_regression_bh1_1.RData") #meta.regression.bh1.1
+# save(meta.regression.bh1.1, file = "data/outputs/statistical_models/meta_regression_bh1_1.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh1_1.RData") #meta.regression.bh1.1
 
 # Printing the summary results of the model
 print(meta.regression.bh1.1, digits = 3)
@@ -1192,8 +1197,8 @@ diag(VCV_ESVar_off_cort) <- meta.final_ok_ok_off_cort[, "cor_var"]
 #                              test = "t", 
 #                              data = meta.final_ok_ok_off_cort)
 # 
-# save(meta.regression.bh1.2, file = "data/models/meta_regression_bh1_2.RData")
-load(file = "data/models/meta_regression_bh1_2.RData") #meta.regression.bh1.2
+# save(meta.regression.bh1.2, file = "data/outputs/statistical_models/meta_regression_bh1_2.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh1_2.RData") #meta.regression.bh1.2
 
 # Printing the summary results of the model
 print(meta.regression.bh1.2, digits = 3)
@@ -1372,8 +1377,8 @@ diag(VCV_ESVar_off_ths) <- meta.final_ok_ok_off_ths[, "cor_var"]
 #                               test = "t", 
 #                               data = meta.final_ok_ok_off_ths)
 # 
-# save(meta.regression.bh1.3, file = "data/models/meta_regression_bh1_3.RData")
-load(file = "data/models/meta_regression_bh1_3.RData") #meta.regression.bh1.3
+# save(meta.regression.bh1.3, file = "data/outputs/statistical_models/meta_regression_bh1_3.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh1_3.RData") #meta.regression.bh1.3
 
 # Printing the summary results of the model
 print(meta.regression.bh1.3, digits = 3)
@@ -1593,8 +1598,8 @@ nrow(meta.final_ok_ok_off_sex)
 #                              test = "t",
 #                              data = meta.final_ok_ok_off_sex)
 # 
-# save(meta.regression.bh2, file = "data/models/meta_regression_bh2.RData")
-load(file = "data/models/meta_regression_bh2.RData") #meta.regression.bh2
+# save(meta.regression.bh2, file = "data/outputs/statistical_models/meta_regression_bh2.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh2.RData") #meta.regression.bh2
 
 # We had a Convergence Problem with the rma.mv() Function. 
 # By using the command "verbose = TRUE" we obtain the information that starting 
@@ -1639,8 +1644,8 @@ meta.final_ok_ok_off_sex$hormone_sex <- paste(meta.final_ok_ok_off_sex$Hormone_m
 #                                           test = "t", 
 #                                           data = meta.final_ok_ok_off_sex)
 # 
-# save(meta.regression.bh2_artificial, file = "data/models/meta_regression_bh2_artificial.RData")
-load(file = "data/models/meta_regression_bh2_artificial.RData") #meta.regression.bh2_artificial
+# save(meta.regression.bh2_artificial, file = "data/outputs/statistical_models/meta_regression_bh2_artificial.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh2_artificial.RData") #meta.regression.bh2_artificial
 
 # Printing the summary results of the model
 print(meta.regression.bh2_artificial, digits = 3)
@@ -1690,8 +1695,8 @@ fig_sex_differences <- orchaRd::orchard_plot(meta.regression.bh2_artificial,
 #                              test = "t", 
 #                             data = meta.final_ok_ok_off_sex)
 # 
-# save(bh2_artificial_pc, file = "data/models/bh2_artificial_pc.RData")
-load(file = "data/models/bh2_artificial_pc.RData") #bh2_artificial_pc
+# save(bh2_artificial_pc, file = "data/outputs/statistical_models/bh2_artificial_pc.RData")
+load(file = "data/outputs/statistical_models/bh2_artificial_pc.RData") #bh2_artificial_pc
 
 print(bh2_artificial_pc, digits = 3)
 
@@ -1756,8 +1761,8 @@ meta.final_ok_ok_off_androgens$Off_life_stage <- factor(meta.final_ok_ok_off_and
 #                                 test = "t", 
 #                                 data = meta.final_ok_ok_off_androgens)
 # 
-# save(meta.regression.bh3.1, file = "data/models/meta_regression_bh3_1.RData")
-load(file = "data/models/meta_regression_bh3_1.RData") #meta.regression.bh3.1
+# save(meta.regression.bh3.1, file = "data/outputs/statistical_models/meta_regression_bh3_1.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh3_1.RData") #meta.regression.bh3.1
 
 # Printing the summary results of the model
 print(meta.regression.bh3.1, digits = 3)
@@ -1808,8 +1813,8 @@ fig_bh3.1 <- orchaRd::orchard_plot(meta.regression.bh3.1,
 #                                    test = "t", 
 #                                    data = meta.final_ok_ok_off_androgens)
 # 
-# save(meta.regression.bh3.1_pc, file = "data/models/meta_regression_bh3_1_pc.RData")
-load(file = "data/models/meta_regression_bh3_1_pc.RData") #meta.regression.bh3.1_pc
+# save(meta.regression.bh3.1_pc, file = "data/outputs/statistical_models/meta_regression_bh3_1_pc.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh3_1_pc.RData") #meta.regression.bh3.1_pc
 
 print(meta.regression.bh3.1_pc, digits = 3)
 
@@ -1962,8 +1967,8 @@ diag(VCV_ESVar_relative_age) <- meta.final_ok_ok_relative_age[, "cor_var"]
 #                                 test = "t", 
 #                                 data = meta.final_ok_ok_relative_age)
 # 
-# save(meta.regression.bh3.2, file = "data/models/meta_regression_bh3_2.RData")
-load(file = "data/models/meta_regression_bh3_2.RData") #meta.regression.bh3.2
+# save(meta.regression.bh3.2, file = "data/outputs/statistical_models/meta_regression_bh3_2.RData")
+load(file = "data/outputs/statistical_models/meta_regression_bh3_2.RData") #meta.regression.bh3.2
 
 # Printing the summary results of the model
 print(meta.regression.bh3.2, digits = 3)
@@ -2152,8 +2157,8 @@ diag(VCV_ESVar_and_gcs) <- meta.final_ok_ok_androgens_glucocorticoids[, "cor_var
 #                                 test = "t", 
 #                                data = meta.final_ok_ok_androgens_glucocorticoids)
 # 
-# save(meta.regression.mh1.1, file = "data/models/meta_regression_mh1_1.RData")
-load(file = "data/models/meta_regression_mh1_1.RData") #meta.regression.mh1.1
+# save(meta.regression.mh1.1, file = "data/outputs/statistical_models/meta_regression_mh1_1.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_1.RData") #meta.regression.mh1.1
 
 # Printing the summary results of the model
 print(meta.regression.mh1.1, digits = 3)
@@ -2184,8 +2189,8 @@ meta.final_ok_ok_androgens_glucocorticoids$hormone_studytype <- paste(meta.final
 #                                           test = "t", 
 #                                           data = meta.final_ok_ok_androgens_glucocorticoids)
 
-# save(meta.regression.mh1.1_artificial, file = "data/models/meta_regression_mh1_1_artificial.RData")
-load(file = "data/models/meta_regression_mh1_1_artificial.RData") #meta.regression.mh1.1_artificial
+# save(meta.regression.mh1.1_artificial, file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial.RData") #meta.regression.mh1.1_artificial
 
 # Printing the summary results of the model
 print(meta.regression.mh1.1_artificial, digits = 3)
@@ -2233,8 +2238,8 @@ fig_mh1.1_artificial <- orchaRd::orchard_plot(meta.regression.mh1.1_artificial,
 #                                             test = "t", 
 #                                              data = meta.final_ok_ok_androgens_glucocorticoids)
 
-# save(meta.regression.mh1.1_artificial_pc, file = "data/models/meta_regression_mh1_1_artificial_pc.RData")
-load(file = "data/models/meta_regression_mh1_1_artificial_pc.RData") #meta.regression.mh1.1_artificial_pc
+# save(meta.regression.mh1.1_artificial_pc, file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial_pc.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial_pc.RData") #meta.regression.mh1.1_artificial_pc
 
 
 print(meta.regression.mh1.1_artificial_pc, digits = 3)
@@ -2400,8 +2405,8 @@ diag(VCV_ESVar_exp_and_gcs) <- meta.final_ok_ok_off_exp_and_gcs[, "cor_var"]
 #                                 test = "t", 
 #                                 data = meta.final_ok_ok_off_exp_and_gcs)
 # 
-# save(meta.regression.mh1.2, file = "data/models/meta_regression_mh1_2.RData")
-load(file = "data/models/meta_regression_mh1_2.RData") #meta.regression.mh1.2
+# save(meta.regression.mh1.2, file = "data/outputs/statistical_models/meta_regression_mh1_2.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_2.RData") #meta.regression.mh1.2
 
 # Printing the summary results of the model
 print(meta.regression.mh1.2, digits = 3)
@@ -2436,8 +2441,8 @@ meta.final_ok_ok_off_exp_and_gcs$hormone_exp_stage <- paste(meta.final_ok_ok_off
 # 
 # 
 
-# save(meta.regression.mh1.2_artificial, file = "data/models/meta_regression_mh1_2_artificial.RData")
-load(file = "data/models/meta_regression_mh1_2_artificial.RData") #meta.regression.mh1.2_artificial
+# save(meta.regression.mh1.2_artificial, file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial.RData") #meta.regression.mh1.2_artificial
 
 # Printing the summary results of the model
 print(meta.regression.mh1.2_artificial, digits = 3)
@@ -2485,8 +2490,8 @@ fig_mh1.2_artificial <- orchaRd::orchard_plot(meta.regression.mh1.2_artificial,
 #                                              test = "t", 
 #                                              data = meta.final_ok_ok_off_exp_and_gcs)
 # 
-# save(meta.regression.mh1.2_artificial_pc, file = "data/models/meta_regression_mh1_2_artificial_pc.RData")
-load(file = "data/models/meta_regression_mh1_2_artificial_pc.RData") #meta.regression.mh1.2_artificial_pc
+# save(meta.regression.mh1.2_artificial_pc, file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial_pc.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial_pc.RData") #meta.regression.mh1.2_artificial_pc
 
 
 print(meta.regression.mh1.2_artificial_pc, digits = 3)
@@ -2681,8 +2686,8 @@ diag(VCV_ESVar_exp_dose_androgens) <- meta.final_ok_ok_off_exp_dose_androgens[, 
 #                                 test = "t", 
 #                                 data = meta.final_ok_ok_off_exp_dose_androgens)
 # 
-# save(meta.regression.mh1.3, file = "data/models/meta_regression_mh1_3.RData")
-load(file = "data/models/meta_regression_mh1_3.RData") #meta.regression.mh1.3
+# save(meta.regression.mh1.3, file = "data/outputs/statistical_models/meta_regression_mh1_3.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_3.RData") #meta.regression.mh1.3
 
 
 # Printing the summary results of the model
@@ -2731,8 +2736,8 @@ fig_mh1.3 <- orchaRd::orchard_plot(meta.regression.mh1.3,
 #                                 test = "t",
 #                                 data = meta.final_ok_ok_off_exp_dose_androgens)
 # 
-# save(meta.regression.mh1.3_pc, file = "data/models/meta_regression_mh1_3_pc.RData")
-load(file = "data/models/meta_regression_mh1_3_pc.RData") #meta.regression.mh1.3_pc
+# save(meta.regression.mh1.3_pc, file = "data/outputs/statistical_models/meta_regression_mh1_3_pc.RData")
+load(file = "data/outputs/statistical_models/meta_regression_mh1_3_pc.RData") #meta.regression.mh1.3_pc
 
 
 # Printing the summary results of the model
@@ -3344,8 +3349,8 @@ fig_hormones_fitness_intercept.rom <- orchaRd::orchard_plot(sensitivy.model.inte
 #                              test = "t",
 #                              data = meta.final_ok_ok_off)
 
-# save(sensitivy.model.bh1, file = "data/models/sensitivy_model_bh1.RData")
-load(file = "data/models/sensitivy_model_bh1.RData") #sensitivy.model.bh1
+# save(sensitivy.model.bh1, file = "data/outputs/statistical_models/sensitivy_model_bh1.RData")
+load(file = "data/outputs/statistical_models/sensitivy_model_bh1.RData") #sensitivy.model.bh1
 
 
 # Printing the summary results of the model
@@ -3398,8 +3403,8 @@ fig_hormones_fitness <- orchaRd::orchard_plot(sensitivy.model.bh1,
 #                                  test = "t", 
 #                                  data = meta.final_ok_ok_off)
 # 
-# save(sensitivy.model.bh1.pc, file = "data/models/sensitivy_model_bh1_pc.RData")
-load(file = "data/models/sensitivy_model_bh1_pc.RData") #sensitivy.model.bh1.pc
+# save(sensitivy.model.bh1.pc, file = "data/outputs/statistical_models/sensitivy_model_bh1_pc.RData")
+load(file = "data/outputs/statistical_models/sensitivy_model_bh1_pc.RData") #sensitivy.model.bh1.pc
 
 print(sensitivy.model.bh1.pc, digits = 3)
 
@@ -3440,8 +3445,8 @@ car::linearHypothesis(sensitivy.model.bh1.pc, rbind(c(0,1,-1)))
 #                     test = "t", 
 #                      data = meta.final_ok_ok)
 
-# save(meta.model, file = "data/models/meta.model_corvar.Rdata")
-load(file = "data/models/meta.model_corvar.Rdata") #meta.model
+# save(meta.model, file = "data/outputs/statistical_models/meta.model_corvar.Rdata")
+load(file = "data/outputs/statistical_models/meta.model_corvar.Rdata") #meta.model
 
 # Printing the summary results of the model
 print(meta.model_corvar, digits = 3)
@@ -3483,8 +3488,8 @@ figure_meta.model_corvar <- orchaRd::orchard_plot(meta.model_corvar, mod = "1",
 #                          test = "t", 
 #                          data = meta.final_ok_ok_off)
 
-# save(meta.model.off_corvar, file = "data/models/meta.model.off_corvar.Rdata")
-load(file = "data/models/meta.model.off_corvar.Rdata") #meta.model.off
+# save(meta.model.off_corvar, file = "data/outputs/statistical_models/meta.model.off_corvar.Rdata")
+load(file = "data/outputs/statistical_models/meta.model.off_corvar.Rdata") #meta.model.off
 
 # Printing the summary results of the model
 print(meta.model.off_corvar, digits = 3)
@@ -3525,8 +3530,8 @@ figure_meta.model.off_corvar<- orchaRd::orchard_plot(meta.model.off_corvar, mod 
 #                              test = "t",
 #                             data = meta.final_ok_ok_off)
 
-# save(sensitivy.model.bh1, file = "data/models/meta.model.off_perhorm_corvar.RData")
-load(file = "data/models/meta.model.off_perhorm_corvar.RData") #sensitivy.model.bh1
+# save(sensitivy.model.bh1, file = "data/outputs/statistical_models/meta.model.off_perhorm_corvar.RData")
+load(file = "data/outputs/statistical_models/meta.model.off_perhorm_corvar.RData") #sensitivy.model.bh1
 
 
 # Printing the summary results of the model
@@ -3694,8 +3699,8 @@ diag(VCV_ESVar_mom_and_gcs) <- meta.final_ok_ok_mom_and_gcs[, "cor_var"]
 #                               test = "t", 
 #                               data = meta.final_ok_ok_mom_and_gcs)
 # 
-# save(meta.regression.beh1, file = "data/models/meta_regression_beh1.RData")
-load(file = "data/models/meta_regression_beh1.RData") #meta.regression.beh1
+# save(meta.regression.beh1, file = "data/outputs/statistical_models/meta_regression_beh1.RData")
+load(file = "data/outputs/statistical_models/meta_regression_beh1.RData") #meta.regression.beh1
 
 
 # Printing the summary results of the model
@@ -3744,8 +3749,8 @@ fig_hormones_beh1 <- orchaRd::orchard_plot(meta.regression.beh1,
 #                                 test = "t", 
 #                                 data = meta.final_ok_ok_mom_and_gcs)
 
-# save(meta.regression.beh1_pc, file = "data/models/meta_regression_beh1_pc.RData")
-load(file = "data/models/meta_regression_beh1_pc.RData") #meta.regression.beh1_pc
+# save(meta.regression.beh1_pc, file = "data/outputs/statistical_models/meta_regression_beh1_pc.RData")
+load(file = "data/outputs/statistical_models/meta_regression_beh1_pc.RData") #meta.regression.beh1_pc
 
 print(meta.regression.beh1_pc, digits = 3)
 
@@ -3938,8 +3943,8 @@ diag(VCV_ESVar_off_site_cort) <- meta.final_ok_ok_off_site_cort[, "cor_var"]
 #                               test = "t",
 #                               data = meta.final_ok_ok_off_site_cort)
 # 
-# save(meta.regression.beh2, file = "data/models/meta_regression_beh2.RData")
-load(file = "data/models/meta_regression_beh2.RData") #meta.regression.beh2
+# save(meta.regression.beh2, file = "data/outputs/statistical_models/meta_regression_beh2.RData")
+load(file = "data/outputs/statistical_models/meta_regression_beh2.RData") #meta.regression.beh2
 
 # Printing the summary results of the model
 print(meta.regression.beh2, digits = 3)
@@ -3988,8 +3993,8 @@ fig_hormones_beh2 <- orchaRd::orchard_plot(meta.regression.beh2,
 #                                   test = "t",
 #                                   data = meta.final_ok_ok_off_site_cort)
 # 
-# save(meta.regression.beh2_pc, file = "data/models/meta_regression_beh2_pc.RData")
-load(file = "data/models/meta_regression_beh2_pc.RData") #meta.regression.beh2_pc
+# save(meta.regression.beh2_pc, file = "data/outputs/statistical_models/meta_regression_beh2_pc.RData")
+load(file = "data/outputs/statistical_models/meta_regression_beh2_pc.RData") #meta.regression.beh2_pc
 
 print(meta.regression.beh2_pc, digits = 3)
 
@@ -4141,8 +4146,8 @@ diag(VCV_ESVar_androgens_method) <- meta.final_ok_ok_androgens_method[, "cor_var
 #                                test = "t", 
 #                                data = meta.final_ok_ok_androgens_method)
 # 
-# save(meta.regression.meh1, file = "data/models/meta_regression_meh1.RData")
-load(file = "data/models/meta_regression_meh1.RData") #meta.regression.meh1
+# save(meta.regression.meh1, file = "data/outputs/statistical_models/meta_regression_meh1.RData")
+load(file = "data/outputs/statistical_models/meta_regression_meh1.RData") #meta.regression.meh1
 
 # Printing the summary results of the model
 print(meta.regression.meh1, digits = 3)
@@ -4193,8 +4198,8 @@ fig_hormones_meh1 <- orchaRd::orchard_plot(meta.regression.meh1,
 #                                   test = "t", 
 #                                   data = meta.final_ok_ok_androgens_method)
 # 
-# save(meta.regression.meh1_pc, file = "data/models/meta_regression_meh1_pc.RData")
-load(file = "data/models/meta_regression_meh1_pc.RData") #meta.regression.meh1_pc
+# save(meta.regression.meh1_pc, file = "data/outputs/statistical_models/meta_regression_meh1_pc.RData")
+load(file = "data/outputs/statistical_models/meta_regression_meh1_pc.RData") #meta.regression.meh1_pc
 
 print(meta.regression.meh1_pc, digits = 3)
 
@@ -4254,8 +4259,8 @@ meta.final_ok_ok$sqrt_inv_esz.4 <-  with(meta.final_ok_ok, sqrt(inv_esz.4))
 #                                              test = "t", 
 #                                             data = meta.final_ok_ok)
 # 
-save(meta.regression.small.study.effects, file = "data/models/meta_regression_small_study_effects.RData")
-load(file = "data/models/meta_regression_small_study_effects.RData") #meta.regression.small.study.effects
+save(meta.regression.small.study.effects, file = "data/outputs/statistical_models/meta_regression_small_study_effects.RData")
+load(file = "data/outputs/statistical_models/meta_regression_small_study_effects.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects, digits = 3)
@@ -4335,8 +4340,8 @@ round(R2.meta.regression.small.study.effects.n4 * 100, 1)
 #                                                         data = meta.final_ok_ok,
 #                                                        control=list(rel.tol=1e-8))
 
-# save(meta.regression.small.study.effects.by.hormone, file = "data/models/meta_regression_small_study_effects_by_hormone.RData")
-load(file = "data/models/meta_regression_small_study_effects_by_hormone.RData") #meta.regression.small.study.effects.by.hormone
+# save(meta.regression.small.study.effects.by.hormone, file = "data/outputs/statistical_models/meta_regression_small_study_effects_by_hormone.RData")
+load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_by_hormone.RData") #meta.regression.small.study.effects.by.hormone
 
 
 # Printing the summary results of the model
@@ -4530,8 +4535,8 @@ meta.final_ok_ok_androgens$sqrt_inv_esz.4 <-  with(meta.final_ok_ok_androgens, s
 #                                             test = "t", 
 #                                               data = meta.final_ok_ok_androgens)
 # 
-save(meta.regression.small.study.effects_androgens, file = "data/models/meta_regression_small_study_effects_androgens.RData")
-load(file = "data/models/meta_regression_small_study_effects_androgens.RData") #meta.regression.small.study.effects
+save(meta.regression.small.study.effects_androgens, file = "data/outputs/statistical_models/meta_regression_small_study_effects_androgens.RData")
+load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_androgens.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects_androgens, digits = 3)
@@ -4681,8 +4686,8 @@ meta.final_ok_ok_cort$sqrt_inv_esz.4 <-  with(meta.final_ok_ok_cort, sqrt(inv_es
 #                                                       test = "t", 
 #                                                       data = meta.final_ok_ok_cort)
 # 
-# save(meta.regression.small.study.effects_cort, file = "data/models/meta_regression_small_study_effects_cort.RData")
-load(file = "data/models/meta_regression_small_study_effects_cort.RData") #meta.regression.small.study.effects
+# save(meta.regression.small.study.effects_cort, file = "data/outputs/statistical_models/meta_regression_small_study_effects_cort.RData")
+load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_cort.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects_cort, digits = 3)
@@ -4833,8 +4838,8 @@ meta.final_ok_ok_ths$sqrt_inv_esz.4 <-  with(meta.final_ok_ok_ths, sqrt(inv_esz.
 #                                                  test = "t", 
 #                                                    data = meta.final_ok_ok_ths)
 # 
-# save(meta.regression.small.study.effects_ths, file = "data/models/meta_regression_small_study_effects_ths.RData")
-load(file = "data/models/meta_regression_small_study_effects_ths.RData") #meta.regression.small.study.effects
+# save(meta.regression.small.study.effects_ths, file = "data/outputs/statistical_models/meta_regression_small_study_effects_ths.RData")
+load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_ths.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects_ths, digits = 3)
@@ -4882,8 +4887,8 @@ meta.final_ok_ok$Year.c <- as.vector(scale(as.numeric(as.character(meta.final_ok
 #                                           test = "t", 
 #                                           data = meta.final_ok_ok)
 # 
-# save(meta.regression.decline.effects, file = "data/models/meta_regression_decline_effects.RData")
-load(file = "data/models/meta_regression_decline_effects.RData") #meta.regression.decline.effects
+# save(meta.regression.decline.effects, file = "data/outputs/statistical_models/meta_regression_decline_effects.RData")
+load(file = "data/outputs/statistical_models/meta_regression_decline_effects.RData") #meta.regression.decline.effects
 
 # Printing the summary results of the model
 print(meta.regression.decline.effects, digits = 3)
@@ -4922,8 +4927,8 @@ figure_meta.regression.decline.effects <- orchaRd::bubble_plot(meta.regression.d
 #                                                      test = "t", 
 #                                                      data = meta.final_ok_ok)
 # 
-# save(meta.regression.decline.effects.by.hormone, file = "data/models/meta_regression_decline_effects_by_hormone.RData")
-load(file = "data/models/meta_regression_decline_effects_by_hormone.RData") #meta.regression.decline.effects.by.hormone
+# save(meta.regression.decline.effects.by.hormone, file = "data/outputs/statistical_models/meta_regression_decline_effects_by_hormone.RData")
+load(file = "data/outputs/statistical_models/meta_regression_decline_effects_by_hormone.RData") #meta.regression.decline.effects.by.hormone
 
 # Printing the summary results of the model
 print(meta.regression.decline.effects.by.hormone, digits = 3)
@@ -5021,8 +5026,8 @@ table(meta.final_ok_ok_androgens$DataReporting)
 # We therefore modified this threshold with the commands "control = list(...)".
 # Results remain the same and we no longer have a error message.
 
-save(meta.regression.completeness, file = "data/models/meta.regression.completeness.RData")
-load(file = "data/models/meta.regression.completeness.RData") #meta.regression.completeness
+save(meta.regression.completeness, file = "data/outputs/statistical_models/meta.regression.completeness.RData")
+load(file = "data/outputs/statistical_models/meta.regression.completeness.RData") #meta.regression.completeness
 
 # Printing the summary results of the model 
 print(meta.regression.completeness, digits = 3)
@@ -5087,8 +5092,8 @@ table(meta.final_ok_ok$Partial_or_selective_data_rep, meta.final_ok_ok$Hormone_m
 #                                test = "t", 
 #                                data = meta.final_ok_ok)
 # 
-# save(meta.regression.selective_data_rep, file = "data/models/meta.regression.selective_data_rep.RData")
-load(file = "data/models/meta.regression.selective_data_rep.RData") #meta.regression.selective_data_rep
+# save(meta.regression.selective_data_rep, file = "data/outputs/statistical_models/meta.regression.selective_data_rep.RData")
+load(file = "data/outputs/statistical_models/meta.regression.selective_data_rep.RData") #meta.regression.selective_data_rep
 
 # Printing the summary results of the model
 print(meta.regression.selective_data_rep, digits = 3)
@@ -5234,8 +5239,8 @@ meta.final_ok_ok_sr$hormone_selective_rep <- paste(meta.final_ok_ok_sr$Hormone_m
 #                                             data = meta.final_ok_ok_sr)
 
 # 
-#  save(meta.regression.selective_data_rep_artificial, file = "data/models/meta.regression.selective_data_rep_artificial.RData")
-load(file = "data/models/meta.regression.selective_data_rep_artificial.RData") #meta.regression.selective_data_rep_artificial
+#  save(meta.regression.selective_data_rep_artificial, file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial.RData")
+load(file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial.RData") #meta.regression.selective_data_rep_artificial
 
 # Printing the summary results of the model
 print(meta.regression.selective_data_rep_artificial, digits = 3)
@@ -5278,8 +5283,8 @@ fig_selective_data_rep_artificial <- orchaRd::orchard_plot(meta.regression.selec
 #                                                    test = "t", 
 #                                                  data = meta.final_ok_ok_sr)
 # 
-# save(meta.regression.meh1_pc, file = "data/models/meta.regression.selective_data_rep_artificial_pc.RData")
-load(file = "data/models/meta.regression.selective_data_rep_artificial_pc.RData") #meta.regression.meh1_pc
+# save(meta.regression.meh1_pc, file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial_pc.RData")
+load(file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial_pc.RData") #meta.regression.meh1_pc
 
 print(meta.regression.selective_data_rep_artificial_pc, digits = 3)
 
@@ -5334,8 +5339,8 @@ meta.final_ok_ok$Study_type.num.c <- as.vector(scale(ifelse(meta.final_ok_ok$Stu
 #                                 test = "t",
 #                                 data = meta.final_ok_ok)
 
-# save(meta.regression.all.in, file = "data/models/meta_regression_all_in.RData")
-load(file = "data/models/meta_regression_all_in.RData") #meta.regression.all.in
+# save(meta.regression.all.in, file = "data/outputs/statistical_models/meta_regression_all_in.RData")
+load(file = "data/outputs/statistical_models/meta_regression_all_in.RData") #meta.regression.all.in
 
 
 # Printing the summary results of the model
