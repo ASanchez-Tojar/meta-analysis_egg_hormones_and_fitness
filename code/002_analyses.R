@@ -34,9 +34,6 @@
 ################################################################################
 
 # install.packages("pacman") #if not already installed
-# pacman::p_load(metafor, plyr, stringr, rotl, ape, orchaRd, dplyr, 
-#                devtools, tidyverse, patchwork, R.rsp, emmeans, ggplot2, maps, 
-#                phytools, flextable, wesanderson)
 pacman::p_load(rotl,
                ape,
                ggplot2,
