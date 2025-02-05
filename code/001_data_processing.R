@@ -251,14 +251,11 @@ meta.final_stats_clutch$stats_n_total[nrow_unclear] <- meta.final_stats_clutch$s
 
 # names(meta.final_stats_clutch)
 nrow(meta.final_stats_clutch)
-# 84 
-
 
 # keep the final data base that has complete information: test and N
 meta.final_stats_clutch <- droplevels(subset(meta.final_stats_clutch, 
                                              meta.final_stats_clutch$stats_n_total != "NA"))
 nrow(meta.final_stats_clutch)
-# 72
 
 # # quick exploration
 # summary(meta.final_stats_clutch[,c("Fitness_trait","Fitness_mother",
@@ -322,7 +319,6 @@ meta.final_stats_offspring$stats_n_total
 
 
 nrow(meta.final_stats_offspring)
-# 83
 
 # quick exploration
 # summary(meta.final_stats_offspring[,c("Fitness_trait","Fitness_mother",
@@ -362,7 +358,6 @@ meta.final_means_clutch <- droplevels(subset(meta.final_means,
 meta.final_means_offspring <- droplevels(subset(meta.final_means, 
                                                 meta.final_means$Exp_N_level == "offspring"))
 nrow(meta.final_means_offspring)
-# 341
 
 # first create a column that contains information with no value but has 
 # the same name as the one used for studies that reported test statistics
@@ -395,7 +390,6 @@ meta.final_means_clutch <- droplevels(subset(meta.final_means_clutch,
                                              meta.final_means_clutch$control_n_total != "NA" &
                                                meta.final_means_clutch$exp_n_total != "NA"))
 nrow(meta.final_means_clutch)
-# 86 final rows 
 
 # # quick exploration
 # summary(meta.final_means_clutch[,c("Fitness_trait","Fitness_mother",
@@ -430,7 +424,6 @@ meta.final_means_offspring <- droplevels(subset(meta.final_means_offspring,
                                                   meta.final_means_offspring$exp_n_total != "NA"))
 
 nrow(meta.final_means_offspring)
-# 318
 
 # # quick exploration
 # summary(meta.final_means_offspring[,c("Fitness_trait","Fitness_mother",
@@ -477,7 +470,6 @@ meta.final.n <- rbind(meta.final_stats_clutch, meta.final_stats_offspring,
                       meta.final_abs)
 # names(meta.final.n)
 nrow(meta.final.n)
-# 563 rows  --> ~ 84% of the data base is complete 
 
 meta.final.n$stats_n_total <- as.numeric(meta.final.n$stats_n_total)
 meta.final.n$control_n_total <-as.numeric(meta.final.n$control_n_total)
@@ -578,7 +570,6 @@ meta.final.n_chi$cor_var <- ((1 - (meta.final.n_chi$cor ^ 2)) ^ 2)/
 
 meta.final.n_chi$final_n <- meta.final.n_chi$stats_n_total
 nrow(meta.final.n_chi)
-# 16
 
 ################################################################################
 # Convert F-test to Pearson's r (Lajeunesse, 2013; p201)
@@ -629,7 +620,6 @@ meta.final.n_ftest$cor_var <- ((1 - meta.final.n_ftest$cor ^ 2) ^ 2/
 
 meta.final.n_ftest$final_n <- meta.final.n_ftest$stats_n_total
 nrow(meta.final.n_ftest)
-# 16
 
 
 ################################################################################
@@ -660,7 +650,7 @@ table(meta.final.n_spearman$cor, meta.final.n_spearman$TestDirection)
 
 meta.final.n_spearman$final_n <- meta.final.n_spearman$stats_n_total
 nrow(meta.final.n_spearman)
-# 1
+
 
 ################################################################################
 # Convert t-values from a continuous predictor variable to Pearson's r
@@ -690,7 +680,6 @@ meta.final.n_tt$cor_var <- ((1 - meta.final.n_tt$cor ^ 2) ^ 2/
 
 meta.final.n_tt$final_n <- meta.final.n_tt$stats_n_total
 nrow(meta.final.n_tt)
-# 6
 
 # The t-test estimates do have a directionality. However, sometimes 
 # authors used the experimental and not the control group as a reference. If
@@ -752,7 +741,7 @@ table(meta.final.n_z$cor, meta.final.n_z$TestDirection)
 
 meta.final.n_z$final_n <- meta.final.n_z$stats_n_total
 nrow(meta.final.n_z)
-# 3
+
 
 ################################################################################
 # subset the data for Pearson, which is ready.
@@ -795,8 +784,6 @@ table(meta.final.n_pearson_ok$cor, meta.final.n_pearson_ok$TestDirection)
 
 meta.final.n_pearson_ok$final_n <- meta.final.n_pearson_ok$stats_n_total
 nrow(meta.final.n_pearson_ok)
-# 88
-
 
 
 ################################################################################
@@ -808,7 +795,7 @@ nrow(meta.final.n_pearson_ok)
 meta.final.n_mean <- droplevels(subset(meta.final.n, 
                                        meta.final.n$Effect_size_type == "Mean"))
 nrow(meta.final.n_mean)
-# 342
+
 
 # The calculation requires the SD.
 # We therefore have to calculate it.
@@ -861,14 +848,12 @@ plot(log(meta.final.n_mean_se$Exp_Mean),log(meta.final.n_mean_se$sd_exp))
 meta.final.n_mean_se <- droplevels(subset(meta.final.n_mean_se, 
                                           meta.final.n_mean_se$sd_exp != "NA"))
 nrow(meta.final.n_mean_se)
-# In total we have 36 rows with complete information
 
 
 ################################################################################
 # merge both databases
 meta.final.n_mean_ok <- rbind(meta.final.n_mean_sd, meta.final.n_mean_se)
 nrow(meta.final.n_mean_ok)
-# 278 rows
 
 
 ################################################################################
@@ -902,7 +887,7 @@ meta.final.n_mean_ok_shared_c <- ddply(meta.final.n_mean_ok_shared_c,
 meta.final.n_mean_ok_noshared_c <- droplevels(subset(meta.final.n_mean_ok, 
                                                      meta.final.n_mean_ok$Shared_control == "no")) 
 nrow(meta.final.n_mean_ok_noshared_c)
-# 191
+
 
 # merge both data bases
 meta.final.n_mean_ok <- rbind(meta.final.n_mean_ok_shared_c, 
@@ -957,7 +942,7 @@ nrow(meta.final.n_lsm)
 meta.final.n_abs <- droplevels(subset(meta.final.n, 
                                       meta.final.n$Effect_size_type == "Absolute"))
 nrow(meta.final.n_abs)
-# 49
+
 
 # The absolute values are generally traits associated with survival: hatching 
 # success, fledgling success.
@@ -975,7 +960,7 @@ nrow(meta.final.n_abs)
 # We therefore need to create two new columns that contain this information.
 # First we will create the new columns we need:
 nrow(meta.final.n_abs)
-# 49  
+  
 
 # There are some rows (n = 4) for which we do not have information on number of
 # clutches/offspring
@@ -985,7 +970,7 @@ meta.final.n_abs <- droplevels(subset(meta.final.n_abs,
                                       meta.final.n_abs$control_n_total != "NA"))
 
 nrow(meta.final.n_abs)
-# 45
+
 
 meta.final.n_abs$control_n_total <- as.numeric(meta.final.n_abs$control_n_total)
 meta.final.n_abs$exp_n_total <- as.numeric(meta.final.n_abs$exp_n_total)
@@ -1000,7 +985,7 @@ meta.final.n_abs$exp_n_total <- as.numeric(meta.final.n_abs$exp_n_total)
 meta.final.n_abs_value <- droplevels(subset(meta.final.n_abs, 
                                             meta.final.n_abs$Var_type_comment == "Absolute value; no variance"))
 nrow(meta.final.n_abs_value)
-# 1
+
 
 meta.final.n_abs_value$n_control_surv <- meta.final.n_abs_value$Control_Mean
 meta.final.n_abs_value$n_control_no_surv <- (meta.final.n_abs_value$control_n_total) - 
@@ -1016,7 +1001,7 @@ meta.final.n_abs_value$n_exp_no_surv <- (meta.final.n_abs_value$exp_n_total) -
 meta.final.n_abs_perc <- droplevels(subset(meta.final.n_abs, 
                                            meta.final.n_abs$Var_type_comment == "Absolute percentage; no variance"))
 nrow(meta.final.n_abs_perc)
-# 30
+
 
 # All percentages are positive (i.e., survival, fledgling, ...).
 # The function I need to use for success is:
@@ -1049,7 +1034,7 @@ meta.final.n_abs_perc$n_exp_no_surv <- (meta.final.n_abs_perc$exp_n_total) -
 meta.final.n_abs_perc_and_abs <- droplevels(subset(meta.final.n_abs, 
                                                    meta.final.n_abs$Var_type_comment == "Absolute percentage (also abs value); no variance"))
 nrow(meta.final.n_abs_perc_and_abs)
-# 7
+
 
 ################################################################################
 # control
@@ -1075,7 +1060,7 @@ meta.final.n_abs_perc_and_abs$n_exp_no_surv <- (meta.final.n_abs_perc_and_abs$ex
 meta.final.n_abs_prop <- droplevels(subset(meta.final.n_abs, 
                                            meta.final.n_abs$Var_type_comment == "Absolute proportion; no variance"))
 nrow(meta.final.n_abs_prop)
-# 4
+
 
 # All proportions are positive (i.e., survival).
 # The function I need to use for success is:
@@ -1188,7 +1173,7 @@ meta.final_ok <- rbind(meta.final.n_chi, meta.final.n_ftest,
                        meta.final.n_z, meta.final.n_pearson_ok,
                        meta.final.n_mean_ok, meta.final.n_abs_ok_i)
 nrow(meta.final_ok)
-# 444 is the final sample size  
+  
 
 # Final touch, combining the two following characters into one so that the info
 # about the data location is all in one single variable, then deleting the
@@ -1307,7 +1292,6 @@ meta.final_ok_ok <- rbind(meta.final_ok_cor_yes,
                           meta.final_ok_exp_mother,
                           meta.final_ok_exp_egg)
 nrow(meta.final_ok_ok)
-# 444 rows
 
 
 # IMPORTANT: in the pre-registration we wrote "Furthermore, models including 
@@ -1323,7 +1307,6 @@ meta.final_ok_ok <- droplevels(subset(meta.final_ok_ok,
                                       meta.final_ok_ok$Hormone_measured_unique != "flutamide"))
 
 nrow(meta.final_ok_ok)
-# 443 rows
 
 
 # Important note: There are 6 rows that have a correlation value = 0. We checked these
@@ -1372,14 +1355,14 @@ meta.final_ok_ok$Hormone_measured_general <- as.factor(meta.final_ok_ok$Hormone_
 meta.final_ok_ok_off <- droplevels(subset(meta.final_ok_ok, 
                                           meta.final_ok_ok$Fitness_trait != "mother"))
 nrow(meta.final_ok_ok_off)
-# 355
+
 
 meta.final_ok_ok$cor
 
 meta.final_ok_ok_mom <- droplevels(subset(meta.final_ok_ok, 
                                           meta.final_ok_ok$Fitness_trait == "mother"))
 nrow(meta.final_ok_ok_mom)
-# 88
+
 
 
 ################################################################################
