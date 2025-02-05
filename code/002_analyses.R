@@ -334,7 +334,7 @@ meta.model <- rma.mv(cor,
                      test = "t",
                      data = meta.final_ok_ok)
 
-save(meta.model, file = "data/outputs/statistical_models/meta_model.Rdata")
+#save(meta.model, file = "data/outputs/statistical_models/meta_model.Rdata")
 load(file = "data/outputs/statistical_models/meta_model.Rdata") #meta.model
 
 # Printing the summary results of the model
@@ -703,7 +703,7 @@ meta.model.off <- rma.mv(cor,
                          test = "t",
                          data = meta.final_ok_ok_off)
 
-save(meta.model.off, file = "data/outputs/statistical_models/meta_model.off.Rdata")
+#save(meta.model.off, file = "data/outputs/statistical_models/meta_model.off.Rdata")
 load(file = "data/outputs/statistical_models/meta_model.off.Rdata") #meta.model.off
 
 # Printing the summary results of the model
@@ -1014,7 +1014,7 @@ meta.regression.bh1.1 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_off_androgens)
 
-save(meta.regression.bh1.1, file = "data/outputs/statistical_models/meta_regression_bh1_1.RData")
+#save(meta.regression.bh1.1, file = "data/outputs/statistical_models/meta_regression_bh1_1.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh1_1.RData") #meta.regression.bh1.1
 
 # Printing the summary results of the model
@@ -1197,7 +1197,7 @@ meta.regression.bh1.2 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_off_cort)
 
-save(meta.regression.bh1.2, file = "data/outputs/statistical_models/meta_regression_bh1_2.RData")
+#save(meta.regression.bh1.2, file = "data/outputs/statistical_models/meta_regression_bh1_2.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh1_2.RData") #meta.regression.bh1.2
 
 # Printing the summary results of the model
@@ -1377,7 +1377,7 @@ meta.regression.bh1.3 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_off_ths)
 
-save(meta.regression.bh1.3, file = "data/outputs/statistical_models/meta_regression_bh1_3.RData")
+#save(meta.regression.bh1.3, file = "data/outputs/statistical_models/meta_regression_bh1_3.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh1_3.RData") #meta.regression.bh1.3
 
 # Printing the summary results of the model
@@ -1598,7 +1598,7 @@ meta.regression.bh2 <- rma.mv(cor,
                               test = "t",
                               data = meta.final_ok_ok_off_sex)
 
-save(meta.regression.bh2, file = "data/outputs/statistical_models/meta_regression_bh2.RData")
+#save(meta.regression.bh2, file = "data/outputs/statistical_models/meta_regression_bh2.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh2.RData") #meta.regression.bh2
 
 # We had a Convergence Problem with the rma.mv() Function. 
@@ -1643,7 +1643,7 @@ meta.regression.bh2_artificial <- rma.mv(cor,
                                          test = "t",
                                          data = meta.final_ok_ok_off_sex)
 
-save(meta.regression.bh2_artificial, file = "data/outputs/statistical_models/meta_regression_bh2_artificial.RData")
+#save(meta.regression.bh2_artificial, file = "data/outputs/statistical_models/meta_regression_bh2_artificial.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh2_artificial.RData") #meta.regression.bh2_artificial
 
 # Printing the summary results of the model
@@ -1694,7 +1694,7 @@ bh2_artificial_pc <- rma.mv(cor,
                             test = "t",
                             data = meta.final_ok_ok_off_sex)
 
-save(bh2_artificial_pc, file = "data/outputs/statistical_models/bh2_artificial_pc.RData")
+#save(bh2_artificial_pc, file = "data/outputs/statistical_models/bh2_artificial_pc.RData")
 load(file = "data/outputs/statistical_models/bh2_artificial_pc.RData") #bh2_artificial_pc
 
 print(bh2_artificial_pc, digits = 3)
@@ -1760,7 +1760,7 @@ meta.regression.bh3.1 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_off_androgens)
 
-save(meta.regression.bh3.1, file = "data/outputs/statistical_models/meta_regression_bh3_1.RData")
+#save(meta.regression.bh3.1, file = "data/outputs/statistical_models/meta_regression_bh3_1.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh3_1.RData") #meta.regression.bh3.1
 
 # Printing the summary results of the model
@@ -1812,7 +1812,7 @@ meta.regression.bh3.1_pc <- rma.mv(cor,
                                    test = "t",
                                    data = meta.final_ok_ok_off_androgens)
 
-save(meta.regression.bh3.1_pc, file = "data/outputs/statistical_models/meta_regression_bh3_1_pc.RData")
+#save(meta.regression.bh3.1_pc, file = "data/outputs/statistical_models/meta_regression_bh3_1_pc.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh3_1_pc.RData") #meta.regression.bh3.1_pc
 
 print(meta.regression.bh3.1_pc, digits = 3)
@@ -1961,7 +1961,7 @@ meta.regression.bh3.2 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_relative_age)
 
-save(meta.regression.bh3.2, file = "data/outputs/statistical_models/meta_regression_bh3_2.RData")
+#save(meta.regression.bh3.2, file = "data/outputs/statistical_models/meta_regression_bh3_2.RData")
 load(file = "data/outputs/statistical_models/meta_regression_bh3_2.RData") #meta.regression.bh3.2
 
 # Printing the summary results of the model
@@ -2149,7 +2149,7 @@ meta.regression.mh1.1 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_androgens_glucocorticoids)
 
-save(meta.regression.mh1.1, file = "data/outputs/statistical_models/meta_regression_mh1_1.RData")
+#save(meta.regression.mh1.1, file = "data/outputs/statistical_models/meta_regression_mh1_1.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_1.RData") #meta.regression.mh1.1
 
 # Printing the summary results of the model
@@ -2181,7 +2181,7 @@ meta.regression.mh1.1_artificial <- rma.mv(cor,
                                            test = "t",
                                            data = meta.final_ok_ok_androgens_glucocorticoids)
 
-save(meta.regression.mh1.1_artificial, file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial.RData")
+#save(meta.regression.mh1.1_artificial, file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial.RData") #meta.regression.mh1.1_artificial
 
 # Printing the summary results of the model
@@ -2229,7 +2229,7 @@ meta.regression.mh1.1_artificial_pc <- rma.mv(cor,
                                               test = "t",
                                               data = meta.final_ok_ok_androgens_glucocorticoids)
 
-save(meta.regression.mh1.1_artificial_pc, file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial_pc.RData")
+#save(meta.regression.mh1.1_artificial_pc, file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial_pc.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_1_artificial_pc.RData") #meta.regression.mh1.1_artificial_pc
 
 print(meta.regression.mh1.1_artificial_pc, digits = 3)
@@ -2391,7 +2391,7 @@ meta.regression.mh1.2 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_off_exp_and_gcs)
 
-save(meta.regression.mh1.2, file = "data/outputs/statistical_models/meta_regression_mh1_2.RData")
+#save(meta.regression.mh1.2, file = "data/outputs/statistical_models/meta_regression_mh1_2.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_2.RData") #meta.regression.mh1.2
 
 # Printing the summary results of the model
@@ -2425,7 +2425,7 @@ meta.regression.mh1.2_artificial <- rma.mv(cor,
                                            test = "t",
                                            data = meta.final_ok_ok_off_exp_and_gcs)
 
-save(meta.regression.mh1.2_artificial, file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial.RData")
+#save(meta.regression.mh1.2_artificial, file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial.RData") #meta.regression.mh1.2_artificial
 
 # Printing the summary results of the model
@@ -2474,7 +2474,7 @@ meta.regression.mh1.2_artificial_pc <- rma.mv(cor,
                                               test = "t",
                                               data = meta.final_ok_ok_off_exp_and_gcs)
 
-save(meta.regression.mh1.2_artificial_pc, file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial_pc.RData")
+#save(meta.regression.mh1.2_artificial_pc, file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial_pc.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_2_artificial_pc.RData") #meta.regression.mh1.2_artificial_pc
 
 
@@ -2667,7 +2667,7 @@ meta.regression.mh1.3 <- rma.mv(cor,
                                 test = "t",
                                 data = meta.final_ok_ok_off_exp_dose_androgens)
 
-save(meta.regression.mh1.3, file = "data/outputs/statistical_models/meta_regression_mh1_3.RData")
+#save(meta.regression.mh1.3, file = "data/outputs/statistical_models/meta_regression_mh1_3.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_3.RData") #meta.regression.mh1.3
 
 
@@ -2717,7 +2717,7 @@ meta.regression.mh1.3_pc <- rma.mv(cor,
                                    test = "t",
                                    data = meta.final_ok_ok_off_exp_dose_androgens)
 
-save(meta.regression.mh1.3_pc, file = "data/outputs/statistical_models/meta_regression_mh1_3_pc.RData")
+#save(meta.regression.mh1.3_pc, file = "data/outputs/statistical_models/meta_regression_mh1_3_pc.RData")
 load(file = "data/outputs/statistical_models/meta_regression_mh1_3_pc.RData") #meta.regression.mh1.3_pc
 
 
@@ -2883,7 +2883,7 @@ sensitivy.model.intercept.pearson <- rma.mv(cor,
                                             R = list(Species_phylo_pearson = phylo_cor_pearson),
                                             test = "t",
                                             data = meta.final_ok_sensitivity_pearson)
-save(sensitivy.model.intercept.pearson, file = "data/outputs/statistical_models/sensitivy_model_intercept_pearson.RData")
+#save(sensitivy.model.intercept.pearson, file = "data/outputs/statistical_models/sensitivy_model_intercept_pearson.RData")
 load(file = "data/outputs/statistical_models/sensitivy_model_intercept_pearson.RData") #sensitivy.model.intercept.pearson
 
 
@@ -3058,7 +3058,7 @@ sensitivy.model.intercept.biserial <- rma.mv(cor,
                                              test = "t",
                                              data = meta.final_ok_sensitivity_biserial)
 
-save(sensitivy.model.intercept.biserial, file = "data/outputs/statistical_models/sensitivy_model_intercept_biserial.RData")
+#save(sensitivy.model.intercept.biserial, file = "data/outputs/statistical_models/sensitivy_model_intercept_biserial.RData")
 load(file = "data/outputs/statistical_models/sensitivy_model_intercept_biserial.RData") #sensitivy.model.intercept.biserial
 
 # Printing the summary results of the model
@@ -3127,7 +3127,7 @@ meta.final_ok_sensitivity_rom <- meta.final_ok_sensitivity_rom[meta.final_ok_sen
 
 nrow(meta.final_ok_sensitivity_rom)
 length(unique(meta.final_ok_sensitivity_rom$StudyID))
-# 274, 38
+
 
 # # data simulation for exploring those large variances
 # hist(rnorm(mean=0.019,sd=0.936,n=74),breaks=100)
@@ -3147,26 +3147,26 @@ length(unique(meta.final_ok_sensitivity_rom$StudyID))
 # less than in the general data base (16 vs 20), and also less entries. I will 
 # therefore calculate a new phylogenetic tree and variance-covariance matrix.
 
-# PHYLOGENETIC TREE:
+# # PHYLOGENETIC TREE:
 # resolved_names_rom <- tnrs_match_names(as.character(unique(meta.final_ok_sensitivity_rom$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_rom, file = "data/taxa_Open_Tree_of_Life_rom.RData")
+# save(resolved_names_rom, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_rom.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_rom.RData") #resolved_names_rom
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_rom.RData") #resolved_names_rom
 
 # # extracting phylogenetic information
 # my_tree_rom <- tol_induced_subtree(ott_ids =
-#                                   resolved_names_rom[,"ott_id"],
+#                                      resolved_names_rom[,"ott_id"],
 #                                    label_format = "name")
 # 
-# # Quick tree plotting
-# plot(my_tree_rom, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_rom, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_rom) 
+# is.binary(my_tree_rom)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -3178,42 +3178,41 @@ load("data/taxa_Open_Tree_of_Life_rom.RData") #resolved_names_rom
 #           as.character(meta.final_ok_sensitivity_rom$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_sensitivity_rom$Species), 
-#         as.character(my_tree_rom$tip.label)) 
+# setdiff(as.character(meta.final_ok_sensitivity_rom$Species),
+#         as.character(my_tree_rom$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_rom$tip.label),
-#         as.character(meta.final_ok_sensitivity_rom$Species)) 
+#         as.character(meta.final_ok_sensitivity_rom$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_rom, file = "data/tree_sens.pearson.Rdata")
+# save(my_tree_rom, file = "data/outputs/phylogenetic_files/tree_sens.pearson.Rdata")
 
 # We can now load the saved tree
-load("data/tree_sens.pearson.Rdata") #my_tree_rom
+load("data/outputs/phylogenetic_files/tree_sens.pearson.Rdata") #my_tree_rom
 
 # # Compute branch lengths of tree
-# phylo_branch_rom <- compute.brlen(my_tree_rom, 
+# phylo_branch_rom <- compute.brlen(my_tree_rom,
 #                                   method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_rom) 
+# is.ultrametric(phylo_branch_rom)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_rom <- vcv(phylo_branch_rom, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_rom, file = "data/phylo_cor_rom.Rdata")
+# save(phylo_cor_rom, file = "data/outputs/phylogenetic_files/phylo_cor_rom.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_rom.Rdata") #phylo_cor_rom
+load("data/outputs/phylogenetic_files/phylo_cor_rom.Rdata") #phylo_cor_rom
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_sensitivity_rom$Species_phylo_rom <- 
   meta.final_ok_sensitivity_rom$Species
-
 
 
 # VARIANCE-COVARIANCE MATRIX:
@@ -3249,23 +3248,27 @@ for (i in 1 : dim(combinations_rom)[1]) {
 diag(VCV_ESVar_rom) <- meta.final_ok_sensitivity_rom[, "cor_var"]
 
 # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_rom, 'data/VCV_ESVar_rom.csv')
+# write.csv(VCV_ESVar_rom, 'data/outputs/variance-covariance_matrices/VCV_ESVar_rom.csv')
 
 
 # STATISTICAL ANALYSIS: 
-# sensitivy.model.intercept.rom <- rma.mv(cor, 
-#                                        VCV_ESVar_rom, 
-#                                        mods = ~ 1, 
-#                                        random = list(~ 1 | StudyID,
-#                                                     ~ 1 | LaboratoryID,
-#                                                      ~ 1 | PopulationID,
-#                                                      ~ 1 | Species,
-#                                                      ~ 1 | Species_phylo_rom,
-#                                                      ~ 1 | EffectID), 
-#                                        method = "REML",
-#                                       R = list(Species_phylo_rom = phylo_cor_rom),
-#                                        test = "t", 
-#                                        data = meta.final_ok_sensitivity_rom)
+sensitivy.model.intercept.rom <- rma.mv(cor,
+                                        VCV_ESVar_rom,
+                                        mods = ~ 1,
+                                        random = list(~ 1 | StudyID,
+                                                      ~ 1 | LaboratoryID,
+                                                      ~ 1 | PopulationID,
+                                                      ~ 1 | Species,
+                                                      ~ 1 | Species_phylo_rom,
+                                                      ~ 1 | EffectID),
+                                        method = "REML",
+                                        R = list(Species_phylo_rom = phylo_cor_rom),
+                                        test = "t",
+                                        data = meta.final_ok_sensitivity_rom)
+
+#save(sensitivy.model.intercept.rom, file = "data/outputs/statistical_models/sensitivy_model_intercept_rom.RData")
+load(file = "data/outputs/statistical_models/sensitivy_model_intercept_rom.RData") #sensitivy.model.intercept.rom
+
 
 # Printing the summary results of the model
 print(sensitivy.model.intercept.rom, digits = 3)
@@ -3296,8 +3299,6 @@ fig_hormones_fitness_intercept.rom <- orchaRd::orchard_plot(sensitivy.model.inte
                                                             branch.size = 2,
                                                             twig.size = 1)
 
-# When considering only those studies that were ROM transformed, we get a negative
-# effect size (-0.004)
 
 ###############################################################################
 # 8.2. - Sensitivity analysis
@@ -3314,27 +3315,27 @@ fig_hormones_fitness_intercept.rom <- orchaRd::orchard_plot(sensitivy.model.inte
 ##############################################################################
 
 # STATISTICAL ANALYSIS:
-# sensitivy.model.bh1 <- rma.mv(cor,
-#                             VCV_ESVar_off,
-#                              mods = ~ Hormone_measured_general - 1,
-#                              random = list(~ 1 | StudyID,
-#                                            ~ 1 | LaboratoryID,
-#                                            ~ 1 | PopulationID,
-#                                            ~ 1 | Species,
-#                                            ~ 1 | Species_phylo_off,
-#                                           ~ 1 | EffectID),
-#                             method = "REML",
-#                              R = list(Species_phylo_off = phylo_cor_off),
-#                              test = "t",
-#                              data = meta.final_ok_ok_off)
+sensitivy.model.bh1 <- rma.mv(cor,
+                              VCV_ESVar_off,
+                              mods = ~ Hormone_measured_general - 1,
+                              random = list(~ 1 | StudyID,
+                                            ~ 1 | LaboratoryID,
+                                            ~ 1 | PopulationID,
+                                            ~ 1 | Species,
+                                            ~ 1 | Species_phylo_off,
+                                            ~ 1 | EffectID),
+                              method = "REML",
+                              R = list(Species_phylo_off = phylo_cor_off),
+                              test = "t",
+                              data = meta.final_ok_ok_off)
 
-# save(sensitivy.model.bh1, file = "data/outputs/statistical_models/sensitivy_model_bh1.RData")
+#save(sensitivy.model.bh1, file = "data/outputs/statistical_models/sensitivy_model_bh1.RData")
 load(file = "data/outputs/statistical_models/sensitivy_model_bh1.RData") #sensitivy.model.bh1
 
 
 # Printing the summary results of the model
 print(sensitivy.model.bh1, digits = 3)
-predict(sensitivy.model.bh1, digits = 3)
+# predict(sensitivy.model.bh1, digits = 3)
 
 # All hormones have a negative effect on fitness traits, and are not statistically
 # significant. 
@@ -3368,21 +3369,21 @@ fig_hormones_fitness <- orchaRd::orchard_plot(sensitivy.model.bh1,
 
 
 # Pair-wise comparisons including post-hoc Wald tests
-# sensitivy.model.bh1.pc <- rma.mv(cor, 
-#                                  VCV_ESVar_off, 
-#                                  mods = ~ Hormone_measured_general, 
-#                                  random = list(~ 1 | StudyID,
-#                                                ~ 1 | LaboratoryID,
-#                                                ~ 1 | PopulationID,
-#                                                ~ 1 | Species,
-#                                                ~ 1 | Species_phylo_off,
-#                                                ~ 1 | EffectID), 
-#                                  method = "REML",
-#                                  R = list(Species_phylo_off = phylo_cor_off),
-#                                  test = "t", 
-#                                  data = meta.final_ok_ok_off)
-# 
-# save(sensitivy.model.bh1.pc, file = "data/outputs/statistical_models/sensitivy_model_bh1_pc.RData")
+sensitivy.model.bh1.pc <- rma.mv(cor,
+                                 VCV_ESVar_off,
+                                 mods = ~ Hormone_measured_general,
+                                 random = list(~ 1 | StudyID,
+                                               ~ 1 | LaboratoryID,
+                                               ~ 1 | PopulationID,
+                                               ~ 1 | Species,
+                                               ~ 1 | Species_phylo_off,
+                                               ~ 1 | EffectID),
+                                 method = "REML",
+                                 R = list(Species_phylo_off = phylo_cor_off),
+                                 test = "t",
+                                 data = meta.final_ok_ok_off)
+
+#save(sensitivy.model.bh1.pc, file = "data/outputs/statistical_models/sensitivy_model_bh1_pc.RData")
 load(file = "data/outputs/statistical_models/sensitivy_model_bh1_pc.RData") #sensitivy.model.bh1.pc
 
 print(sensitivy.model.bh1.pc, digits = 3)
@@ -3410,26 +3411,25 @@ car::linearHypothesis(sensitivy.model.bh1.pc, rbind(c(0,1,-1)))
 ##############################################################################
 
 # 8.3.i -  Intercept only model for the entire database
-# meta.model_corvar <- rma.mv(cor, 
-#                      cor_var, 
-#                      mods = ~ 1,
-#                      random = list(~ 1 | StudyID,
-#                                   ~ 1 | LaboratoryID,
-#                                  ~ 1 | PopulationID,
-#                                  ~ 1 | Species,
-#                                  ~ 1 | Species_phylo,
-#                                  ~ 1 | EffectID), 
-#                      method = "REML",
-#                      R = list(Species_phylo = phylo_cor),
-#                     test = "t", 
-#                      data = meta.final_ok_ok)
+meta.model_corvar <- rma.mv(cor,
+                            cor_var,
+                            mods = ~ 1,
+                            random = list(~ 1 | StudyID,
+                                          ~ 1 | LaboratoryID,
+                                          ~ 1 | PopulationID,
+                                          ~ 1 | Species,
+                                          ~ 1 | Species_phylo,
+                                          ~ 1 | EffectID),
+                            method = "REML",
+                            R = list(Species_phylo = phylo_cor),
+                            test = "t",
+                            data = meta.final_ok_ok)
 
-# save(meta.model, file = "data/outputs/statistical_models/meta.model_corvar.Rdata")
+#save(meta.model, file = "data/outputs/statistical_models/meta.model_corvar.Rdata")
 load(file = "data/outputs/statistical_models/meta.model_corvar.Rdata") #meta.model
 
 # Printing the summary results of the model
 print(meta.model_corvar, digits = 3)
-# There is an overall negative effect (-0.052) not statistically significant.
 
 # Printing the results again, but adding the credibility/prediction interval, 
 # which uses the heterogeneity to generate an interval that should contain 95%
@@ -3453,26 +3453,25 @@ figure_meta.model_corvar <- orchaRd::orchard_plot(meta.model_corvar, mod = "1",
 
 
 # 8.3.ii -  Intercept only model for the offspring database
-# meta.model.off_corvar <- rma.mv(cor, 
-#                          cor_var, 
-#                          mods = ~ 1,
-#                          random = list(~ 1 | StudyID,
-#                                        ~ 1 | LaboratoryID,
-#                                        ~ 1 | PopulationID,
-#                                        ~ 1 | Species,
-#                                        ~ 1 | Species_phylo_off,
-#                                        ~ 1 | EffectID), 
-#                          method = "REML",
-#                          R = list(Species_phylo_off = phylo_cor_off),
-#                          test = "t", 
-#                          data = meta.final_ok_ok_off)
+meta.model.off_corvar <- rma.mv(cor,
+                                cor_var,
+                                mods = ~ 1,
+                                random = list(~ 1 | StudyID,
+                                              ~ 1 | LaboratoryID,
+                                              ~ 1 | PopulationID,
+                                              ~ 1 | Species,
+                                              ~ 1 | Species_phylo_off,
+                                              ~ 1 | EffectID),
+                                method = "REML",
+                                R = list(Species_phylo_off = phylo_cor_off),
+                                test = "t",
+                                data = meta.final_ok_ok_off)
 
-# save(meta.model.off_corvar, file = "data/outputs/statistical_models/meta.model.off_corvar.Rdata")
+#save(meta.model.off_corvar, file = "data/outputs/statistical_models/meta.model.off_corvar.Rdata")
 load(file = "data/outputs/statistical_models/meta.model.off_corvar.Rdata") #meta.model.off
 
 # Printing the summary results of the model
 print(meta.model.off_corvar, digits = 3)
-# There is an overall negative effect (-0.043) not statistically significant.
 
 # Printing the results again, but adding the credibility/prediction interval, 
 # which uses the heterogeneity to generate an interval that should contain 95%
@@ -3485,37 +3484,37 @@ par(mfrow = c(1, 1))
 funnel(meta.model.off_corvar)
 
 # FIGURE: overall effect of yolk hormones on fitness
-figure_meta.model.off_corvar<- orchaRd::orchard_plot(meta.model.off_corvar, mod = "1", 
-                                                     group = "StudyID", 
-                                                     xlab = "Effect size",
-                                                     transfm = "none",
-                                                     trunk.size = 8,
-                                                     branch.size = 2,
-                                                     twig.size = 1)
+figure_meta.model.off_corvar <- orchaRd::orchard_plot(meta.model.off_corvar, mod = "1", 
+                                                      group = "StudyID", 
+                                                      xlab = "Effect size",
+                                                      transfm = "none",
+                                                      trunk.size = 8,
+                                                      branch.size = 2,
+                                                      twig.size = 1)
 
 
 # 8.3.iii -  Hormone type meta regression for the offspring database.
-# meta.model.off_perhorm_corvar <- rma.mv(cor,
-#                              cor_var,
-#                              mods = ~ Hormone_measured_general - 1,
-#                              random = list(~ 1 | StudyID,
-#                                            ~ 1 | LaboratoryID,
-#                                            ~ 1 | PopulationID,
-#                                            ~ 1 | Species,
-#                                            ~ 1 | Species_phylo_off,
-#                                           ~ 1 | EffectID),
-#                             method = "REML",
-#                              R = list(Species_phylo_off = phylo_cor_off),
-#                              test = "t",
-#                             data = meta.final_ok_ok_off)
+meta.model.off_perhorm_corvar <- rma.mv(cor,
+                                        cor_var,
+                                        mods = ~ Hormone_measured_general - 1,
+                                        random = list(~ 1 | StudyID,
+                                                      ~ 1 | LaboratoryID,
+                                                      ~ 1 | PopulationID,
+                                                      ~ 1 | Species,
+                                                      ~ 1 | Species_phylo_off,
+                                                      ~ 1 | EffectID),
+                                        method = "REML",
+                                        R = list(Species_phylo_off = phylo_cor_off),
+                                        test = "t",
+                                        data = meta.final_ok_ok_off)
 
-# save(sensitivy.model.bh1, file = "data/outputs/statistical_models/meta.model.off_perhorm_corvar.RData")
+#save(sensitivy.model.bh1, file = "data/outputs/statistical_models/meta.model.off_perhorm_corvar.RData")
 load(file = "data/outputs/statistical_models/meta.model.off_perhorm_corvar.RData") #sensitivy.model.bh1
 
 
 # Printing the summary results of the model
 print(meta.model.off_perhorm_corvar, digits = 3)
-predict(meta.model.off_perhorm_corvar, digits = 3)
+#predict(meta.model.off_perhorm_corvar, digits = 3)
 
 # All hormones have a negative effect on fitness traits, and are not statistically
 # significant. 
@@ -3561,25 +3560,25 @@ fig_meta.model.off_perhorm_corvar <- orchaRd::orchard_plot(meta.model.off_perhor
 meta.final_ok_ok_mom_and_gcs <- droplevels(subset(meta.final_ok_ok_mom, 
                                                   meta.final_ok_ok_mom$Hormone_measured_general != "TH3 and TH4"))
 
-# PHYLOGENETIC TREE:
+# # PHYLOGENETIC TREE:
 # resolved_names_mom_and_gcs <- tnrs_match_names(as.character(unique(meta.final_ok_ok_mom_and_gcs$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_mom_and_gcs, file = "data/taxa_Open_Tree_of_Life_mom_and_gcs.RData")
+# save(resolved_names_mom_and_gcs, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_mom_and_gcs.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_mom_and_gcs.RData") #resolved_names_mom_and_gcs
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_mom_and_gcs.RData") #resolved_names_mom_and_gcs
 
-# extracting phylogenetic information
+# # extracting phylogenetic information
 # my_tree_mom_and_gcs <- tol_induced_subtree(ott_ids =
 #                                      resolved_names_mom_and_gcs[,"ott_id"],
 #                                     label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_mom_and_gcs, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_mom_and_gcs, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_mom_and_gcs) 
+# is.binary(my_tree_mom_and_gcs)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -3591,40 +3590,39 @@ load("data/taxa_Open_Tree_of_Life_mom_and_gcs.RData") #resolved_names_mom_and_gc
 #           as.character(meta.final_ok_ok_mom_and_gcs$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_mom_and_gcs$Species), 
-#         as.character(my_tree_mom_and_gcs$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_mom_and_gcs$Species),
+#         as.character(my_tree_mom_and_gcs$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_mom_and_gcs$tip.label),
-#         as.character(meta.final_ok_ok_mom_and_gcs$Species)) 
+#         as.character(meta.final_ok_ok_mom_and_gcs$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_mom_and_gcs, file = "data/tree_mom_and_gcs.Rdata")
+# save(my_tree_mom_and_gcs, file = "data/outputs/phylogenetic_files/tree_mom_and_gcs.Rdata")
 
 # We can now load the saved tree
-load("data/tree_mom_and_gcs.Rdata") #my_tree_mom_and_gcs
+load("data/outputs/phylogenetic_files/tree_mom_and_gcs.Rdata") #my_tree_mom_and_gcs
 
-# Compute branch lengths of tree
+# # Compute branch lengths of tree
 # phylo_branch_mom_and_gcs <- compute.brlen(my_tree_mom_and_gcs, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_mom_and_gcs) 
+# is.ultrametric(phylo_branch_mom_and_gcs)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_mom_and_gcs <- vcv(phylo_branch_mom_and_gcs, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_mom_and_gcs, file = "data/phylo_cor_mom_and_gcs.Rdata")
+# save(phylo_cor_mom_and_gcs, file = "data/outputs/phylogenetic_files/phylo_cor_mom_and_gcs.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_mom_and_gcs.Rdata") #phylo_cor_mom_and_gcs
+load("data/outputs/phylogenetic_files/phylo_cor_mom_and_gcs.Rdata") #phylo_cor_mom_and_gcs
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_mom_and_gcs$Species_phylo_mom_and_gcs <- meta.final_ok_ok_mom_and_gcs$Species
-
 
 
 # VARIANCE-COVARIANCE MATRIX:
@@ -3659,26 +3657,26 @@ for (i in 1 : dim(combinations_mom_and_gcs)[1]) {
 diag(VCV_ESVar_mom_and_gcs) <- meta.final_ok_ok_mom_and_gcs[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_mom_and_gcs, 'data/VCV_ESVar_mom_and_gcs.csv')
+# write.csv(VCV_ESVar_mom_and_gcs, 'data/outputs/variance-covariance_matrices/VCV_ESVar_mom_and_gcs.csv')
 
 
 
 # STATISTICAL ANALYSIS:
-#  meta.regression.beh1 <- rma.mv(cor, 
-#                                VCV_ESVar_mom_and_gcs, 
-#                               mods = ~ Hormone_measured_general - 1,
-#                               random = list(~ 1 | StudyID,
-#                                             ~ 1 | LaboratoryID,
-#                                             ~ 1 | PopulationID,
-#                                             ~ 1 | Species,
-#                                             ~ 1 | Species_phylo_mom_and_gcs,
-#                                             ~ 1 | EffectID), 
-#                               method = "REML",
-#                               R = list(Species_phylo_mom_and_gcs = phylo_cor_mom_and_gcs),
-#                               test = "t", 
-#                               data = meta.final_ok_ok_mom_and_gcs)
-# 
-# save(meta.regression.beh1, file = "data/outputs/statistical_models/meta_regression_beh1.RData")
+meta.regression.beh1 <- rma.mv(cor,
+                               VCV_ESVar_mom_and_gcs,
+                               mods = ~ Hormone_measured_general - 1,
+                               random = list(~ 1 | StudyID,
+                                             ~ 1 | LaboratoryID,
+                                             ~ 1 | PopulationID,
+                                             ~ 1 | Species,
+                                             ~ 1 | Species_phylo_mom_and_gcs,
+                                             ~ 1 | EffectID),
+                               method = "REML",
+                               R = list(Species_phylo_mom_and_gcs = phylo_cor_mom_and_gcs),
+                               test = "t",
+                               data = meta.final_ok_ok_mom_and_gcs)
+
+#save(meta.regression.beh1, file = "data/outputs/statistical_models/meta_regression_beh1.RData")
 load(file = "data/outputs/statistical_models/meta_regression_beh1.RData") #meta.regression.beh1
 
 
@@ -3714,21 +3712,21 @@ fig_hormones_beh1 <- orchaRd::orchard_plot(meta.regression.beh1,
 
 
 # Pair-wise comparisons including post-hoc Wald tests
-# meta.regression.beh1_pc <- rma.mv(cor, 
-#                                   VCV_ESVar_mom_and_gcs, 
-#                                 mods = ~ Hormone_measured_general,
-#                                 random = list(~ 1 | StudyID,
-#                                               ~ 1 | LaboratoryID,
-#                                               ~ 1 | PopulationID,
-#                                               ~ 1 | Species,
-#                                                ~ 1 | Species_phylo_mom_and_gcs,
-#                                             ~ 1 | EffectID), 
-#                                 method = "REML",
-#                                 R = list(Species_phylo_mom_and_gcs = phylo_cor_mom_and_gcs),
-#                                 test = "t", 
-#                                 data = meta.final_ok_ok_mom_and_gcs)
+meta.regression.beh1_pc <- rma.mv(cor,
+                                  VCV_ESVar_mom_and_gcs,
+                                  mods = ~ Hormone_measured_general,
+                                  random = list(~ 1 | StudyID,
+                                                ~ 1 | LaboratoryID,
+                                                ~ 1 | PopulationID,
+                                                ~ 1 | Species,
+                                                ~ 1 | Species_phylo_mom_and_gcs,
+                                                ~ 1 | EffectID),
+                                  method = "REML",
+                                  R = list(Species_phylo_mom_and_gcs = phylo_cor_mom_and_gcs),
+                                  test = "t",
+                                  data = meta.final_ok_ok_mom_and_gcs)
 
-# save(meta.regression.beh1_pc, file = "data/outputs/statistical_models/meta_regression_beh1_pc.RData")
+#save(meta.regression.beh1_pc, file = "data/outputs/statistical_models/meta_regression_beh1_pc.RData")
 load(file = "data/outputs/statistical_models/meta_regression_beh1_pc.RData") #meta.regression.beh1_pc
 
 print(meta.regression.beh1_pc, digits = 3)
@@ -3802,29 +3800,27 @@ table(meta.final_ok_ok_off_site_cort$Hormone_measured_general,
 meta.final_ok_ok_off_site_cort <- droplevels(subset(meta.final_ok_ok_off_site_cort, 
                                                     meta.final_ok_ok_off_site_cort$Site_measured != "NA"))
 nrow(meta.final_ok_ok_off_site_cort)
-# 38 rows.
 
 
-
-# PHYLOGENETIC TREE:
+# # PHYLOGENETIC TREE:
 # resolved_names_off_site_cort <- tnrs_match_names(as.character(unique(meta.final_ok_ok_off_site_cort$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_off_site_cort, file = "data/taxa_Open_Tree_of_Life_off_site_cort.RData")
+# save(resolved_names_off_site_cort, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_off_site_cort.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_off_site_cort.RData") #resolved_names_off_site_cort
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_off_site_cort.RData") #resolved_names_off_site_cort
 
 # # extracting phylogenetic information
 # my_tree_off_site_cort <- tol_induced_subtree(ott_ids =
 #                                              resolved_names_off_site_cort[,"ott_id"],
 #                                              label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_off_site_cort, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_off_site_cort, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_off_site_cort) 
+# is.binary(my_tree_off_site_cort)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -3836,41 +3832,39 @@ load("data/taxa_Open_Tree_of_Life_off_site_cort.RData") #resolved_names_off_site
 #           as.character(meta.final_ok_ok_off_site_cort$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_off_site_cort$Species), 
-#         as.character(my_tree_off_site_cort$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_off_site_cort$Species),
+#         as.character(my_tree_off_site_cort$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_off_site_cort$tip.label),
-#         as.character(meta.final_ok_ok_off_site_cort$Species)) 
+#         as.character(meta.final_ok_ok_off_site_cort$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_off_site_cort, file = "data/tree_off_site_cort.Rdata")
+# save(my_tree_off_site_cort, file = "data/outputs/phylogenetic_files/tree_off_site_cort.Rdata")
 
 # We can now load the saved tree
-load("data/tree_off_site_cort.Rdata") #my_tree_off_site_cort
+load("data/outputs/phylogenetic_files/tree_off_site_cort.Rdata") #my_tree_off_site_cort
 
 # # Compute branch lengths of tree
 # phylo_branch_off_site_cort <- compute.brlen(my_tree_off_site_cort, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_off_site_cort) 
+# is.ultrametric(phylo_branch_off_site_cort)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_off_site_cort <- vcv(phylo_branch_off_site_cort, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_off_site_cort, file = "data/phylo_cor_off_site_cort.Rdata")
+# save(phylo_cor_off_site_cort, file = "data/outputs/phylogenetic_files/phylo_cor_off_site_cort.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_off_site_cort.Rdata") #phylo_cor_off_site_cort
+load("data/outputs/phylogenetic_files/phylo_cor_off_site_cort.Rdata") #phylo_cor_off_site_cort
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_off_site_cort$Species_phylo_off_site_cort <- meta.final_ok_ok_off_site_cort$Species
-
-
 
 # VARIANCE-COVARIANCE MATRIX:
 VCV_ESVar_off_site_cort <- matrix(0, nrow = nrow(meta.final_ok_ok_off_site_cort), 
@@ -3904,25 +3898,25 @@ for (i in 1 : dim(combinations_off_site_cort)[1]) {
 diag(VCV_ESVar_off_site_cort) <- meta.final_ok_ok_off_site_cort[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_off_site_cort, 'data/VCV_ESVar_off_site_cort.csv')
+# write.csv(VCV_ESVar_off_site_cort, 'data/outputs/variance-covariance_matrices/VCV_ESVar_off_site_cort.csv')
 
 
-# # STATISTICAL ANALYSIS:
-# meta.regression.beh2 <- rma.mv(cor,
-#                               VCV_ESVar_off_site_cort,
-#                               mods = ~ Site_measured - 1,
-#                              random = list(~ 1 | StudyID,
-#                                             ~ 1 | LaboratoryID,
-#                                            ~ 1 | PopulationID,
-#                                            ~ 1 | Species,
-#                                             ~ 1 | Species_phylo_off_site_cort,
-#                                             ~ 1 | EffectID),
-#                               method = "REML",
-#                               R = list(Species_phylo_off_site_cort = phylo_cor_off_site_cort),
-#                               test = "t",
-#                               data = meta.final_ok_ok_off_site_cort)
-# 
-# save(meta.regression.beh2, file = "data/outputs/statistical_models/meta_regression_beh2.RData")
+# STATISTICAL ANALYSIS:
+meta.regression.beh2 <- rma.mv(cor,
+                               VCV_ESVar_off_site_cort,
+                               mods = ~ Site_measured - 1,
+                               random = list(~ 1 | StudyID,
+                                             ~ 1 | LaboratoryID,
+                                             ~ 1 | PopulationID,
+                                             ~ 1 | Species,
+                                             ~ 1 | Species_phylo_off_site_cort,
+                                             ~ 1 | EffectID),
+                               method = "REML",
+                               R = list(Species_phylo_off_site_cort = phylo_cor_off_site_cort),
+                               test = "t",
+                               data = meta.final_ok_ok_off_site_cort)
+
+#save(meta.regression.beh2, file = "data/outputs/statistical_models/meta_regression_beh2.RData")
 load(file = "data/outputs/statistical_models/meta_regression_beh2.RData") #meta.regression.beh2
 
 # Printing the summary results of the model
@@ -3958,21 +3952,21 @@ fig_hormones_beh2 <- orchaRd::orchard_plot(meta.regression.beh2,
 
 
 # Pair-wise comparisons including post-hoc Wald tests
-# meta.regression.beh2_pc <- rma.mv(cor,
-#                                   VCV_ESVar_off_site_cort,
-#                                   mods = ~ Site_measured,
-#                                   random = list(~ 1 | StudyID,
-#                                                 ~ 1 | LaboratoryID,
-#                                                 ~ 1 | PopulationID,
-#                                                 ~ 1 | Species,
-#                                                 ~ 1 | Species_phylo_off_site_cort,
-#                                                 ~ 1 | EffectID),
-#                                   method = "REML",
-#                                   R = list(Species_phylo_off_site_cort = phylo_cor_off_site_cort),
-#                                   test = "t",
-#                                   data = meta.final_ok_ok_off_site_cort)
-# 
-# save(meta.regression.beh2_pc, file = "data/outputs/statistical_models/meta_regression_beh2_pc.RData")
+meta.regression.beh2_pc <- rma.mv(cor,
+                                  VCV_ESVar_off_site_cort,
+                                  mods = ~ Site_measured,
+                                  random = list(~ 1 | StudyID,
+                                                ~ 1 | LaboratoryID,
+                                                ~ 1 | PopulationID,
+                                                ~ 1 | Species,
+                                                ~ 1 | Species_phylo_off_site_cort,
+                                                ~ 1 | EffectID),
+                                  method = "REML",
+                                  R = list(Species_phylo_off_site_cort = phylo_cor_off_site_cort),
+                                  test = "t",
+                                  data = meta.final_ok_ok_off_site_cort)
+
+#save(meta.regression.beh2_pc, file = "data/outputs/statistical_models/meta_regression_beh2_pc.RData")
 load(file = "data/outputs/statistical_models/meta_regression_beh2_pc.RData") #meta.regression.beh2_pc
 
 print(meta.regression.beh2_pc, digits = 3)
@@ -4005,28 +3999,28 @@ meta.final_ok_ok_androgens_method <- droplevels(subset(meta.final_ok_ok_androgen
                                                        meta.final_ok_ok_androgens$Egg_sampl_method != "NA"))
 
 nrow(meta.final_ok_ok_androgens_method)
-# 91
 
 
-# PHYLOGENETIC TREE:
+
+# # PHYLOGENETIC TREE:
 # resolved_names_androgens_method <- tnrs_match_names(as.character(unique(meta.final_ok_ok_androgens_method$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_androgens_method, file = "data/taxa_Open_Tree_of_Life_androgens_method.RData")
+# save(resolved_names_androgens_method, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_androgens_method.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_androgens_method.RData") #resolved_names_androgens_method
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_androgens_method.RData") #resolved_names_androgens_method
 
 # # extracting phylogenetic information
 # my_tree_androgens_method <- tol_induced_subtree(ott_ids =
 #                                                   resolved_names_androgens_method[,"ott_id"],
 #                                                 label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_androgens_method, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_androgens_method, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_androgens_method) 
+# is.binary(my_tree_androgens_method)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -4038,41 +4032,39 @@ load("data/taxa_Open_Tree_of_Life_androgens_method.RData") #resolved_names_andro
 #           as.character(meta.final_ok_ok_androgens_method$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_androgens_method$Species), 
-#         as.character(my_tree_androgens_method$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_androgens_method$Species),
+#         as.character(my_tree_androgens_method$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_androgens_method$tip.label),
-#         as.character(meta.final_ok_ok_androgens_method$Species)) 
+#         as.character(meta.final_ok_ok_androgens_method$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_androgens_method, file = "data/tree_androgens_method.Rdata")
+# save(my_tree_androgens_method, file = "data/outputs/phylogenetic_files/tree_androgens_method.Rdata")
 
 # We can now load the saved tree
-load("data/tree_androgens_method.Rdata") #my_tree_androgens_method
+load("data/outputs/phylogenetic_files/tree_androgens_method.Rdata") #my_tree_androgens_method
 
 # # Compute branch lengths of tree
 # phylo_branch_androgens_method <- compute.brlen(my_tree_androgens_method, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_androgens_method) 
+# is.ultrametric(phylo_branch_androgens_method)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_androgens_method <- vcv(phylo_branch_androgens_method, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_androgens_method, file = "data/phylo_cor_androgens_method.Rdata")
+# save(phylo_cor_androgens_method, file = "data/outputs/phylogenetic_files/phylo_cor_androgens_method.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_androgens_method.Rdata") #phylo_cor_androgens_method
+load("data/outputs/phylogenetic_files/phylo_cor_androgens_method.Rdata") #phylo_cor_androgens_method
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_androgens_method$Species_phylo_androgens_method <- meta.final_ok_ok_androgens_method$Species
-
-
 
 # VARIANCE-COVARIANCE MATRIX:
 VCV_ESVar_androgens_method <- matrix(0, nrow = nrow(meta.final_ok_ok_androgens_method), 
@@ -4106,26 +4098,25 @@ for (i in 1 : dim(combinations_androgens_method)[1]) {
 diag(VCV_ESVar_androgens_method) <- meta.final_ok_ok_androgens_method[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_androgens_method, 'data/VCV_ESVar_androgens_method.csv')
-
-
+# write.csv(VCV_ESVar_androgens_method, 'data/outputs/variance-covariance_matrices/VCV_ESVar_androgens_method.csv')
 
 # STATISTICAL ANALYSIS:
-# meta.regression.meh1 <- rma.mv(cor, 
-#                                VCV_ESVar_androgens_method, 
-#                                mods = ~ Egg_sampl_method - 1,
-#                                random = list(~ 1 | StudyID,
-#                                              ~ 1 | LaboratoryID,
-#                                              ~ 1 | PopulationID,
-#                                              ~ 1 | Species,
-#                                              ~ 1 | Species_phylo_androgens_method,
-#                                              ~ 1 | EffectID), 
-#                                method = "REML",
-#                                R = list(Species_phylo_androgens_method = phylo_cor_androgens_method),
-#                                test = "t", 
-#                                data = meta.final_ok_ok_androgens_method)
-# 
-# save(meta.regression.meh1, file = "data/outputs/statistical_models/meta_regression_meh1.RData")
+meta.regression.meh1 <- rma.mv(cor,
+                               VCV_ESVar_androgens_method,
+                               mods = ~ Egg_sampl_method - 1,
+                               random = list(~ 1 | StudyID,
+                                             ~ 1 | LaboratoryID,
+                                             ~ 1 | PopulationID,
+                                             ~ 1 | Species,
+                                             ~ 1 | Species_phylo_androgens_method,
+                                             ~ 1 | EffectID),
+                               method = "REML",
+                               R = list(Species_phylo_androgens_method = phylo_cor_androgens_method),
+                               test = "t",
+                               control=list(rel.tol=1e-8),
+                               data = meta.final_ok_ok_androgens_method)
+
+#save(meta.regression.meh1, file = "data/outputs/statistical_models/meta_regression_meh1.RData")
 load(file = "data/outputs/statistical_models/meta_regression_meh1.RData") #meta.regression.meh1
 
 # Printing the summary results of the model
@@ -4163,21 +4154,21 @@ fig_hormones_meh1 <- orchaRd::orchard_plot(meta.regression.meh1,
 
 
 # Pair-wise comparisons including post-hoc Wald tests
-# meta.regression.meh1_pc <- rma.mv(cor, 
-#                                   VCV_ESVar_androgens_method, 
-#                                   mods = ~ Egg_sampl_method,
-#                                   random = list(~ 1 | StudyID,
-#                                                 ~ 1 | LaboratoryID,
-#                                                 ~ 1 | PopulationID,
-#                                                ~ 1 | Species,
-#                                                 ~ 1 | Species_phylo_androgens_method,
-#                                                 ~ 1 | EffectID), 
-#                                   method = "REML",
-#                                  R = list(Species_phylo_androgens_method = phylo_cor_androgens_method),
-#                                   test = "t", 
-#                                   data = meta.final_ok_ok_androgens_method)
-# 
-# save(meta.regression.meh1_pc, file = "data/outputs/statistical_models/meta_regression_meh1_pc.RData")
+meta.regression.meh1_pc <- rma.mv(cor,
+                                  VCV_ESVar_androgens_method,
+                                  mods = ~ Egg_sampl_method,
+                                  random = list(~ 1 | StudyID,
+                                                ~ 1 | LaboratoryID,
+                                                ~ 1 | PopulationID,
+                                                ~ 1 | Species,
+                                                ~ 1 | Species_phylo_androgens_method,
+                                                ~ 1 | EffectID),
+                                  method = "REML",
+                                  R = list(Species_phylo_androgens_method = phylo_cor_androgens_method),
+                                  test = "t",
+                                  data = meta.final_ok_ok_androgens_method)
+
+#save(meta.regression.meh1_pc, file = "data/outputs/statistical_models/meta_regression_meh1_pc.RData")
 load(file = "data/outputs/statistical_models/meta_regression_meh1_pc.RData") #meta.regression.meh1_pc
 
 print(meta.regression.meh1_pc, digits = 3)
@@ -4194,13 +4185,13 @@ print(meta.regression.meh1_pc, digits = 3)
 
 # PHYLOGENETIC TREE - Species names:
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life.RData") #resolved_names
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life.RData") #resolved_names
 
 # We can now load the saved tree
-load("data/tree.Rdata") #my_tree
+load("data/outputs/phylogenetic_files/tree.Rdata") #my_tree
 
 # we can now load the saved matrix
-load("data/phylo_cor.Rdata") #phylo_cor
+load("data/outputs/phylogenetic_files/phylo_cor.Rdata") #phylo_cor
 
 # VARIANCE-COVARIANCE MATRIX: 
 # Matrix already created above for the main model: VCV_ESVar
@@ -4224,26 +4215,26 @@ meta.final_ok_ok$sqrt_inv_esz  <-  with(meta.final_ok_ok, sqrt(inv_esz))
 meta.final_ok_ok$sqrt_inv_esz.4 <-  with(meta.final_ok_ok, sqrt(inv_esz.4))
 
 # STATISTICAL ANALYSIS:
-# meta.regression.small.study.effects <- rma.mv(cor, 
-#                                               VCV_ESVar,
-#                                               mods = ~ 1 + sqrt_inv_esz,
-#                                              random = list(~ 1 | StudyID,
-#                                                            ~ 1 | LaboratoryID,
-#                                                            ~ 1 | PopulationID,
-#                                                            ~ 1 | Species,
-#                                                            ~ 1 | Species_phylo,
-#                                                            ~ 1 | EffectID), 
-#                                              method = "REML",
-#                                              R = list(Species_phylo = phylo_cor),
-#                                              test = "t", 
-#                                             data = meta.final_ok_ok)
-# 
-save(meta.regression.small.study.effects, file = "data/outputs/statistical_models/meta_regression_small_study_effects.RData")
+meta.regression.small.study.effects <- rma.mv(cor,
+                                              VCV_ESVar,
+                                              mods = ~ 1 + sqrt_inv_esz,
+                                              random = list(~ 1 | StudyID,
+                                                            ~ 1 | LaboratoryID,
+                                                            ~ 1 | PopulationID,
+                                                            ~ 1 | Species,
+                                                            ~ 1 | Species_phylo,
+                                                            ~ 1 | EffectID),
+                                              method = "REML",
+                                              R = list(Species_phylo = phylo_cor),
+                                              test = "t",
+                                              data = meta.final_ok_ok)
+
+#save(meta.regression.small.study.effects, file = "data/outputs/statistical_models/meta_regression_small_study_effects.RData")
 load(file = "data/outputs/statistical_models/meta_regression_small_study_effects.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects, digits = 3)
-predict(meta.regression.small.study.effects, digits = 3)
+#predict(meta.regression.small.study.effects, digits = 3)
 
 # Calculate marginal R2 with r2_ml
 R2.meta.regression.small.study.effects <- r2_ml(meta.regression.small.study.effects) 
@@ -4265,61 +4256,63 @@ figure_meta.regression.small.study.effects <- orchaRd::bubble_plot(meta.regressi
 
 
 
-# # STATISTICAL ANALYSIS: sensitivity test using n/4 rather than simply n
-# # which confirms the results. Not reported in the manuscript or the supplements
-# meta.regression.small.study.effects.n4 <- rma.mv(cor, 
-#                                                  VCV_ESVar, 
-#                                                  mods = ~ 1 + sqrt_inv_esz.4,
-#                                                  random = list(~ 1 | StudyID,
-#                                                                ~ 1 | LaboratoryID,
-#                                                                ~ 1 | PopulationID,
-#                                                                ~ 1 | Species,
-#                                                                ~ 1 | Species_phylo,
-#                                                                ~ 1 | EffectID), 
-#                                                  method = "REML",
-#                                                  R = list(Species_phylo = phylo_cor),
-#                                                  test = "t", 
-#                                                  data = meta.final_ok_ok)
-# 
-# # Printing the summary results of the model
+# STATISTICAL ANALYSIS: sensitivity test using n/4 rather than simply n
+# which confirms the results. Not reported in the manuscript or the supplements
+meta.regression.small.study.effects.n4 <- rma.mv(cor,
+                                                 VCV_ESVar,
+                                                 mods = ~ 1 + sqrt_inv_esz.4,
+                                                 random = list(~ 1 | StudyID,
+                                                               ~ 1 | LaboratoryID,
+                                                               ~ 1 | PopulationID,
+                                                               ~ 1 | Species,
+                                                               ~ 1 | Species_phylo,
+                                                               ~ 1 | EffectID),
+                                                 method = "REML",
+                                                 R = list(Species_phylo = phylo_cor),
+                                                 test = "t",
+                                                 data = meta.final_ok_ok)
+#save(meta.regression.small.study.effects.n4, file = "data/outputs/statistical_models/meta_regression_small_study_effects_n4.RData")
+load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_n4.RData") #meta.regression.small.study.effects.n4
+
+# Printing the summary results of the model
 print(meta.regression.small.study.effects.n4, digits = 3)
-# 
-# # Calculate marginal R2 with r2_ml
+
+# Calculate marginal R2 with r2_ml
 R2.meta.regression.small.study.effects.n4 <- r2_ml(meta.regression.small.study.effects.n4) 
 round(R2.meta.regression.small.study.effects.n4 * 100, 1)
-# 
-# 
-# # TABLE WITH RESULTS FOR A CONTINUOUS VARIABLE:
-# results_meta.regression.small.study.effects.n4 <- orchaRd::mod_results(meta.regression.small.study.effects.n4,
-#                                                                        mod = "sqrt_inv_esz.4", 
-#                                                                        group = "StudyID",
-#                                                                        weights = "prop")
-# 
-# # FIGURE WITH A CONTINOUS VARIABLE:
-# figure_meta.regression.small.study.effects.n4 <- orchaRd::bubble_plot(meta.regression.small.study.effects.n4, 
-#                                                                       mod = "sqrt_inv_esz.4", 
-#                                                                       group = "StudyID",
-#                                                                       xlab = "sqrt_inv_esz.4",
-#                                                                       legend.pos = "bottom.right")
+
+
+# TABLE WITH RESULTS FOR A CONTINUOUS VARIABLE:
+results_meta.regression.small.study.effects.n4 <- orchaRd::mod_results(meta.regression.small.study.effects.n4,
+                                                                       mod = "sqrt_inv_esz.4",
+                                                                       group = "StudyID",
+                                                                       weights = "prop")
+
+# FIGURE WITH A CONTINOUS VARIABLE:
+figure_meta.regression.small.study.effects.n4 <- orchaRd::bubble_plot(meta.regression.small.study.effects.n4,
+                                                                      mod = "sqrt_inv_esz.4",
+                                                                      group = "StudyID",
+                                                                      xlab = "sqrt_inv_esz.4",
+                                                                      legend.pos = "bottom.right")
 
 
 # STATISTICAL ANALYSIS: testing the small-study effects per hormone
-# meta.regression.small.study.effects.by.hormone <- rma.mv(cor, 
-#                                                          VCV_ESVar, 
-#                                                          mods = ~ 1 + Hormone_measured_general * sqrt_inv_esz,
-#                                                         random = list(~ 1 | StudyID,
-#                                                                        ~ 1 | LaboratoryID,
-#                                                                      ~ 1 | PopulationID,
-#                                                                        ~ 1 | Species,
-#                                                                      ~ 1 | Species_phylo,
-#                                                                       ~ 1 | EffectID), 
-#                                                         method = "REML",
-#                                                         R = list(Species_phylo = phylo_cor),
-#                                                        test = "t", 
-#                                                         data = meta.final_ok_ok,
-#                                                        control=list(rel.tol=1e-8))
+meta.regression.small.study.effects.by.hormone <- rma.mv(cor,
+                                                         VCV_ESVar,
+                                                         mods = ~ 1 + Hormone_measured_general * sqrt_inv_esz,
+                                                         random = list(~ 1 | StudyID,
+                                                                       ~ 1 | LaboratoryID,
+                                                                       ~ 1 | PopulationID,
+                                                                       ~ 1 | Species,
+                                                                       ~ 1 | Species_phylo,
+                                                                       ~ 1 | EffectID),
+                                                         method = "REML",
+                                                         R = list(Species_phylo = phylo_cor),
+                                                         test = "t",
+                                                         data = meta.final_ok_ok,
+                                                         control=list(rel.tol=1e-8))
 
-# save(meta.regression.small.study.effects.by.hormone, file = "data/outputs/statistical_models/meta_regression_small_study_effects_by_hormone.RData")
+#save(meta.regression.small.study.effects.by.hormone, file = "data/outputs/statistical_models/meta_regression_small_study_effects_by_hormone.RData")
 load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_by_hormone.RData") #meta.regression.small.study.effects.by.hormone
 
 
@@ -4348,38 +4341,32 @@ figure_results_meta.regression.small.study.effects.by.hormone.1 <- orchaRd::bubb
                                                                                         by = "Hormone_measured_general",
                                                                                         legend.pos = "bottom.right")
 
-# # Showing the effect per hormone too
-# figure_meta.regression.small.study.effects.by.hormone <- orchaRd::orchard_plot(results_meta.regression.small.study.effects.by.hormone, 
-#                                                                                mod = "sqrt_inv_esz", 
-#                                                                                group = "StudyID", 
-#                                                                                xlab = "Effect size",
-#                                                                                trunk.size = 1,
-#                                                                                branch.size = 2,
-#                                                                                twig.size = 1)
+# Showing the effect per hormone too
+figure_meta.regression.small.study.effects.by.hormone <- orchaRd::orchard_plot(results_meta.regression.small.study.effects.by.hormone,
+                                                                               mod = "sqrt_inv_esz",
+                                                                               group = "StudyID",
+                                                                               xlab = "Effect size",
+                                                                               trunk.size = 1,
+                                                                               branch.size = 2,
+                                                                               twig.size = 1)
 
 # I calculate the number of studies and effect sizes per hormone type to be
 # included in the manuscript.
 
 # Androgens
 unique(meta.final_ok_ok_androgens$EffectID)
-# 338
 unique(meta.final_ok_ok_androgens$StudyID)
-# 46
 
 # Glucocorticoids
 meta.final_ok_ok_cort <- droplevels(subset(meta.final_ok_ok, meta.final_ok_ok$Hormone_measured_general == 'corticosterone'))
 unique(meta.final_ok_ok_cort$EffectID)
-# 66
 unique(meta.final_ok_ok_cort$StudyID)
-# 10
 
 
 # Thyroids
 meta.final_ok_ok_ths <- droplevels(subset(meta.final_ok_ok, meta.final_ok_ok$Hormone_measured_general == 'TH3 and TH4'))
 unique(meta.final_ok_ok_ths$EffectID)
-# 39
 unique(meta.final_ok_ok_ths$StudyID)
-# 3
 
 
 # STATISTICAL ANALYSIS: testing the small-study effects for each hormone group
@@ -4391,26 +4378,26 @@ unique(meta.final_ok_ok_ths$StudyID)
 
 # ANDROGENS:
 # I need to create a new phylogenetic tree for this data set.
-
-# PHYLOGENETIC TREE:
+# 
+# # PHYLOGENETIC TREE:
 # resolved_names_androgens <- tnrs_match_names(as.character(unique(meta.final_ok_ok_androgens$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_androgens, file = "data/taxa_Open_Tree_of_Life_androgens.RData")
+# save(resolved_names_androgens, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_androgens.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_androgens.RData") #resolved_names_androgens
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_androgens.RData") #resolved_names_androgens
 
 # # extracting phylogenetic information
 # my_tree_androgens <- tol_induced_subtree(ott_ids =
 #                                          resolved_names_androgens[,"ott_id"],
 #                                          label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_androgens, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_androgens, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_androgens) 
+# is.binary(my_tree_androgens)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -4418,40 +4405,40 @@ load("data/taxa_Open_Tree_of_Life_androgens.RData") #resolved_names_androgens
 # # use the following code
 # my_tree_androgens$tip.label <- gsub("_", " ", my_tree_androgens$tip.label)
 # 
-#intersect(as.character(my_tree_androgens$tip.label),
+# intersect(as.character(my_tree_androgens$tip.label),
 #           as.character(meta.final_ok_ok_androgens$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_androgens$Species), 
-#         as.character(my_tree_androgens$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_androgens$Species),
+#         as.character(my_tree_androgens$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_androgens$tip.label),
-#         as.character(meta.final_ok_ok_androgens$Species)) 
+#         as.character(meta.final_ok_ok_androgens$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_androgens, file = "data/tree_androgens.Rdata")
+# save(my_tree_androgens, file = "data/outputs/phylogenetic_files/tree_androgens.Rdata")
 
 # We can now load the saved tree
-load("data/tree_androgens.Rdata") #my_tree_androgens
+load("data/outputs/phylogenetic_files/tree_androgens.Rdata") #my_tree_androgens
 
 # # Compute branch lengths of tree
 # phylo_branch_androgens <- compute.brlen(my_tree_androgens, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_androgens) 
+# is.ultrametric(phylo_branch_androgens)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_androgens <- vcv(phylo_branch_androgens, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_androgens, file = "data/phylo_cor_androgens.Rdata")
+# save(phylo_cor_androgens, file = "data/outputs/phylogenetic_files/phylo_cor_androgens.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_androgens.Rdata") #phylo_cor_androgens
+load("data/outputs/phylogenetic_files/phylo_cor_androgens.Rdata") #phylo_cor_androgens
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_androgens$Species_phylo_androgens <- meta.final_ok_ok_androgens$Species
@@ -4489,7 +4476,7 @@ for (i in 1 : dim(combinations_androgens)[1]) {
 diag(VCV_ESVar_androgens) <- meta.final_ok_ok_androgens[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_androgens, 'data/VCV_ESVar_androgens.csv')
+# write.csv(VCV_ESVar_androgens, 'data/outputs/variance-covariance_matrices/VCV_ESVar_androgens.csv')
 
 
 # I can now create the new variables to test for small-study effects.
@@ -4500,26 +4487,26 @@ meta.final_ok_ok_androgens$sqrt_inv_esz.4 <-  with(meta.final_ok_ok_androgens, s
 
 
 # STATISTICAL ANALYSIS:
-# meta.regression.small.study.effects_androgens <- rma.mv(cor, 
-#                                              VCV_ESVar_androgens, 
-#                                              mods = ~ 1 + sqrt_inv_esz,
-#                                              random = list(~ 1 | StudyID,
-#                                                            ~ 1 | LaboratoryID,
-#                                                            ~ 1 | PopulationID,
-#                                                            ~ 1 | Species,
-#                                                            ~ 1 | Species_phylo_androgens,
-#                                                            ~ 1 | EffectID), 
-#                                              method = "REML",
-#                                              R = list(Species_phylo_androgens = phylo_cor_androgens),
-#                                             test = "t", 
-#                                               data = meta.final_ok_ok_androgens)
-# 
-save(meta.regression.small.study.effects_androgens, file = "data/outputs/statistical_models/meta_regression_small_study_effects_androgens.RData")
+meta.regression.small.study.effects_androgens <- rma.mv(cor,
+                                                        VCV_ESVar_androgens,
+                                                        mods = ~ 1 + sqrt_inv_esz,
+                                                        random = list(~ 1 | StudyID,
+                                                                      ~ 1 | LaboratoryID,
+                                                                      ~ 1 | PopulationID,
+                                                                      ~ 1 | Species,
+                                                                      ~ 1 | Species_phylo_androgens,
+                                                                      ~ 1 | EffectID),
+                                                        method = "REML",
+                                                        R = list(Species_phylo_androgens = phylo_cor_androgens),
+                                                        test = "t",
+                                                        data = meta.final_ok_ok_androgens)
+
+#save(meta.regression.small.study.effects_androgens, file = "data/outputs/statistical_models/meta_regression_small_study_effects_androgens.RData")
 load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_androgens.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects_androgens, digits = 3)
-predict(meta.regression.small.study.effects_androgens, digits = 3)
+#predict(meta.regression.small.study.effects_androgens, digits = 3)
 
 # Calculate marginal R2 with r2_ml
 R2.meta.regression.small.study.effects_androgens <- r2_ml(meta.regression.small.study.effects_androgens) 
@@ -4543,25 +4530,25 @@ figure_meta.regression.small.study.effects_androgens <- orchaRd::bubble_plot(met
 # Glucocorticoids
 # I need to create a new phylogenetic tree for this data set.
 
-# PHYLOGENETIC TREE:
+# # PHYLOGENETIC TREE:
 # resolved_names_cort <- tnrs_match_names(as.character(unique(meta.final_ok_ok_cort$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_cort, file = "data/taxa_Open_Tree_of_Life_cort.RData")
+# save(resolved_names_cort, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_cort.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_cort.RData") #resolved_names_cort
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_cort.RData") #resolved_names_cort
 
 # # extracting phylogenetic information
 # my_tree_cort <- tol_induced_subtree(ott_ids =
 #                                          resolved_names_cort[,"ott_id"],
 #                                          label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_cort, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_cort, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_cort) 
+# is.binary(my_tree_cort)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -4569,40 +4556,40 @@ load("data/taxa_Open_Tree_of_Life_cort.RData") #resolved_names_cort
 # # use the following code
 # my_tree_cort$tip.label <- gsub("_", " ", my_tree_cort$tip.label)
 # 
-#intersect(as.character(my_tree_cort$tip.label),
+# intersect(as.character(my_tree_cort$tip.label),
 #           as.character(meta.final_ok_ok_cort$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_cort$Species), 
-#         as.character(my_tree_cort$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_cort$Species),
+#         as.character(my_tree_cort$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_cort$tip.label),
-#         as.character(meta.final_ok_ok_cort$Species)) 
+#         as.character(meta.final_ok_ok_cort$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_cort, file = "data/tree_cort.Rdata")
+# save(my_tree_cort, file = "data/outputs/phylogenetic_files/tree_cort.Rdata")
 
 # We can now load the saved tree
-load("data/tree_cort.Rdata") #my_tree_cort
+load("data/outputs/phylogenetic_files/tree_cort.Rdata") #my_tree_cort
 
 # # Compute branch lengths of tree
 # phylo_branch_cort <- compute.brlen(my_tree_cort, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_cort) 
+# is.ultrametric(phylo_branch_cort)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_cort <- vcv(phylo_branch_cort, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_cort, file = "data/phylo_cor_cort.Rdata")
+# save(phylo_cor_cort, file = "data/outputs/phylogenetic_files/phylo_cor_cort.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_cort.Rdata") #phylo_cor_cort
+load("data/outputs/phylogenetic_files/phylo_cor_cort.Rdata") #phylo_cor_cort
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_cort$Species_phylo_cort <- meta.final_ok_ok_cort$Species
@@ -4640,7 +4627,7 @@ for (i in 1 : dim(combinations_cort)[1]) {
 diag(VCV_ESVar_cort) <- meta.final_ok_ok_cort[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_cort, 'data/VCV_ESVar_cort.csv')
+# write.csv(VCV_ESVar_cort, 'data/outputs/variance-covariance_matrices/VCV_ESVar_cort.csv')
 
 # I can now create the new variables for calculating the small-study effect
 # size
@@ -4651,26 +4638,26 @@ meta.final_ok_ok_cort$sqrt_inv_esz.4 <-  with(meta.final_ok_ok_cort, sqrt(inv_es
 
 
 # STATISTICAL ANALYSIS:
-# meta.regression.small.study.effects_cort <- rma.mv(cor, 
-#                                                      VCV_ESVar_cort, 
-#                                                       mods = ~ 1 + sqrt_inv_esz,
-#                                                       random = list(~ 1 | StudyID,
-#                                                                     ~ 1 | LaboratoryID,
-#                                                                     ~ 1 | PopulationID,
-#                                                                     ~ 1 | Species,
-#                                                                     ~ 1 | Species_phylo_cort,
-#                                                                     ~ 1 | EffectID), 
-#                                                       method = "REML",
-#                                                       R = list(Species_phylo_cort = phylo_cor_cort),
-#                                                       test = "t", 
-#                                                       data = meta.final_ok_ok_cort)
-# 
-# save(meta.regression.small.study.effects_cort, file = "data/outputs/statistical_models/meta_regression_small_study_effects_cort.RData")
+meta.regression.small.study.effects_cort <- rma.mv(cor,
+                                                   VCV_ESVar_cort,
+                                                   mods = ~ 1 + sqrt_inv_esz,
+                                                   random = list(~ 1 | StudyID,
+                                                                 ~ 1 | LaboratoryID,
+                                                                 ~ 1 | PopulationID,
+                                                                 ~ 1 | Species,
+                                                                 ~ 1 | Species_phylo_cort,
+                                                                 ~ 1 | EffectID),
+                                                   method = "REML",
+                                                   R = list(Species_phylo_cort = phylo_cor_cort),
+                                                   test = "t",
+                                                   data = meta.final_ok_ok_cort)
+
+#save(meta.regression.small.study.effects_cort, file = "data/outputs/statistical_models/meta_regression_small_study_effects_cort.RData")
 load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_cort.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects_cort, digits = 3)
-predict(meta.regression.small.study.effects_cort, digits = 3)
+#predict(meta.regression.small.study.effects_cort, digits = 3)
 
 # Calculate marginal R2 with r2_ml
 R2.meta.regression.small.study.effects_cort <- r2_ml(meta.regression.small.study.effects_cort) 
@@ -4695,25 +4682,25 @@ figure_meta.regression.small.study.effects_cort <- orchaRd::bubble_plot(meta.reg
 # Thyroid hormones
 # I need to create a new phylogenetic tree for this data set.
 
-# PHYLOGENETIC TREE:
+# # PHYLOGENETIC TREE:
 # resolved_names_ths <- tnrs_match_names(as.character(unique(meta.final_ok_ok_ths$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_ths, file = "data/taxa_Open_Tree_of_Life_ths.RData")
+# save(resolved_names_ths, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_ths.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_ths.RData") #resolved_names_ths
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_ths.RData") #resolved_names_ths
 
 # # extracting phylogenetic information
 # my_tree_ths <- tol_induced_subtree(ott_ids =
 #                                          resolved_names_ths[,"ott_id"],
 #                                          label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_ths, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_ths, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_ths) 
+# is.binary(my_tree_ths)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -4721,40 +4708,40 @@ load("data/taxa_Open_Tree_of_Life_ths.RData") #resolved_names_ths
 # # use the following code
 # my_tree_ths$tip.label <- gsub("_", " ", my_tree_ths$tip.label)
 # 
-#intersect(as.character(my_tree_ths$tip.label),
+# intersect(as.character(my_tree_ths$tip.label),
 #           as.character(meta.final_ok_ok_ths$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_ths$Species), 
-#         as.character(my_tree_ths$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_ths$Species),
+#         as.character(my_tree_ths$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_ths$tip.label),
-#         as.character(meta.final_ok_ok_ths$Species)) 
+#         as.character(meta.final_ok_ok_ths$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_ths, file = "data/tree_ths.Rdata")
+# save(my_tree_ths, file = "data/outputs/phylogenetic_files/tree_ths.Rdata")
 
 # We can now load the saved tree
-load("data/tree_ths.Rdata") #my_tree_ths
+load("data/outputs/phylogenetic_files/tree_ths.Rdata") #my_tree_ths
 
 # # Compute branch lengths of tree
 # phylo_branch_ths <- compute.brlen(my_tree_ths, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_ths) 
+# is.ultrametric(phylo_branch_ths)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_ths <- vcv(phylo_branch_ths, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_ths, file = "data/phylo_cor_ths.Rdata")
+# save(phylo_cor_ths, file = "data/outputs/phylogenetic_files/phylo_cor_ths.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_ths.Rdata") #phylo_cor_ths
+load("data/outputs/phylogenetic_files/phylo_cor_ths.Rdata") #phylo_cor_ths
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_ths$Species_phylo_ths <- meta.final_ok_ok_ths$Species
@@ -4792,7 +4779,7 @@ for (i in 1 : dim(combinations_ths)[1]) {
 diag(VCV_ESVar_ths) <- meta.final_ok_ok_ths[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_ths, 'data/VCV_ESVar_ths.csv')
+#write.csv(VCV_ESVar_ths, 'data/outputs/variance-covariance_matrices/VCV_ESVar_ths.csv')
 
 # I can now create the new variables for calculating the small-study effect
 # size
@@ -4803,26 +4790,26 @@ meta.final_ok_ok_ths$sqrt_inv_esz.4 <-  with(meta.final_ok_ok_ths, sqrt(inv_esz.
 
 
 # STATISTICAL ANALYSIS:
-# meta.regression.small.study.effects_ths <- rma.mv(cor, 
-#                                                 VCV_ESVar_ths, 
-#                                                  mods = ~ 1 + sqrt_inv_esz,
-#                                                  random = list(~ 1 | StudyID,
-#                                                                ~ 1 | LaboratoryID,
-#                                                                ~ 1 | PopulationID,
-#                                                                ~ 1 | Species,
-#                                                                ~ 1 | Species_phylo_ths,
-#                                                                ~ 1 | EffectID), 
-#                                                  method = "REML",
-#                                                  R = list(Species_phylo_ths = phylo_cor_ths),
-#                                                  test = "t", 
-#                                                    data = meta.final_ok_ok_ths)
-# 
-# save(meta.regression.small.study.effects_ths, file = "data/outputs/statistical_models/meta_regression_small_study_effects_ths.RData")
+meta.regression.small.study.effects_ths <- rma.mv(cor,
+                                                  VCV_ESVar_ths,
+                                                  mods = ~ 1 + sqrt_inv_esz,
+                                                  random = list(~ 1 | StudyID,
+                                                                ~ 1 | LaboratoryID,
+                                                                ~ 1 | PopulationID,
+                                                                ~ 1 | Species,
+                                                                ~ 1 | Species_phylo_ths,
+                                                                ~ 1 | EffectID),
+                                                  method = "REML",
+                                                  R = list(Species_phylo_ths = phylo_cor_ths),
+                                                  test = "t",
+                                                  data = meta.final_ok_ok_ths)
+
+#save(meta.regression.small.study.effects_ths, file = "data/outputs/statistical_models/meta_regression_small_study_effects_ths.RData")
 load(file = "data/outputs/statistical_models/meta_regression_small_study_effects_ths.RData") #meta.regression.small.study.effects
 
 # Printing the summary results of the model
 print(meta.regression.small.study.effects_ths, digits = 3)
-predict(meta.regression.small.study.effects_ths, digits = 3)
+#predict(meta.regression.small.study.effects_ths, digits = 3)
 
 # Calculate marginal R2 with r2_ml
 R2.meta.regression.small.study.effects_ths <- r2_ml(meta.regression.small.study.effects_ths) 
@@ -4852,21 +4839,21 @@ meta.final_ok_ok$Year.c <- as.vector(scale(as.numeric(as.character(meta.final_ok
                                            scale = F))
 
 # STATISTICAL ANALYSIS:
-# meta.regression.decline.effects <- rma.mv(cor, 
-#                                           VCV_ESVar, 
-#                                           mods = ~ 1 + Year.c,
-#                                           random = list(~ 1 | StudyID,
-#                                                         ~ 1 | LaboratoryID,
-#                                                         ~ 1 | PopulationID,
-#                                                         ~ 1 | Species,
-#                                                         ~ 1 | Species_phylo,
-#                                                         ~ 1 | EffectID), 
-#                                           method = "REML",
-#                                           R = list(Species_phylo = phylo_cor),
-#                                           test = "t", 
-#                                           data = meta.final_ok_ok)
-# 
-# save(meta.regression.decline.effects, file = "data/outputs/statistical_models/meta_regression_decline_effects.RData")
+meta.regression.decline.effects <- rma.mv(cor,
+                                          VCV_ESVar,
+                                          mods = ~ 1 + Year.c,
+                                          random = list(~ 1 | StudyID,
+                                                        ~ 1 | LaboratoryID,
+                                                        ~ 1 | PopulationID,
+                                                        ~ 1 | Species,
+                                                        ~ 1 | Species_phylo,
+                                                        ~ 1 | EffectID),
+                                          method = "REML",
+                                          R = list(Species_phylo = phylo_cor),
+                                          test = "t",
+                                          data = meta.final_ok_ok)
+
+#save(meta.regression.decline.effects, file = "data/outputs/statistical_models/meta_regression_decline_effects.RData")
 load(file = "data/outputs/statistical_models/meta_regression_decline_effects.RData") #meta.regression.decline.effects
 
 # Printing the summary results of the model
@@ -4892,21 +4879,21 @@ figure_meta.regression.decline.effects <- orchaRd::bubble_plot(meta.regression.d
 
 
 # STATISTICAL ANALYSIS: testing the decline effect per hormone
-# meta.regression.decline.effects.by.hormone <- rma.mv(cor, 
-#                                                      VCV_ESVar, 
-#                                                      mods = ~ 1 + Hormone_measured_general * Year.c,
-#                                                      random = list(~ 1 | StudyID,
-#                                                                    ~ 1 | LaboratoryID,
-#                                                                    ~ 1 | PopulationID,
-#                                                                    ~ 1 | Species,
-#                                                                    ~ 1 | Species_phylo,
-#                                                                    ~ 1 | EffectID), 
-#                                                      method = "REML",
-#                                                      R = list(Species_phylo = phylo_cor),
-#                                                      test = "t", 
-#                                                      data = meta.final_ok_ok)
-# 
-# save(meta.regression.decline.effects.by.hormone, file = "data/outputs/statistical_models/meta_regression_decline_effects_by_hormone.RData")
+meta.regression.decline.effects.by.hormone <- rma.mv(cor,
+                                                     VCV_ESVar,
+                                                     mods = ~ 1 + Hormone_measured_general * Year.c,
+                                                     random = list(~ 1 | StudyID,
+                                                                   ~ 1 | LaboratoryID,
+                                                                   ~ 1 | PopulationID,
+                                                                   ~ 1 | Species,
+                                                                   ~ 1 | Species_phylo,
+                                                                   ~ 1 | EffectID),
+                                                     method = "REML",
+                                                     R = list(Species_phylo = phylo_cor),
+                                                     test = "t",
+                                                     data = meta.final_ok_ok)
+
+#save(meta.regression.decline.effects.by.hormone, file = "data/outputs/statistical_models/meta_regression_decline_effects_by_hormone.RData")
 load(file = "data/outputs/statistical_models/meta_regression_decline_effects_by_hormone.RData") #meta.regression.decline.effects.by.hormone
 
 # Printing the summary results of the model
@@ -4936,13 +4923,13 @@ figure_results_meta.regression.decline.effects.by.hormone.1 <- orchaRd::bubble_p
                                                                                     legend.pos = "bottom.right")
 
 # # Showing the effect per hormone too
-# figure_meta.regression.decline.effects.by.hormone <- orchaRd::orchard_plot(results_meta.regression.decline.effects.by.hormone, 
-#                                                                            mod = "Year.c", 
-#                                                                            group = "StudyID", 
-#                                                                            xlab = "Effect size",
-#                                                                            trunk.size = 6,
-#                                                                            branch.size = 2,
-#                                                                            twig.size = 1)
+figure_meta.regression.decline.effects.by.hormone <- orchaRd::orchard_plot(results_meta.regression.decline.effects.by.hormone,
+                                                                           mod = "Year.c",
+                                                                           group = "StudyID",
+                                                                           xlab = "Effect size",
+                                                                           trunk.size = 6,
+                                                                           branch.size = 2,
+                                                                           twig.size = 1)
 
 
 ################################################################################
@@ -4980,21 +4967,21 @@ table(meta.final_ok_ok_androgens$DataReporting)
 # For androgens, we have 304 complete rows and 34 incomplete rows.
 
 
-# meta.regression.completeness <- rma.mv(cor, 
-#                                     VCV_ESVar_androgens, 
-#                                       mods = ~ 1 + DataReporting,
-#                                       random = list(~ 1 | StudyID,
-#                                          ~ 1 | LaboratoryID,
-#                                         ~ 1 | PopulationID,
-#                                          ~ 1 | Species,
-#                                         ~ 1 | Species_phylo_androgens,
-#                                         ~ 1 | EffectID), 
-#                                       method = "REML",
-#                                       verbose = TRUE,
-#                                       control = list(rel.tol = 1e-8),
-#                                       R = list(Species_phylo_androgens = phylo_cor_androgens),
-#                                       test = "t", 
-#                                       data = meta.final_ok_ok_androgens)
+meta.regression.completeness <- rma.mv(cor,
+                                       VCV_ESVar_androgens,
+                                       mods = ~ 1 + DataReporting,
+                                       random = list(~ 1 | StudyID,
+                                                     ~ 1 | LaboratoryID,
+                                                     ~ 1 | PopulationID,
+                                                     ~ 1 | Species,
+                                                     ~ 1 | Species_phylo_androgens,
+                                                     ~ 1 | EffectID),
+                                       method = "REML",
+                                       #verbose = TRUE,
+                                       control = list(rel.tol = 1e-8),
+                                       R = list(Species_phylo_androgens = phylo_cor_androgens),
+                                       test = "t",
+                                       data = meta.final_ok_ok_androgens)
 #
 # We had a Convergence Problem with the rma.mv() Function. 
 # By using the command "verbose = TRUE" we obtain the information that starting 
@@ -5005,7 +4992,7 @@ table(meta.final_ok_ok_androgens$DataReporting)
 # We therefore modified this threshold with the commands "control = list(...)".
 # Results remain the same and we no longer have a error message.
 
-save(meta.regression.completeness, file = "data/outputs/statistical_models/meta.regression.completeness.RData")
+#save(meta.regression.completeness, file = "data/outputs/statistical_models/meta.regression.completeness.RData")
 load(file = "data/outputs/statistical_models/meta.regression.completeness.RData") #meta.regression.completeness
 
 # Printing the summary results of the model 
@@ -5057,21 +5044,21 @@ table(meta.final_ok_ok$Partial_or_selective_data_rep, meta.final_ok_ok$Hormone_m
 # selectively report data (N = 171/443).
 
 
-# meta.regression.selective_data_rep <- rma.mv(cor, 
-#                               VCV_ESVar, 
-#                               mods = ~ Hormone_measured_general * Partial_or_selective_data_rep,
-#                                random = list(~ 1 | StudyID,
-#                                              ~ 1 | LaboratoryID,
-#                                              ~ 1 | PopulationID,
-#                                              ~ 1 | Species,
-#                                             ~ 1 | Species_phylo,
-#                                              ~ 1 | EffectID), 
-#                                method = "REML",
-#                                R = list(Species_phylo = phylo_cor),
-#                                test = "t", 
-#                                data = meta.final_ok_ok)
-# 
-# save(meta.regression.selective_data_rep, file = "data/outputs/statistical_models/meta.regression.selective_data_rep.RData")
+meta.regression.selective_data_rep <- rma.mv(cor,
+                                             VCV_ESVar,
+                                             mods = ~ Hormone_measured_general * Partial_or_selective_data_rep,
+                                             random = list(~ 1 | StudyID,
+                                                           ~ 1 | LaboratoryID,
+                                                           ~ 1 | PopulationID,
+                                                           ~ 1 | Species,
+                                                           ~ 1 | Species_phylo,
+                                                           ~ 1 | EffectID),
+                                             method = "REML",
+                                             R = list(Species_phylo = phylo_cor),
+                                             test = "t",
+                                             data = meta.final_ok_ok)
+
+#save(meta.regression.selective_data_rep, file = "data/outputs/statistical_models/meta.regression.selective_data_rep.RData")
 load(file = "data/outputs/statistical_models/meta.regression.selective_data_rep.RData") #meta.regression.selective_data_rep
 
 # Printing the summary results of the model
@@ -5091,31 +5078,30 @@ meta.final_ok_ok_sr <- droplevels(subset(meta.final_ok_ok,
                                          meta.final_ok_ok$Partial_or_selective_data_rep != "NA"))
 
 nrow(meta.final_ok_ok_sr)
-# 171
 
 unique(meta.final_ok_ok_sr$StudyID)
-# 25 
 
-# I need to create a new phylogenetic tree because this subset has only 12 species.
-# PHYLOGENETIC TREE:
+
+# # I need to create a new phylogenetic tree because this subset has only 12 species.
+# # PHYLOGENETIC TREE:
 # resolved_names_selective_rep <- tnrs_match_names(as.character(unique(meta.final_ok_ok_sr$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_selective_rep, file = "data/taxa_Open_Tree_of_Life_selective_rep.RData")
+# save(resolved_names_selective_rep, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_selective_rep.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_selective_rep.RData") #resolved_names_selective_rep
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_selective_rep.RData") #resolved_names_selective_rep
 
 # # extracting phylogenetic information
 # my_tree_selective_rep <- tol_induced_subtree(ott_ids =
 #                                          resolved_names_selective_rep[,"ott_id"],
 #                                          label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_selective_rep, no.margin = TRUE)
+# # # Quick tree plotting
+# # plot(my_tree_selective_rep, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_selective_rep) 
+# is.binary(my_tree_selective_rep)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -5127,36 +5113,36 @@ load("data/taxa_Open_Tree_of_Life_selective_rep.RData") #resolved_names_selectiv
 #           as.character(meta.final_ok_ok_sr$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_sr$Species), 
-#         as.character(my_tree_selective_rep$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_sr$Species),
+#         as.character(my_tree_selective_rep$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_selective_rep$tip.label),
-#         as.character(meta.final_ok_ok_sr$Species)) 
+#         as.character(meta.final_ok_ok_sr$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-# save(my_tree_selective_rep, file = "data/tree_selective_rep.Rdata")
+# save(my_tree_selective_rep, file = "data/outputs/phylogenetic_files/tree_selective_rep.Rdata")
 
 # We can now load the saved tree
-load("data/tree_selective_rep.Rdata") #my_tree_selective_rep
+load("data/outputs/phylogenetic_files/tree_selective_rep.Rdata") #my_tree_selective_rep
 
 # # Compute branch lengths of tree
 # phylo_branch_selective_rep <- compute.brlen(my_tree_selective_rep, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_selective_rep) 
+# is.ultrametric(phylo_branch_selective_rep)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_selective_rep <- vcv(phylo_branch_selective_rep, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_selective_rep, file = "data/phylo_cor_selective_rep.Rdata")
+# save(phylo_cor_selective_rep, file = "data/outputs/phylogenetic_files/phylo_cor_selective_rep.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_selective_rep.Rdata") #phylo_cor_selective_rep
+load("data/outputs/phylogenetic_files/phylo_cor_selective_rep.Rdata") #phylo_cor_selective_rep
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_sr$Species_phylo_selective_rep <- meta.final_ok_ok_sr$Species
@@ -5193,7 +5179,7 @@ for (i in 1 : dim(combinations_selective_rep)[1]) {
 diag(VCV_ESVar_selective_rep) <- meta.final_ok_ok_sr[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_selective_rep, 'data/VCV_ESVar_selective_rep.csv')
+# write.csv(VCV_ESVar_selective_rep, 'data/outputs/variance-covariance_matrices/VCV_ESVar_selective_rep.csv')
 
 
 # Now I create an artificial variable that combines the hormone measured and information on
@@ -5202,23 +5188,23 @@ meta.final_ok_ok_sr$hormone_selective_rep <- paste(meta.final_ok_ok_sr$Hormone_m
                                                    meta.final_ok_ok_sr$Partial_or_selective_data_rep,
                                                    sep = "_")
 
-# I will now run a new model with this artificial variable.
-#  meta.regression.selective_data_rep_artificial <- rma.mv(cor, 
-#                                             VCV_ESVar_selective_rep, 
-#                                             mods = ~ hormone_selective_rep - 1,
-#                                             random = list(~ 1 | StudyID,
-#                                                          ~ 1 | LaboratoryID,
-#                                                           ~ 1 | PopulationID,
-#                                                          ~ 1 | Species,
-#                                                           ~ 1 | Species_phylo_selective_rep,
-#                                                          ~ 1 | EffectID), 
-#                                             method = "REML",
-#                                             R = list(Species_phylo_selective_rep = phylo_cor_selective_rep),
-#                                             test = "t", 
-#                                             data = meta.final_ok_ok_sr)
+# we will now run a new model with this artificial variable.
+meta.regression.selective_data_rep_artificial <- rma.mv(cor,
+                                                        VCV_ESVar_selective_rep,
+                                                        mods = ~ hormone_selective_rep - 1,
+                                                        random = list(~ 1 | StudyID,
+                                                                      ~ 1 | LaboratoryID,
+                                                                      ~ 1 | PopulationID,
+                                                                      ~ 1 | Species,
+                                                                      ~ 1 | Species_phylo_selective_rep,
+                                                                      ~ 1 | EffectID),
+                                                        method = "REML",
+                                                        R = list(Species_phylo_selective_rep = phylo_cor_selective_rep),
+                                                        test = "t",
+                                                        data = meta.final_ok_ok_sr)
 
-# 
-#  save(meta.regression.selective_data_rep_artificial, file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial.RData")
+
+#save(meta.regression.selective_data_rep_artificial, file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial.RData")
 load(file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial.RData") #meta.regression.selective_data_rep_artificial
 
 # Printing the summary results of the model
@@ -5248,21 +5234,21 @@ fig_selective_data_rep_artificial <- orchaRd::orchard_plot(meta.regression.selec
 
 
 # Pair-wise comparisons including post-hoc Wald tests
-# meta.regression.selective_data_rep_artificial_pc <- rma.mv(cor, 
-#                                                    VCV_ESVar_selective_rep, 
-#                                                    mods = ~ hormone_selective_rep,
-#                                                    random = list(~ 1 | StudyID,
-#                                                    ~ 1 | LaboratoryID,
-#                                                    ~ 1 | PopulationID,
-#                                                   ~ 1 | Species,
-#                                                  ~ 1 | Species_phylo_selective_rep,
-#                                                   ~ 1 | EffectID), 
-#                                                    method = "REML",
-#                                                    R = list(Species_phylo_selective_rep = phylo_cor_selective_rep),
-#                                                    test = "t", 
-#                                                  data = meta.final_ok_ok_sr)
-# 
-# save(meta.regression.meh1_pc, file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial_pc.RData")
+meta.regression.selective_data_rep_artificial_pc <- rma.mv(cor,
+                                                           VCV_ESVar_selective_rep,
+                                                           mods = ~ hormone_selective_rep,
+                                                           random = list(~ 1 | StudyID,
+                                                                         ~ 1 | LaboratoryID,
+                                                                         ~ 1 | PopulationID,
+                                                                         ~ 1 | Species,
+                                                                         ~ 1 | Species_phylo_selective_rep,
+                                                                         ~ 1 | EffectID),
+                                                           method = "REML",
+                                                           R = list(Species_phylo_selective_rep = phylo_cor_selective_rep),
+                                                           test = "t",
+                                                           data = meta.final_ok_ok_sr)
+
+#save(meta.regression.meh1_pc, file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial_pc.RData")
 load(file = "data/outputs/statistical_models/meta.regression.selective_data_rep_artificial_pc.RData") #meta.regression.meh1_pc
 
 print(meta.regression.selective_data_rep_artificial_pc, digits = 3)
@@ -5301,22 +5287,22 @@ meta.final_ok_ok$Study_type.num.c <- as.vector(scale(ifelse(meta.final_ok_ok$Stu
                                                      scale = F))
 
 
-# meta.regression.all.in <- rma.mv(cor,
-#                                  VCV_ESVar,
-#                                  mods = ~ 1 +
-#                                  #Study_type.num.c +
-#                                  Hormone_measured_general * sqrt_inv_esz +
-#                                  Hormone_measured_general * Year.c,
-#                                  random = list(~ 1 | StudyID,
-#                                                ~ 1 | LaboratoryID,
-#                                                ~ 1 | PopulationID,
-#                                               ~ 1 | Species,
-#                                               ~ 1 | Species_phylo,
-#                                                ~ 1 | EffectID),
-#                                  method = "REML",
-#                                  R = list(Species_phylo = phylo_cor),
-#                                 test = "t",
-#                                 data = meta.final_ok_ok)
+meta.regression.all.in <- rma.mv(cor,
+                                 VCV_ESVar,
+                                 mods = ~ 1 +
+                                   #Study_type.num.c +
+                                   Hormone_measured_general * sqrt_inv_esz +
+                                   Hormone_measured_general * Year.c,
+                                 random = list(~ 1 | StudyID,
+                                               ~ 1 | LaboratoryID,
+                                               ~ 1 | PopulationID,
+                                               ~ 1 | Species,
+                                               ~ 1 | Species_phylo,
+                                               ~ 1 | EffectID),
+                                 method = "REML",
+                                 R = list(Species_phylo = phylo_cor),
+                                 test = "t",
+                                 data = meta.final_ok_ok)
 
 # save(meta.regression.all.in, file = "data/outputs/statistical_models/meta_regression_all_in.RData")
 load(file = "data/outputs/statistical_models/meta_regression_all_in.RData") #meta.regression.all.in
@@ -5330,29 +5316,29 @@ R2.meta.regression.all.in <- r2_ml(meta.regression.all.in)
 round(R2.meta.regression.all.in * 100, 1)
 
 
-# figure_results_meta.regression.all.in <- orchaRd::bubble_plot(meta.regression.all.in,
-#                                                               group = "StudyID",
-#                                                               mod = "sqrt_inv_esz",
-#                                                               xlab = "sqrt_inv_esz",
-#                                                               by = "Hormone_measured_general",
-#                                                               legend.pos = "bottom.right")
-# 
-# # TABLE WITH RESULTS FOR A CONTINUOUS VARIABLE:
-# results_meta.regression.all.in <- orchaRd::mod_results(meta.regression.all.in,
-#                                                        mod = "Hormone_measured_general", 
-#                                                        group = "StudyID",
-#                                                        weights = "prop",
-#                                                        by = "sqrt_inv_esz")
-# 
-# 
-# # Showing the effect per hormone too
-# figure_results_meta.regression.all.in.by.hormone <- orchaRd::orchard_plot(results_meta.regression.all.in, 
-#                                                                            mod = "sqrt_inv_esz", 
-#                                                                            group = "StudyID", 
-#                                                                            xlab = "Effect size",
-#                                                                            trunk.size = 6,
-#                                                                            branch.size = 2,
-#                                                                            twig.size = 1)
+figure_results_meta.regression.all.in <- orchaRd::bubble_plot(meta.regression.all.in,
+                                                              group = "StudyID",
+                                                              mod = "sqrt_inv_esz",
+                                                              xlab = "sqrt_inv_esz",
+                                                              by = "Hormone_measured_general",
+                                                              legend.pos = "bottom.right")
+
+# TABLE WITH RESULTS FOR A CONTINUOUS VARIABLE:
+results_meta.regression.all.in <- orchaRd::mod_results(meta.regression.all.in,
+                                                       mod = "Hormone_measured_general",
+                                                       group = "StudyID",
+                                                       weights = "prop",
+                                                       by = "sqrt_inv_esz")
+
+
+# Showing the effect per hormone too
+figure_results_meta.regression.all.in.by.hormone <- orchaRd::orchard_plot(results_meta.regression.all.in,
+                                                                           mod = "sqrt_inv_esz",
+                                                                           group = "StudyID",
+                                                                           xlab = "Effect size",
+                                                                           trunk.size = 6,
+                                                                           branch.size = 2,
+                                                                           twig.size = 1)
 
 
 
@@ -5576,7 +5562,6 @@ meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_grou
 
 meta.final_ok_ok$Fitness_trait_all_group <- as.factor(meta.final_ok_ok$Fitness_trait_all_group)
 levels(meta.final_ok_ok$Fitness_trait_all_group)
-# 19 levels
 
 # I now check if all levels have at least 5 effect sizes (minimum number of
 # effect sizes that we stated in our pre-registration that we need for running
@@ -5625,26 +5610,26 @@ meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_o
 
 
 
-# I now need to create a new phylogenetic tree because this subset has only 12 species.
-# PHYLOGENETIC TREE:
+# # I now need to create a new phylogenetic tree because this subset has only 12 species.
+# # PHYLOGENETIC TREE:
 # resolved_names_withinstudyID <- tnrs_match_names(as.character(unique(meta.final_ok_ok_withinstudyID$Species)))
 # 
 # # Saving the taxonomic data created on the 5th February 2025 to speed the
 # # process in the future and allow full reproducibility
-# save(resolved_names_withinstudyID, file = "data/taxa_Open_Tree_of_Life_withinstudyID.RData")
+# save(resolved_names_withinstudyID, file = "data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_withinstudyID.RData")
 
 # Loading the taxonomic data created on the 5th February 2025
-load("data/taxa_Open_Tree_of_Life_withinstudyID.RData") #resolved_names_withinstudyID
+load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_withinstudyID.RData") #resolved_names_withinstudyID
 
 # # extracting phylogenetic information
 # my_tree_withinstudyID <- tol_induced_subtree(ott_ids =
-#                                          resolved_names_withinstudyID[,"ott_id"],
-#                                         label_format = "name")
-# # Quick tree plotting
-# plot(my_tree_withinstudyID, no.margin = TRUE)
+#                                                resolved_names_withinstudyID[,"ott_id"],
+#                                              label_format = "name")
+# # # Quick tree plotting
+# # plot(my_tree_withinstudyID, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
-# is.binary(my_tree_withinstudyID) 
+# is.binary(my_tree_withinstudyID)
 # # Yes, meaning there are no polytomies. Let's go on.
 # 
 # # To confirm that our tree covers all the species we wanted it to include, and
@@ -5653,39 +5638,39 @@ load("data/taxa_Open_Tree_of_Life_withinstudyID.RData") #resolved_names_withinst
 # my_tree_withinstudyID$tip.label <- gsub("_", " ", my_tree_withinstudyID$tip.label)
 # 
 # intersect(as.character(my_tree_withinstudyID$tip.label),
-#          as.character(meta.final_ok_ok_withinstudyID$Species))
+#           as.character(meta.final_ok_ok_withinstudyID$Species))
 # 
 # # Listed in our database but not in the tree
-# setdiff(as.character(meta.final_ok_ok_withinstudyID$Species), 
-#         as.character(my_tree_withinstudyID$tip.label)) 
+# setdiff(as.character(meta.final_ok_ok_withinstudyID$Species),
+#         as.character(my_tree_withinstudyID$tip.label))
 # 
 # # Listed in the tree but not in our database
 # setdiff(as.character(my_tree_withinstudyID$tip.label),
-#         as.character(meta.final_ok_ok_withinstudyID$Species)) 
+#         as.character(meta.final_ok_ok_withinstudyID$Species))
 # # No error or inconsistencies found.
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # # 5th February 2025
-#  save(my_tree_withinstudyID, file = "data/tree_withinstudyID.Rdata")
+# save(my_tree_withinstudyID, file = "data/outputs/phylogenetic_files/tree_withinstudyID.Rdata")
 
 # We can now load the saved tree
-load("data/tree_withinstudyID.Rdata") #my_tree_withinstudyID
+load("data/outputs/phylogenetic_files/tree_withinstudyID.Rdata") #my_tree_withinstudyID
 
 # # Compute branch lengths of tree
 # phylo_branch_withinstudyID <- compute.brlen(my_tree_withinstudyID, method = "Grafen", power = 1)
 # 
 # # Check if tree is ultrametric
-# is.ultrametric(phylo_branch_withinstudyID) 
+# is.ultrametric(phylo_branch_withinstudyID)
 # # TRUE
 # 
 # # Matrix to be included in the models
 # phylo_cor_withinstudyID <- vcv(phylo_branch_withinstudyID, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
-# save(phylo_cor_withinstudyID, file = "data/phylo_cor_withinstudyID.Rdata")
+# save(phylo_cor_withinstudyID, file = "data/outputs/phylogenetic_files/phylo_cor_withinstudyID.Rdata")
 
 # we can now load the saved matrix
-load("data/phylo_cor_withinstudyID.Rdata") #phylo_cor_withinstudyID
+load("data/outputs/phylogenetic_files/phylo_cor_withinstudyID.Rdata") #phylo_cor_withinstudyID
 
 # Creating a duplicate species variable for the phylogenetic analysis
 meta.final_ok_ok_withinstudyID$Species_phylo_withinstudyID <- meta.final_ok_ok_withinstudyID$Species
@@ -5722,29 +5707,26 @@ for (i in 1 : dim(combinations_withinstudyID)[1]) {
 diag(VCV_ESVar_withinstudyID) <- meta.final_ok_ok_withinstudyID[, "cor_var"]
 
 # # In case you want to visually double check the matrix outside of R
-# write.csv(VCV_ESVar_withinstudyID, 'data/VCV_ESVar_withinstudyID.csv')
+# write.csv(VCV_ESVar_withinstudyID, 'data/outputs/variance-covariance_matrices/VCV_ESVar_withinstudyID.csv')
 
 
 # STATISTICAL MODEL:
-# meta.model_fitness_all <- rma.mv(cor, 
-#                                 VCV_ESVar_withinstudyID, 
-#                                mods = ~ Fitness_trait_all_group - 1,
-#                                 random = list(~ 1 | StudyID,
-#                                               ~ 1 | LaboratoryID,
-#                                               ~ 1 | PopulationID,
-#                                               ~ 1 | Species,
-#                                              ~ 1 | Species_phylo_withinstudyID,
-#                                               ~ 1 | EffectID), 
-#                                method = "REML",
-#                               R = list(Species_phylo_withinstudyID = phylo_cor_withinstudyID),
-#                                 test = "t", 
-#                                 data = meta.final_ok_ok_withinstudyID)
+meta.model_fitness_all <- rma.mv(cor,
+                                 VCV_ESVar_withinstudyID,
+                                 mods = ~ Fitness_trait_all_group - 1,
+                                 random = list(~ 1 | StudyID,
+                                               ~ 1 | LaboratoryID,
+                                               ~ 1 | PopulationID,
+                                               ~ 1 | Species,
+                                               ~ 1 | Species_phylo_withinstudyID,
+                                               ~ 1 | EffectID),
+                                 method = "REML",
+                                 R = list(Species_phylo_withinstudyID = phylo_cor_withinstudyID),
+                                 test = "t",
+                                 data = meta.final_ok_ok_withinstudyID)
 
-# Save model
-# save(meta.model_fitness_all, file = "data/meta.model_fitness_all.Rdata")
-
-# Load model
-load("data/meta.model_fitness_all.Rdata") 
+#save(meta.model_fitness_all, file = "data/outputs/statistical_models/meta.model_fitness_all.Rdata")
+load("data/outputs/statistical_models/meta.model_fitness_all.Rdata") 
 
 # Printing the summary results of the model
 print(meta.model_fitness_all, digits = 3)
@@ -5798,6 +5780,8 @@ meta.model_fitness_altricial_precocial <- rma.mv(cor,
                                                  test = "t", 
                                                  data = meta.final_ok_ok)
 
+#save(meta.model_fitness_altricial_precocial, file = "data/outputs/statistical_models/meta_model_fitness_altricial_precocial.Rdata")
+load("data/outputs/statistical_models/meta_model_fitness_altricial_precocial.Rdata") 
 
 # Printing the summary results of the model
 print(meta.model_fitness_altricial_precocial, digits = 3)
