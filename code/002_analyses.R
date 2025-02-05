@@ -320,21 +320,21 @@ diag(VCV_ESVar) <- meta.final_ok_ok[, "cor_var"]
 # Main effect model
 
 # STATISTICAL MODEL:
-# meta.model <- rma.mv(cor,
-#                      VCV_ESVar,
-#                      mods = ~ 1,
-#                      random = list(~ 1 | StudyID,
-#                                   ~ 1 | LaboratoryID,
-#                                  ~ 1 | PopulationID,
-#                                  ~ 1 | Species,
-#                                  ~ 1 | Species_phylo,
-#                                  ~ 1 | EffectID),
-#                      method = "REML",
-#                      R = list(Species_phylo = phylo_cor),
-#                      test = "t",
-#                      data = meta.final_ok_ok)
-# 
-# save(meta.model, file = "data/outputs/statistical_models/meta_model.Rdata")
+meta.model <- rma.mv(cor,
+                     VCV_ESVar,
+                     mods = ~ 1,
+                     random = list(~ 1 | StudyID,
+                                  ~ 1 | LaboratoryID,
+                                 ~ 1 | PopulationID,
+                                 ~ 1 | Species,
+                                 ~ 1 | Species_phylo,
+                                 ~ 1 | EffectID),
+                     method = "REML",
+                     R = list(Species_phylo = phylo_cor),
+                     test = "t",
+                     data = meta.final_ok_ok)
+
+save(meta.model, file = "data/outputs/statistical_models/meta_model.Rdata")
 load(file = "data/outputs/statistical_models/meta_model.Rdata") #meta.model
 
 # Printing the summary results of the model
@@ -689,26 +689,26 @@ diag(VCV_ESVar_off) <- meta.final_ok_ok_off[, "cor_var"]
 
 
 # STATISTICAL MODEL:
-# meta.model.off <- rma.mv(cor,
-#                        VCV_ESVar_off,
-#                         mods = ~ 1,
-#                         random = list(~ 1 | StudyID,
-#                                       ~ 1 | LaboratoryID,
-#                                       ~ 1 | PopulationID,
-#                                       ~ 1 | Species,
-#                                       ~ 1 | Species_phylo_off,
-#                                       ~ 1 | EffectID),
-#                         method = "REML",
-#                         R = list(Species_phylo_off = phylo_cor_off),
-#                         test = "t",
-#                         data = meta.final_ok_ok_off)
-# 
-# save(meta.model.off, file = "data/outputs/statistical_models/meta_model.off.Rdata")
+meta.model.off <- rma.mv(cor,
+                       VCV_ESVar_off,
+                        mods = ~ 1,
+                        random = list(~ 1 | StudyID,
+                                      ~ 1 | LaboratoryID,
+                                      ~ 1 | PopulationID,
+                                      ~ 1 | Species,
+                                      ~ 1 | Species_phylo_off,
+                                      ~ 1 | EffectID),
+                        method = "REML",
+                        R = list(Species_phylo_off = phylo_cor_off),
+                        test = "t",
+                        data = meta.final_ok_ok_off)
+
+save(meta.model.off, file = "data/outputs/statistical_models/meta_model.off.Rdata")
 load(file = "data/outputs/statistical_models/meta_model.off.Rdata") #meta.model.off
 
 # Printing the summary results of the model
 print(meta.model.off, digits = 3)
-# There is an overall negative effect (-0.073) not statistically significant.
+# There is an overall negative effect (-0.063) not statistically significant.
 
 # Printing the results again, but adding the credibility/prediction interval, 
 # which uses the heterogeneity to generate an interval that should contain 95%
@@ -737,8 +737,8 @@ round(sum(meta.model.off$sigma2), 3)
 # # I2, CV and M
 # round(h.calc(meta.model.off),2)
 round(i2_ml(meta.model.off), 3)
-round(cv_ml(meta.model.off), 3)
-round(m1_ml(meta.model.off), 3)
+round(cvh2_ml(meta.model.off), 3)
+round(m2_ml(meta.model.off), 3)
 
 
 # Visualize heterogeneity
@@ -805,7 +805,7 @@ p.I2 <- ggplot(h_status, aes(levels, I2s_Shinichi/100)) +
   ) 
 
 # CV
-p.CV <- ggplot(h_status, aes(levels, CVs)) +
+p.CV <- ggplot(h_status, aes(levels, CVHs)) +
   geom_col(alpha = 1, color = wes_palette('GrandBudapest1', 4, 
                                           type = 'discrete')[3], 
            fill = wes_palette('GrandBudapest1', 4, type = 'discrete')[3]) +
