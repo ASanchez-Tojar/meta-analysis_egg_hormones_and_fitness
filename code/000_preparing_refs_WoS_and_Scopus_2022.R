@@ -46,7 +46,7 @@ rm(list=ls())
 # WEB OF SCIENCE: general search
 
 # importing the .bib files
-wos_new <- read_bibliography("/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022/Literature from WoS and Scopus/WoS_literature_Aug2022.bib")
+wos_new <- read_bibliography("data/raw_data/systematic_review/02_search_results/WoS_literature_Aug2022.bib")
 
 
 # reducing fields to the minimum number of fields
@@ -62,7 +62,7 @@ names(wos.red)
 # SCOPUS: general search
 
 # importing the .bib files
-scopus_new <- read_bibliography("/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022/Literature from WoS and Scopus/Scopus_literature_Aug2022.bib")
+scopus_new <- read_bibliography("data/raw_data/systematic_review/02_search_results/Scopus_literature_Aug2022.bib")
 names(scopus_new)
 # reducing fields to the minimum number of fields
 # so that all databases have the same columns. Also, these fields
@@ -126,8 +126,8 @@ scopus.red <- scopus_new[,reducing.fields.scopus]
 full.ref.data <- rbind(wos.red,
                        scopus.red)
 
-write.csv(full.ref.data,"/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022/deduplic_new.csv",row.names=FALSE)
-full.ref.data <- read.table("/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022//deduplic_new.csv",
+write.csv(full.ref.data,"data/raw_data/systematic_review/02_search_results/deduplic_new.csv",row.names=FALSE)
+full.ref.data <- read.table("data/raw_data/systematic_review/02_search_results/deduplic_new.csv",
                            header=T,sep=",")
 
 
@@ -146,8 +146,8 @@ search.duplicated <- find_duplicates(data = full.ref.data,
 # 
 # # extracing duplicates
 screening.ref.data <- extract_unique_references(full.ref.data,search.duplicated)
-write.csv(screening.ref.data,"/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022/search_unique_references_extracted_new.csv",row.names=FALSE)
-screening.ref.data <- read.table("/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022/search_unique_references_extracted_new.csv",
+write.csv(screening.ref.data,"data/raw_data/systematic_review/02_search_results/search_unique_references_extracted_new.csv",row.names=FALSE)
+screening.ref.data <- read.table("data/raw_data/systematic_review/02_search_results/search_unique_references_extracted_new.csv",
                                  header=T,sep=",")
 
 
@@ -213,11 +213,12 @@ for(i in 1:nrow(screening.ref.data.rayyan)){
 # Creating output
 ##############################################################
 
-write.csv(screening.ref.data.rayyan[order(screening.ref.data.rayyan$title),],"/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022/search_unique_references_rayyan_new.csv",row.names=FALSE)
+write.csv(screening.ref.data.rayyan[order(screening.ref.data.rayyan$title),],
+          "data/raw_data/systematic_review/02_search_results/search_unique_references_rayyan_new.csv",row.names=FALSE)
 #remember to manually remove the quotes for the column names only in the .csv file
 
 
 # saving versions used for reproducibility purposes
-sink("/Users/lmentesana/Desktop/Work Lu Mentesana/Meta-analysis/10. Checking latest papers - 2020-2022/deduplicating_Rpackages_session_new.txt")
+sink("data/raw_data/systematic_review/02_search_results/deduplicating_Rpackages_session_new.txt")
 sessionInfo()
 sink()
