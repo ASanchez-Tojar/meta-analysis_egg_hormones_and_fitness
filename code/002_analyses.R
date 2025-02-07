@@ -479,7 +479,7 @@ figure_meta.model <- orchaRd::orchard_plot(meta.model, mod = "1",
                                            group = "Fitness_trait", 
                                            xlab = "Effect size",
                                            transfm = "none",
-                                           trunk.size = 8,
+                                           trunk.size = 2,
                                            branch.size = 2,
                                            colour = TRUE,  
                                            twig.size = 1)
@@ -740,7 +740,7 @@ round(m2_ml(meta.model.off), 3)
 
 # Visualize heterogeneity
 ## make dataframe
-h_status <- h.calc(meta.model.off)
+h_status <- h.calc2(meta.model.off)
 
 # adding sigmas
 h_status$sigma2s <- c(sum(meta.model.off$sigma2),
@@ -849,19 +849,9 @@ figure_meta.model.off <- orchaRd::orchard_plot(meta.model.off, mod = "1",
                                                group = "StudyID", 
                                                xlab = "Effect size",
                                                transfm = "none",
-                                               trunk.size = 8,
+                                               trunk.size = 2,
                                                branch.size = 2,
                                                twig.size = 1)
-
-
-
-# Important: in the figure there are four colors. This is because we have 
-# 4 levels at the moment: mother, offspring, fem and male offspring when 
-# recaptured as breeding adults. 
-# For the msc, I will modify the colors of the figure so that we have only 
-# to two categories (mother and offspring). Like this we can easily see that, irrespective
-# of whether the fitness trait was of maternal or offspring fitness, the overall
-# null effect represents quite well both categories.
 
 
 ################################################################################
@@ -1057,7 +1047,7 @@ figure_bh1.1 <- orchaRd::orchard_plot(meta.regression.bh1.1,
                                       group = "StudyID", 
                                       xlab = "Effect size",
                                       transfm = "none",
-                                      trunk.size = 6,
+                                      trunk.size = 2,
                                       branch.size = 2,
                                       twig.size = 1)
 
@@ -1241,12 +1231,12 @@ figure_bh1.2 <- orchaRd::orchard_plot(meta.regression.bh1.2,
                                       group = "StudyID", 
                                       xlab = "Effect size",
                                       transfm = "none",
-                                      trunk.size = 6,
+                                      trunk.size = 2,
                                       branch.size = 2,
                                       twig.size = 1)
 
 # The effect size goes into the opposite direction than the one we predicted.
-# This effect is quite small (~0.082) and statistically not significant. 
+# This effect is quite small (0.076) and statistically not significant. 
 
 ################################################################################
 # BH.1.3: THs and fitness
@@ -1421,7 +1411,7 @@ figure_bh1.3 <- orchaRd::orchard_plot(meta.regression.bh1.3,
                                       group = "StudyID", 
                                       xlab = "Effect size",
                                       transfm = "none",
-                                      trunk.size = 6,
+                                      trunk.size = 2,
                                       branch.size = 2,
                                       twig.size = 1)
 
@@ -1664,7 +1654,7 @@ fig_sex_differences <- orchaRd::orchard_plot(meta.regression.bh2_artificial,
                                              mod = "hormone_sex", 
                                              group = "StudyID", 
                                              xlab = "Effect size",
-                                             trunk.size = 6,
+                                             trunk.size = 2,
                                              branch.size = 2,
                                              twig.size = 1,
                                              colour = FALSE)
@@ -1783,7 +1773,7 @@ fig_bh3.1 <- orchaRd::orchard_plot(meta.regression.bh3.1,
                                    mod = "Off_life_stage", 
                                    group = "StudyID", 
                                    xlab = "Effect size",
-                                   trunk.size = 6,
+                                   trunk.size = 2,
                                    branch.size = 2,
                                    twig.size = 1)
 
@@ -2202,7 +2192,7 @@ fig_mh1.1_artificial <- orchaRd::orchard_plot(meta.regression.mh1.1_artificial,
                                               mod = "hormone_studytype", 
                                               group = "StudyID", 
                                               xlab = "Effect size",
-                                              trunk.size = 6,
+                                              trunk.size = 2,
                                               branch.size = 2,
                                               twig.size = 1)
 
@@ -2447,7 +2437,7 @@ fig_mh1.2_artificial <- orchaRd::orchard_plot(meta.regression.mh1.2_artificial,
                                               mod = "hormone_exp_stage", 
                                               group = "StudyID", 
                                               xlab = "Effect size",
-                                              trunk.size = 6,
+                                              trunk.size = 2,
                                               branch.size = 2,
                                               twig.size = 1)
 
@@ -2690,7 +2680,7 @@ fig_mh1.3 <- orchaRd::orchard_plot(meta.regression.mh1.3,
                                    mod = "Exp_dose", 
                                    group = "StudyID", 
                                    xlab = "Effect size",
-                                   trunk.size = 6,
+                                   trunk.size = 2,
                                    branch.size = 2,
                                    twig.size = 1)
 
@@ -2908,7 +2898,7 @@ round(as.data.frame(results_sensitivy.model.intercept.pearson[[1]])[,c(2:6)], 3)
 fig_hormones_fitness_intercept.pearson <- orchaRd::orchard_plot(sensitivy.model.intercept.pearson, 
                                                                 group = "StudyID", 
                                                                 xlab = "Effect size",
-                                                                trunk.size = 6,
+                                                                trunk.size = 2,
                                                                 branch.size = 2,
                                                                 twig.size = 1)
 
@@ -3082,7 +3072,7 @@ round(as.data.frame(results_sensitivy.model.intercept.biserial[[1]])[,c(2:6)], 3
 fig_hormones_fitness_intercept.biserial <- orchaRd::orchard_plot(sensitivy.model.intercept.biserial, 
                                                                  group = "StudyID", 
                                                                  xlab = "Effect size",
-                                                                 trunk.size = 6,
+                                                                 trunk.size = 2,
                                                                  branch.size = 2,
                                                                  twig.size = 1)
 
@@ -3292,7 +3282,7 @@ round(as.data.frame(results_sensitivy.model.intercept.rom[[1]])[,c(2:6)], 3)
 fig_hormones_fitness_intercept.rom <- orchaRd::orchard_plot(sensitivy.model.intercept.rom, 
                                                             group = "StudyID", 
                                                             xlab = "Effect size",
-                                                            trunk.size = 6,
+                                                            trunk.size = 2,
                                                             branch.size = 2,
                                                             twig.size = 1)
 
@@ -3356,7 +3346,7 @@ fig_hormones_fitness <- orchaRd::orchard_plot(sensitivy.model.bh1,
                                               mod = "Hormone_measured_general", 
                                               group = "StudyID", 
                                               xlab = "Effect size",
-                                              trunk.size = 6,
+                                              trunk.size = 2,
                                               branch.size = 2,
                                               twig.size = 1)
 
@@ -3443,7 +3433,7 @@ figure_meta.model_corvar <- orchaRd::orchard_plot(meta.model_corvar, mod = "1",
                                                   group = "StudyID", 
                                                   xlab = "Effect size",
                                                   transfm = "none",
-                                                  trunk.size = 8,
+                                                  trunk.size = 2,
                                                   branch.size = 2,
                                                   twig.size = 1)
 
@@ -3485,7 +3475,7 @@ figure_meta.model.off_corvar <- orchaRd::orchard_plot(meta.model.off_corvar, mod
                                                       group = "StudyID", 
                                                       xlab = "Effect size",
                                                       transfm = "none",
-                                                      trunk.size = 8,
+                                                      trunk.size = 2,
                                                       branch.size = 2,
                                                       twig.size = 1)
 
@@ -3535,7 +3525,7 @@ fig_meta.model.off_perhorm_corvar <- orchaRd::orchard_plot(meta.model.off_perhor
                                                            mod = "Hormone_measured_general", 
                                                            group = "StudyID", 
                                                            xlab = "Effect size",
-                                                           trunk.size = 6,
+                                                           trunk.size = 2,
                                                            branch.size = 2,
                                                            twig.size = 1)
 
@@ -3700,7 +3690,7 @@ fig_hormones_beh1 <- orchaRd::orchard_plot(meta.regression.beh1,
                                            mod = "Hormone_measured_general", 
                                            group = "StudyID", 
                                            xlab = "Effect size",
-                                           trunk.size = 6,
+                                           trunk.size = 2,
                                            branch.size = 2,
                                            twig.size = 1)
 
@@ -3939,7 +3929,7 @@ fig_hormones_beh2 <- orchaRd::orchard_plot(meta.regression.beh2,
                                            mod = "Site_measured", 
                                            group = "StudyID", 
                                            xlab = "Effect size",
-                                           trunk.size = 6,
+                                           trunk.size = 2,
                                            branch.size = 2,
                                            twig.size = 1)
 
@@ -4140,7 +4130,7 @@ fig_hormones_meh1 <- orchaRd::orchard_plot(meta.regression.meh1,
                                            mod = "Egg_sampl_method", 
                                            group = "StudyID", 
                                            xlab = "Effect size",
-                                           trunk.size = 6,
+                                           trunk.size = 2,
                                            branch.size = 2,
                                            twig.size = 1)
 
@@ -4924,7 +4914,7 @@ figure_meta.regression.decline.effects.by.hormone <- orchaRd::orchard_plot(resul
                                                                            mod = "Year.c",
                                                                            group = "StudyID",
                                                                            xlab = "Effect size",
-                                                                           trunk.size = 6,
+                                                                           trunk.size = 2,
                                                                            branch.size = 2,
                                                                            twig.size = 1)
 
@@ -5015,7 +5005,7 @@ fig_meta.regression.completeness <- orchaRd::orchard_plot(meta.regression.comple
                                                           mod = "DataReporting", 
                                                           group = "StudyID", 
                                                           xlab = "Effect size",
-                                                          trunk.size = 6,
+                                                          trunk.size = 2,
                                                           branch.size = 2,
                                                           twig.size = 1)
 
@@ -5029,9 +5019,10 @@ meta.final_ok_ok$Partial_or_selective_data_rep <- as.factor(meta.final_ok_ok$Par
 table(meta.final_ok_ok$Partial_or_selective_data_rep)
 
 # I need to rename 2 variables:
-
-revalue(meta.final_ok_ok$Partial_or_selective_data_rep, c("yes (backwards selection)" = "yes")) -> meta.final_ok_ok$Partial_or_selective_data_rep
-revalue(meta.final_ok_ok$Partial_or_selective_data_rep, c("yes (some eggs excluded because of bacterial infections)" = "yes")) -> meta.final_ok_ok$Partial_or_selective_data_rep
+meta.final_ok_ok$Partial_or_selective_data_rep <- recode(meta.final_ok_ok$Partial_or_selective_data_rep, 
+                                                         "yes (backwards selection)" = "yes")
+meta.final_ok_ok$Partial_or_selective_data_rep <- recode(meta.final_ok_ok$Partial_or_selective_data_rep, 
+                                                         "yes (some eggs excluded because of bacterial infections)" = "yes")
 
 table(meta.final_ok_ok$Partial_or_selective_data_rep, meta.final_ok_ok$Hormone_measured_general)
 # We have enough data for testing this in the three hormone groups.
@@ -5225,7 +5216,7 @@ fig_selective_data_rep_artificial <- orchaRd::orchard_plot(meta.regression.selec
                                                            mod = "hormone_selective_rep", 
                                                            group = "StudyID", 
                                                            xlab = "Effect size",
-                                                           trunk.size = 6,
+                                                           trunk.size = 2,
                                                            branch.size = 2,
                                                            twig.size = 1)
 
@@ -5333,7 +5324,7 @@ figure_results_meta.regression.all.in.by.hormone <- orchaRd::orchard_plot(result
                                                                            mod = "sqrt_inv_esz",
                                                                            group = "StudyID",
                                                                            xlab = "Effect size",
-                                                                           trunk.size = 6,
+                                                                           trunk.size = 2,
                                                                            branch.size = 2,
                                                                            twig.size = 1)
 
@@ -5364,132 +5355,14 @@ meta.final_ok_ok <- meta.final_ok_ok %>%
   mutate(Fitness_trait_all = coalesce(Fitness_trait_all, 
                                       Fitness_mother))
 
+meta.final_ok_ok$Fitness_trait_all <- as.factor(meta.final_ok_ok$Fitness_trait_all)
+
 # I now check the information per level:
 levels(meta.final_ok_ok$Fitness_trait_all)
-
 
 # I now group fitness proxies in a way in which all fitness proxies related
 # to similar traits are evaluated together. For example, all proxies related
 # to offspring growth.
-
-# # For this, I first create a new column
-# meta.final_ok_ok$Fitness_trait_all_group <- meta.final_ok_ok$Fitness_trait_all
-# 
-# meta.final_ok_ok$Fitness_trait_all_group <- as.character(meta.final_ok_ok$Fitness_trait_all_group)
-# 
-# # Growth
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth rate (mass)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth (PC1)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth (PC2)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth (tarsus)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth rate (mass)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth rate"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == remove?
-#                                            "growth rate (ulna)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth rate (flipper length)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "mass gain"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth (mass)"] <- "growth"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "growth rate (tarsus)"] <- "growth"
-# 
-# 
-# # Wing
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "flipper length"] <- "wing"
-# 
-# # Structural body size
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "structural body size (mass and tarsus)"] <- "structural body size"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "structural body size (mass and bill length)"] <- "structural body size"
-# 
-# # Hatching success
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "hatching failure"] <- "hatching success"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "hatching probability"] <- "hatching success"
-# 
-# 
-# # Hatching number
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "egg mortality"] <- "hatching number"
-# 
-# 
-# # Fledging success
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "fledgling probability"] <- "fledgling success"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "pre-fledgling survival probability"] <- "fledgling success"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "fledgling success (fledglings/hatchings)"] <- "fledgling success"
-# 
-# # Offspring survival 
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "offspring mortality"] <- "offspring survival"
-# 
-# # Offspring survival years
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "offspring survival years"] <- "offspring recruit"
-# meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
-#                                            "recruitment"] <- "offspring recruit"
-# 
-# meta.final_ok_ok$Fitness_trait_all_group <- as.factor(meta.final_ok_ok$Fitness_trait_all_group)
-# levels(meta.final_ok_ok$Fitness_trait_all_group)
-# # 19 levels
-# 
-# # I now check if all levels have at least 5 effect sizes (minimum number of 
-# # effect sizes that we stated in our pre-registration that we need for running
-# # statistical models)
-# table(meta.final_ok_ok$Fitness_trait_all_group)
-# # Levels for which we do not have enough effect sizes: head-bill length, head length,
-# # maternal life time reproductive success, and maternal longevity.
-# 
-# 
-# # I retain those traits for which we have more than 5 effect sizes:
-# 
-# meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok, 
-#                                                     meta.final_ok_ok$Fitness_trait_all_group == "beak flank width" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "clutch size" |  
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "culmen" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "fledgling number" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "fledgling success" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "gape width" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "hatching number" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "hatching success" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "mass" |  
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring recruit" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring survival" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "structural body size"| 
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "tarsus" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "growth" |
-#                                                       meta.final_ok_ok$Fitness_trait_all_group == "wing"))
-# 
-# # I will reorder variables to better understand results
-# meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_ok_withinstudyID$Fitness_trait_all_group, 
-#                                                                  levels = c("clutch size", 
-#                                                                             "hatching number",
-#                                                                             "hatching success",
-#                                                                             "beak flank width",
-#                                                                             "culmen",
-#                                                                             "gape width",
-#                                                                             "mass",
-#                                                                             "tarsus",
-#                                                                             "wing",
-#                                                                             "structural body size",
-#                                                                             "growth",
-#                                                                             "fledgling number",
-#                                                                             "fledgling success",
-#                                                                             "offspring survival",
-#                                                                             "offspring recruit"))
 
 # For this, I first create a new column
 meta.final_ok_ok$Fitness_trait_all_group <- meta.final_ok_ok$Fitness_trait_all
@@ -5497,70 +5370,75 @@ meta.final_ok_ok$Fitness_trait_all_group <- meta.final_ok_ok$Fitness_trait_all
 meta.final_ok_ok$Fitness_trait_all_group <- as.character(meta.final_ok_ok$Fitness_trait_all_group)
 
 # Growth
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth rate (mass)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth (PC1)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth (PC2)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth (tarsus)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth rate (mass)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth rate"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+                                           "growth rate (ulna)"] <- "growth"
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth rate (flipper length)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "mass gain"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth (mass)"] <- "growth"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "growth rate (tarsus)"] <- "growth"
 
 
 # Wing
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "flipper length"] <- "wing"
 
 # Structural body size
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "structural body size (mass and tarsus)"] <- "structural body size"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "structural body size (mass and bill length)"] <- "structural body size"
 
 # Hatching success
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "hatching failure"] <- "hatching success"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "hatching probability"] <- "hatching success"
 
 
 # Hatching number
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "egg mortality"] <- "hatching number"
 
 
 # Fledging success
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
+                                           "fledgling probability"] <- "fledgling success"
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "pre-fledgling survival probability"] <- "fledgling success"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "fledgling success (fledglings/hatchings)"] <- "fledgling success"
 
-# Offspring survival
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+# Offspring survival 
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "offspring mortality"] <- "offspring survival"
 
 # Offspring survival years
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "offspring survival years"] <- "offspring recruit"
-meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group ==
+meta.final_ok_ok$Fitness_trait_all_group[meta.final_ok_ok$Fitness_trait_all_group == 
                                            "recruitment"] <- "offspring recruit"
 
 meta.final_ok_ok$Fitness_trait_all_group <- as.factor(meta.final_ok_ok$Fitness_trait_all_group)
 levels(meta.final_ok_ok$Fitness_trait_all_group)
+# 19 levels
 
-# I now check if all levels have at least 5 effect sizes (minimum number of
+# I now check if all levels have at least 5 effect sizes (minimum number of 
 # effect sizes that we stated in our pre-registration that we need for running
 # statistical models)
 table(meta.final_ok_ok$Fitness_trait_all_group)
@@ -5570,7 +5448,7 @@ table(meta.final_ok_ok$Fitness_trait_all_group)
 
 # I retain those traits for which we have more than 5 effect sizes:
 
-meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok,
+meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok, 
                                                     meta.final_ok_ok$Fitness_trait_all_group == "beak flank width" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "clutch size" |  
                                                       meta.final_ok_ok$Fitness_trait_all_group == "culmen" |
@@ -5582,14 +5460,14 @@ meta.final_ok_ok_withinstudyID <- droplevels(subset(meta.final_ok_ok,
                                                       meta.final_ok_ok$Fitness_trait_all_group == "mass" |  
                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring recruit" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "offspring survival" |
-                                                      meta.final_ok_ok$Fitness_trait_all_group == "structural body size"|
+                                                      meta.final_ok_ok$Fitness_trait_all_group == "structural body size"| 
                                                       meta.final_ok_ok$Fitness_trait_all_group == "tarsus" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "growth" |
                                                       meta.final_ok_ok$Fitness_trait_all_group == "wing"))
 
 # I will reorder variables to better understand results
-meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_ok_withinstudyID$Fitness_trait_all_group,
-                                                                 levels = c("clutch size",
+meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_ok_withinstudyID$Fitness_trait_all_group, 
+                                                                 levels = c("clutch size", 
                                                                             "hatching number",
                                                                             "hatching success",
                                                                             "beak flank width",
@@ -5604,8 +5482,6 @@ meta.final_ok_ok_withinstudyID$Fitness_trait_all_group <- factor(meta.final_ok_o
                                                                             "fledgling success",
                                                                             "offspring survival",
                                                                             "offspring recruit"))
-
-
 
 # # I now need to create a new phylogenetic tree because this subset has only 12 species.
 # # PHYLOGENETIC TREE:
@@ -5623,7 +5499,7 @@ load("data/outputs/phylogenetic_files/taxa_Open_Tree_of_Life_withinstudyID.RData
 #                                                resolved_names_withinstudyID[,"ott_id"],
 #                                              label_format = "name")
 # # # Quick tree plotting
-# # plot(my_tree_withinstudyID, no.margin = TRUE)
+# plot(my_tree_withinstudyID, no.margin = TRUE)
 # 
 # # We need to check for the existence of polytomies
 # is.binary(my_tree_withinstudyID)
@@ -5661,7 +5537,7 @@ load("data/outputs/phylogenetic_files/tree_withinstudyID.Rdata") #my_tree_within
 # # TRUE
 # 
 # # Matrix to be included in the models
-# phylo_cor_withinstudyID <- vcv(phylo_branch_withinstudyID, cor = T)
+ # phylo_cor_withinstudyID <- vcv(phylo_branch_withinstudyID, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # save(phylo_cor_withinstudyID, file = "data/outputs/phylogenetic_files/phylo_cor_withinstudyID.Rdata")
@@ -5722,7 +5598,7 @@ meta.model_fitness_all <- rma.mv(cor,
                                  test = "t",
                                  data = meta.final_ok_ok_withinstudyID)
 
-#save(meta.model_fitness_all, file = "data/outputs/statistical_models/meta.model_fitness_all.Rdata")
+save(meta.model_fitness_all, file = "data/outputs/statistical_models/meta.model_fitness_all.Rdata")
 load("data/outputs/statistical_models/meta.model_fitness_all.Rdata") 
 
 # Printing the summary results of the model
@@ -5745,7 +5621,7 @@ fig_meta.model_fitness_all <- orchaRd::orchard_plot(meta.model_fitness_all,
                                                     mod = "Fitness_trait_all_group", 
                                                     group = "StudyID", 
                                                     xlab = "Effect size",
-                                                    trunk.size = 6,
+                                                    trunk.size = 2,
                                                     branch.size = 2,
                                                     twig.size = 1, 
                                                     colour = FALSE)
@@ -5800,7 +5676,7 @@ fig_meta.model_fitness_altricial_precocial <- orchaRd::orchard_plot(meta.model_f
                                                                     mod = "Developmental_mode", 
                                                                     group = "StudyID", 
                                                                     xlab = "Effect size",
-                                                                    trunk.size = 6,
+                                                                    trunk.size = 2,
                                                                     branch.size = 2,
                                                                     twig.size = 1, 
                                                                     colour = FALSE)
