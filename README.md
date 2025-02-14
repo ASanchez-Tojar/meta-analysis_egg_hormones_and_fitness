@@ -1,0 +1,69 @@
+# Short title: Do egg hormones have fitness consequences?
+## Title: Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis
+**Contributors:** Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar 
+
+**Date created:** February 2025
+
+**Identifer:** DOI TBA
+
+**Category:** Project
+
+**Code License:** [MIT](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/LICENSE)
+
+**Data License:** [CC BY 4.0](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/data/data_LICENSE.txt)
+
+**Description:** This repository contains the data, code and other materials used in the following study:
+
+---
+
+Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar. 2024. Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis. *bioRxiv*. Preprint available at: https://doi.org/10.1101/2024.10.29.620852
+
+---
+
+The repository consists of an Rproject with 5 scripts and 3 folders containing the data either needed to run these scripts or created by these scripts, including the figures. For a detailed description of all the files, please see below. To run this repository, first download and unzipped the entire repository and open the Rproject file:  meta-analysis_egg_hormones.Rproj. The scripts are named in the order that they should be run, from 000 to 003. For any further information about this repository, please contact: Alfredo Sánchez-Tójar, email: alfredo.tojar@gmail.com.
+
+Information about folders and files within:
+Folders:
+*	[code](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/code): contains all five scripts used to import, deduplicate, process, analyse data, and generate figures for the project.
+    - [000_preparing_refs_WoS_and_Scopus_2021.R](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/code/000_preparing_refs_WoS_and_Scopus_2021.R): used to import the results of a systematic review on egg hormones and fitness done in Web of Science and Scopus, and deduplicate studies. Notice that this code is for results obtained until 2021. 
+    -	[000_preparing_refs_WoS_and_Scopus_2022.R](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/code/000_preparing_refs_WoS_and_Scopus_2022.R): used to import the results of a systematic review on egg hormones and fitness done in Web of Science and Scopus, and deduplicate studies. Notice that this code is for results obtained until 2022. 
+    -	[001_data_processing.R](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/code/001_data_processing.R): used to process and clean our [raw meta-analytic dataset](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/data/raw_data/meta-analysis_egg_hormones_raw_data.csv). In particular, this script 1) calculates the final sample sizes for rows that reported statistical tests and those that reported means, least squared means, and absolute values; 2) estimates effect sizes of the relationship between yolk hormones and fitness traits, and their sampling variances; 3) prepares the [processed and clean datasets](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/data/processed_data) for the analyses, which are detail in code [002_analyses.R](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/code/002_analyses.R).
+    -	[002_analyses.R](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/code/002_analyses.R): script used to analyse our [processed and clean meta-analytic datasets](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/data/processed_data).
+    -	[003_figures.R](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/code/003_figures.R): script used to generate figure with map ([Figure 1](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/figures/Fig%201_Mentesanaetal_Final.png), Mentesana et al. 2024 – preprint). 
+
+*	[data](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/data): contains all [raw](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/data/raw_data), [processed](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/data/processed_data), and [output generated](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/data/outputs) (i.e., models, phylogenies and var-covar matrices) by code [002_analyses.R](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/code/002_analyses.R).
+
+*	[figures](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/figures): contains all figures generated by 002_analyses.R and 003_figures.R and included in the main text and supplementary files of the study. Notice that we exported all figures and modified them using the free software Inkscape (Inkscape 1.3 - Windows: 64-bit: msi | Inkscape).
+
+## Metadata:
+We provide the metadata for [raw](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/blob/main/data/raw_data/meta-analysis_egg_hormones_raw_data.csv) and [processed](https://github.com/ASanchez-Tojar/meta-analysis_egg_hormones_and_fitness/tree/main/data/processed_data) datasets in X and X, respectively
+
+## Software and {Packages} used
+R version 4.3.3 (2024-02-29 ucrt)
+
+Platform: x86_64-w64-mingw32     
+
+Running under: Windows 11. Version 10.0.22631 Build 22631
+
+Packages used:
+-	{pacman} v.0.5.1
+-	{metafor} v.4.4.0
+-	{plyr} v.1.8.9
+-	{stringr} v.1.5.1
+-	{rotl} v.3.1.0
+-	{ape} v.5.7.1
+-	{orchaRd} v.2.0
+-	{dplyr} v.1.1.4
+-	{devtools} v.2.4.5
+-	{revtools} v.0.4.1
+-	{tidyverse} v.2.0.0
+-	{patchwork} v.1.2.0
+-	{R.rsp} v.0.46.0
+-	{emmeans} v.1.10.0
+-	{ggplot2} v.3.5.0
+-	{ggcorrplot} v.0.1.4.1
+-	{ggtree} v.3.13.1
+-	{maps} v.3.4.2
+-	{phytools} v.2.1.1
+-	{flextable} v.0.9.5
+-	{wesanderson} v.0.3.7
