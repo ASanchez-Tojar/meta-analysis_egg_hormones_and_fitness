@@ -1570,18 +1570,25 @@ nrow(meta.final_ok_ok_off_sex)
 # The "-1" nest to the moderator removes the intercept so the results are easier
 # to interpret. 
 
+# Note that we originally ran this model with the same random effect structure 
+# than the other models but during peer-review we noticed that this model, which
+# is based on only 7 studies, would be extremely overfitted if we did so, and
+# decided to reduce the random effect structure to only the essential ones, and
+# to move the results of this rather unreliable model to the supplements and
+# add a note to be very catious when interpreting the results of this model.
+
 meta.regression.bh2 <- rma.mv(cor,
                               VCV_ESVar_off_sex,
                               mods = ~ (Hormone_measured_general + Off_sex +
                                           Hormone_measured_general * Off_sex) - 1,
                               random = list(~ 1 | StudyID,
-                                            ~ 1 | LaboratoryID,
-                                            ~ 1 | PopulationID,
+                                            #~ 1 | LaboratoryID,
+                                            #~ 1 | PopulationID,
                                             ~ 1 | Species,
-                                            ~ 1 | Species_phylo_off_sex,
+                                            #~ 1 | Species_phylo_off_sex,
                                             ~ 1 | EffectID),
                               method = "REML",
-                              R = list(Species_phylo_off_sex = phylo_cor_off_sex),
+                              #R = list(Species_phylo_off_sex = phylo_cor_off_sex),
                               test = "t",
                               data = meta.final_ok_ok_off_sex)
 
@@ -1618,15 +1625,15 @@ meta.regression.bh2_artificial <- rma.mv(cor,
                                          VCV_ESVar_off_sex,
                                          mods = ~ hormone_sex - 1,
                                          random = list(~ 1 | StudyID,
-                                                       ~ 1 | LaboratoryID,
-                                                       ~ 1 | PopulationID,
+                                                       #~ 1 | LaboratoryID,
+                                                       #~ 1 | PopulationID,
                                                        ~ 1 | Species,
-                                                       ~ 1 | Species_phylo_off_sex,
+                                                       #~ 1 | Species_phylo_off_sex,
                                                        ~ 1 | EffectID),
                                          method = "REML",
                                          #verbose = TRUE,
                                          control = list(rel.tol = 1e-8),
-                                         R = list(Species_phylo_off_sex = phylo_cor_off_sex),
+                                         #R = list(Species_phylo_off_sex = phylo_cor_off_sex),
                                          test = "t",
                                          data = meta.final_ok_ok_off_sex)
 
@@ -1671,13 +1678,13 @@ bh2_artificial_pc <- rma.mv(cor,
                             VCV_ESVar_off_sex,
                             mods = ~ hormone_sex,
                             random = list(~ 1 | StudyID,
-                                          ~ 1 | LaboratoryID,
-                                          ~ 1 | PopulationID,
+                                          #~ 1 | LaboratoryID,
+                                          #~ 1 | PopulationID,
                                           ~ 1 | Species,
-                                          ~ 1 | Species_phylo_off_sex,
+                                          #~ 1 | Species_phylo_off_sex,
                                           ~ 1 | EffectID),
                             method = "REML",
-                            R = list(Species_phylo_off_sex = phylo_cor_off_sex),
+                            #R = list(Species_phylo_off_sex = phylo_cor_off_sex),
                             test = "t",
                             data = meta.final_ok_ok_off_sex)
 
