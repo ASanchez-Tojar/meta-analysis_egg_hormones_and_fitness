@@ -2870,8 +2870,8 @@ sensitivy.model.intercept.pearson <- rma.mv(cor,
                                             R = list(Species_phylo_pearson = phylo_cor_pearson),
                                             test = "t",
                                             data = meta.final_ok_sensitivity_pearson)
-#save(sensitivy.model.intercept.pearson, file = "data/outputs/statistical_models/sensitivy_model_intercept_pearson.RData")
-load(file = "data/outputs/statistical_models/sensitivy_model_intercept_pearson.RData") #sensitivy.model.intercept.pearson
+#save(sensitivy.model.intercept.pearson, file = "data/outputs/statistical_models/sensitivity_model_intercept_pearson.RData")
+load(file = "data/outputs/statistical_models/sensitivity_model_intercept_pearson.RData") #sensitivy.model.intercept.pearson
 
 
 # Printing the summary results of the model
@@ -2909,9 +2909,113 @@ fig_hormones_fitness_intercept.pearson <- orchaRd::orchard_plot(sensitivy.model.
 # we obtain a small negative effect size (-0.07). In both models effects are
 # statistically not significant.
 
+##########################
+# b) Data base that contains Pearson correlations, which are then transformed
+# into Fisher's Zr correlations: 
+
+# first obtaining Zr from r using:
+r.to.Zr <- function(r){
+  Zr<-round(0.5*(log(1+r)-log(1-r)),3)
+}
+
+meta.final_ok_sensitivity_pearson$Zr <- r.to.Zr(meta.final_ok_sensitivity_pearson$cor)
+
+# and VZr from sample size as 1/(n-3)
+meta.final_ok_sensitivity_pearson$VZr <- 1/(meta.final_ok_sensitivity_pearson$final_n-3)
+
+
+# Then, the VARIANCE-COVARIANCE MATRIX:
+VCV_ESVar_Zr <- matrix(0, nrow = nrow(meta.final_ok_sensitivity_pearson), 
+                       ncol = nrow(meta.final_ok_sensitivity_pearson))
+
+# Names rows and columns for each obsID
+rownames(VCV_ESVar_Zr) <- meta.final_ok_sensitivity_pearson[, "EffectID"]
+colnames(VCV_ESVar_Zr) <- meta.final_ok_sensitivity_pearson[, "EffectID"]
+
+# Finds effect sizes that come from the same study
+shared_coord_Zr <- which(meta.final_ok_sensitivity_pearson[, "StudyID"] %in% 
+                           meta.final_ok_sensitivity_pearson[duplicated(meta.final_ok_sensitivity_pearson[, "StudyID"]), 
+                                                             "StudyID"] == TRUE)
+
+combinations_Zr <- do.call("rbind", tapply(shared_coord_Zr, 
+                                           meta.final_ok_sensitivity_pearson[shared_coord_Zr, "StudyID"], 
+                                           function(x) t(utils::combn(x, 2))))
+
+# Calculates the covariance between effect sizes and enters them in each 
+# combination of coordinates
+for (i in 1 : dim(combinations_Zr)[1]) {
+  p1_Zr <- combinations_Zr[i, 1]
+  p2_Zr <- combinations_Zr[i, 2]
+  p1_p2_cov_Zr <- 0.5 * sqrt(meta.final_ok_sensitivity_pearson[p1_Zr, "VZr"]) * 
+    sqrt(meta.final_ok_sensitivity_pearson[p2_Zr, "VZr"])
+  VCV_ESVar_Zr[p1_Zr, p2_Zr] <- p1_p2_cov_Zr
+  VCV_ESVar_Zr[p2_Zr, p1_Zr] <- p1_p2_cov_Zr
+} 
+
+# Enters previously calculated effect size sampling variances into diagonals 
+diag(VCV_ESVar_Zr) <- meta.final_ok_sensitivity_pearson[, "VZr"]
+
+# # alternative simpler way that we could have used throughout
+# VCV_ESVar_Zr.vcalc <- vcalc(vi = VZr,
+#                             cluster = StudyID,
+#                             obs = EffectID,
+#                             data = meta.final_ok_sensitivity_pearson,
+#                             rho = 0.5)  # assuming that the effect sizes within the same study are correlated with rho = 0.5
+
+# In case you want to visually double check the matrix outside of R
+#write.csv(VCV_ESVar_Zr, 'data/outputs/variance-covariance_matrices/VCV_ESVar_Zr.csv')
+
+
+# STATISTICAL ANALYSIS: 
+sensitivity.model.intercept.Zr <- rma.mv(Zr,
+                                         VCV_ESVar_Zr,
+                                         mods = ~ 1,
+                                         random = list(~ 1 | StudyID,
+                                                       ~ 1 | LaboratoryID,
+                                                       ~ 1 | PopulationID,
+                                                       ~ 1 | Species,
+                                                       ~ 1 | Species_phylo_pearson,
+                                                       ~ 1 | EffectID),
+                                         method = "REML",
+                                         R = list(Species_phylo_pearson = phylo_cor_pearson),
+                                         test = "t",
+                                         data = meta.final_ok_sensitivity_pearson)
+
+#save(sensitivity.model.intercept.Zr, file = "data/outputs/statistical_models/sensitivity_model_intercept_Zr.RData")
+load(file = "data/outputs/statistical_models/sensitivity_model_intercept_pearson.RData") #sensitivity.model.intercept.Zr
+
+
+# Printing the summary results of the model
+print(sensitivity.model.intercept.Zr, digits = 3)
+
+# Model funnel plots
+par(mfrow = c(1, 1))
+funnel(sensitivity.model.intercept.Zr)
+
+# Estimating heterogeneity as I2 (Nakagawa and Santos 2012)
+I2.model_Zr <- i2_ml(sensitivity.model.intercept.Zr)
+round(I2.model_Zr, 1)
+
+
+# TABLE:
+results_sensitivy.model.intercept.Zr <- orchaRd::mod_results(sensitivity.model.intercept.Zr, 
+                                                                  group = "StudyID", 
+                                                                  subset = TRUE)
+
+round(as.data.frame(results_sensitivy.model.intercept.Zr[[1]])[,c(2:6)], 3)
+
+
+# FIGURE: effect of each group of hormones on fitness traits.
+fig_hormones_fitness_intercept.Zr <- orchaRd::orchard_plot(sensitivity.model.intercept.Zr, 
+                                                                group = "StudyID", 
+                                                                xlab = "Effect size",
+                                                                trunk.size = 2,
+                                                                branch.size = 2,
+                                                                twig.size = 1)
+
 
 ##########################
-# b) Data base that contains the data base with Biserial correlations
+# c) Data base that contains the data base with Biserial correlations
 
 meta.final_ok_sensitivity_biserial <- droplevels(subset(meta.final_ok_ok, 
                                                         meta.final_ok_ok$Effect_size_type == "Mean"))
@@ -3045,8 +3149,8 @@ sensitivy.model.intercept.biserial <- rma.mv(cor,
                                              test = "t",
                                              data = meta.final_ok_sensitivity_biserial)
 
-#save(sensitivy.model.intercept.biserial, file = "data/outputs/statistical_models/sensitivy_model_intercept_biserial.RData")
-load(file = "data/outputs/statistical_models/sensitivy_model_intercept_biserial.RData") #sensitivy.model.intercept.biserial
+#save(sensitivy.model.intercept.biserial, file = "data/outputs/statistical_models/sensitivity_model_intercept_biserial.RData")
+load(file = "data/outputs/statistical_models/sensitivity_model_intercept_biserial.RData") #sensitivy.model.intercept.biserial
 
 # Printing the summary results of the model
 print(sensitivy.model.intercept.biserial, digits = 3)
@@ -3253,8 +3357,8 @@ sensitivy.model.intercept.rom <- rma.mv(cor,
                                         test = "t",
                                         data = meta.final_ok_sensitivity_rom)
 
-#save(sensitivy.model.intercept.rom, file = "data/outputs/statistical_models/sensitivy_model_intercept_rom.RData")
-load(file = "data/outputs/statistical_models/sensitivy_model_intercept_rom.RData") #sensitivy.model.intercept.rom
+#save(sensitivy.model.intercept.rom, file = "data/outputs/statistical_models/sensitivity_model_intercept_rom.RData")
+load(file = "data/outputs/statistical_models/sensitivity_model_intercept_rom.RData") #sensitivy.model.intercept.rom
 
 
 # Printing the summary results of the model
@@ -3316,8 +3420,8 @@ sensitivy.model.bh1 <- rma.mv(cor,
                               test = "t",
                               data = meta.final_ok_ok_off)
 
-#save(sensitivy.model.bh1, file = "data/outputs/statistical_models/sensitivy_model_bh1.RData")
-load(file = "data/outputs/statistical_models/sensitivy_model_bh1.RData") #sensitivy.model.bh1
+#save(sensitivy.model.bh1, file = "data/outputs/statistical_models/sensitivity_model_bh1.RData")
+load(file = "data/outputs/statistical_models/sensitivity_model_bh1.RData") #sensitivy.model.bh1
 
 
 # Printing the summary results of the model
@@ -3370,8 +3474,8 @@ sensitivy.model.bh1.pc <- rma.mv(cor,
                                  test = "t",
                                  data = meta.final_ok_ok_off)
 
-#save(sensitivy.model.bh1.pc, file = "data/outputs/statistical_models/sensitivy_model_bh1_pc.RData")
-load(file = "data/outputs/statistical_models/sensitivy_model_bh1_pc.RData") #sensitivy.model.bh1.pc
+#save(sensitivy.model.bh1.pc, file = "data/outputs/statistical_models/sensitivity_model_bh1_pc.RData")
+load(file = "data/outputs/statistical_models/sensitivity_model_bh1_pc.RData") #sensitivy.model.bh1.pc
 
 print(sensitivy.model.bh1.pc, digits = 3)
 
@@ -5321,12 +5425,12 @@ results_meta.regression.all.in <- orchaRd::mod_results(meta.regression.all.in,
 
 # Showing the effect per hormone too
 figure_results_meta.regression.all.in.by.hormone <- orchaRd::orchard_plot(results_meta.regression.all.in,
-                                                                           mod = "sqrt_inv_esz",
-                                                                           group = "StudyID",
-                                                                           xlab = "Effect size",
-                                                                           trunk.size = 2,
-                                                                           branch.size = 2,
-                                                                           twig.size = 1)
+                                                                          mod = "sqrt_inv_esz",
+                                                                          group = "StudyID",
+                                                                          xlab = "Effect size",
+                                                                          trunk.size = 2,
+                                                                          branch.size = 2,
+                                                                          twig.size = 1)
 
 
 
@@ -5537,7 +5641,7 @@ load("data/outputs/phylogenetic_files/tree_withinstudyID.Rdata") #my_tree_within
 # # TRUE
 # 
 # # Matrix to be included in the models
- # phylo_cor_withinstudyID <- vcv(phylo_branch_withinstudyID, cor = T)
+# phylo_cor_withinstudyID <- vcv(phylo_branch_withinstudyID, cor = T)
 # 
 # # Finally, save matrix for future analyses to speed up and allow full reproducibility
 # save(phylo_cor_withinstudyID, file = "data/outputs/phylogenetic_files/phylo_cor_withinstudyID.Rdata")
