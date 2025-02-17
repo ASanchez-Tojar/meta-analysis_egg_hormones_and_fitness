@@ -153,8 +153,9 @@ as.data.frame(
                      SD = round(sd(final_n),2),
                      Median = round(median(final_n),1),
                      Min = round(min(final_n),0),
-                     Max = round(max (final_n),0),
-                     k = n())
+                     Max = round(max(final_n),0),
+                     k = n(),
+                     Median.cor = round(median(cor),2))
 )
 
 ################################################################################
