@@ -145,6 +145,18 @@ meta.final_ok_ok <- read.csv("data/processed_data/meta-analysis_egg_hormones_pro
 meta.final_ok_ok_off <- read.csv("data/processed_data/meta-analysis_egg_hormones_processed_data_offspring.csv")
 meta.final_ok_ok_mom <- read.csv("data/processed_data/meta-analysis_egg_hormones_processed_data_mom.csv")
 
+# exploring data for Table 1
+as.data.frame(
+  meta.final_ok_ok %>%
+    group_by(StudyID) %>%
+    dplyr::summarize(Mean = round(mean(final_n),1),
+                     SD = round(sd(final_n),2),
+                     Median = round(median(final_n),1),
+                     Min = round(min(final_n),0),
+                     Max = round(max (final_n),0),
+                     k = n())
+)
+
 ################################################################################
 # 4. General information on Statistical Analysis:
 ################################################################################
@@ -3006,19 +3018,19 @@ round(I2.model_Zr, 1)
 
 # TABLE:
 results_sensitivy.model.intercept.Zr <- orchaRd::mod_results(sensitivity.model.intercept.Zr, 
-                                                                  group = "StudyID", 
-                                                                  subset = TRUE)
+                                                             group = "StudyID", 
+                                                             subset = TRUE)
 
 round(as.data.frame(results_sensitivy.model.intercept.Zr[[1]])[,c(2:6)], 3)
 
 
 # FIGURE: effect of each group of hormones on fitness traits.
 fig_hormones_fitness_intercept.Zr <- orchaRd::orchard_plot(sensitivity.model.intercept.Zr, 
-                                                                group = "StudyID", 
-                                                                xlab = "Effect size",
-                                                                trunk.size = 2,
-                                                                branch.size = 2,
-                                                                twig.size = 1)
+                                                           group = "StudyID", 
+                                                           xlab = "Effect size",
+                                                           trunk.size = 2,
+                                                           branch.size = 2,
+                                                           twig.size = 1)
 
 
 ##########################
