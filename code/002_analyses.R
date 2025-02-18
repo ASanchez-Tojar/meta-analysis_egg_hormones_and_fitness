@@ -1570,9 +1570,24 @@ diag(VCV_ESVar_off_sex) <- meta.final_ok_ok_off_sex[, "cor_var"]
 
 nrow(meta.final_ok_ok_off_sex)
 
+# exploring this small dataset
+table(meta.final_ok_ok_off_sex$Hormone_measured_general,
+      meta.final_ok_ok_off_sex$Species)
+
+as.data.frame(
+  meta.final_ok_ok_off_sex %>%
+    group_by(StudyID,Species) %>%
+    dplyr::summarize(Mean = round(mean(final_n),1),
+                     SD = round(sd(final_n),2),
+                     Median = round(median(final_n),1),
+                     Min = round(min(final_n),0),
+                     Max = round(max(final_n),0),
+                     k = n(),
+                     Median.cor = round(median(cor),2))
+)
 
 # STATISTICAL MODEL:
-# The new data set contains 45 rows that have hormones that are predicted to have
+# The new data set contains 43 rows that have hormones that are predicted to have
 # a positive effect on offspring fitness traits (i.e., there are no papers
 # testing the effect of corticosterone). Hence the variable "Hormone_measured_general" 
 # has only one level and interactions (which are needed to test our pre-registered
@@ -1588,7 +1603,7 @@ nrow(meta.final_ok_ok_off_sex)
 # is based on only 7 studies, would be extremely overfitted if we did so, and
 # decided to reduce the random effect structure to only the essential ones, and
 # to move the results of this rather unreliable model to the supplements and
-# add a note to be very catious when interpreting the results of this model.
+# add a note to be very cautious when interpreting the results of this model.
 
 meta.regression.bh2 <- rma.mv(cor,
                               VCV_ESVar_off_sex,
