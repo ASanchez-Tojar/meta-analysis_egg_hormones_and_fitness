@@ -4026,19 +4026,43 @@ diag(VCV_ESVar_off_site_cort) <- meta.final_ok_ok_off_site_cort[, "cor_var"]
 # # In case you want to visually double check the matrix outside of R
 # write.csv(VCV_ESVar_off_site_cort, 'data/outputs/variance-covariance_matrices/VCV_ESVar_off_site_cort.csv')
 
+# exploring this small dataset
+table(meta.final_ok_ok_off_site_cort$Hormone_measured_general,
+      meta.final_ok_ok_off_site_cort$Species)
+
+as.data.frame(
+  meta.final_ok_ok_off_site_cort %>%
+    group_by(StudyID,Species) %>%
+    dplyr::summarize(Mean = round(mean(final_n),1),
+                     SD = round(sd(final_n),2),
+                     Median = round(median(final_n),1),
+                     Min = round(min(final_n),0),
+                     Max = round(max(final_n),0),
+                     k = n(),
+                     Median.cor = round(median(cor),2))
+)
+
+
+# Note that we originally ran this model with the same random effect structure 
+# than the other models but during peer-review we noticed that this model, which
+# is based on only 4 studies, would be extremely overfitted if we did so, and
+# decided to reduce the random effect structure to only the essential ones, and
+# to move the results of this rather unreliable model to the supplements and
+# add a note to be very cautious when interpreting the results of this model.
+
 
 # STATISTICAL ANALYSIS:
 meta.regression.beh2 <- rma.mv(cor,
                                VCV_ESVar_off_site_cort,
                                mods = ~ Site_measured - 1,
                                random = list(~ 1 | StudyID,
-                                             ~ 1 | LaboratoryID,
-                                             ~ 1 | PopulationID,
+                                             #~ 1 | LaboratoryID,
+                                             #~ 1 | PopulationID,
                                              ~ 1 | Species,
-                                             ~ 1 | Species_phylo_off_site_cort,
+                                             #~ 1 | Species_phylo_off_site_cort,
                                              ~ 1 | EffectID),
                                method = "REML",
-                               R = list(Species_phylo_off_site_cort = phylo_cor_off_site_cort),
+                               #R = list(Species_phylo_off_site_cort = phylo_cor_off_site_cort),
                                test = "t",
                                data = meta.final_ok_ok_off_site_cort)
 
