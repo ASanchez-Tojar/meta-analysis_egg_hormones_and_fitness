@@ -22,7 +22,7 @@ Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo
 
 ---
 
-The repository consists of an Rproject with 5 scripts and 3 folders containing the data either needed to run these scripts or created by these scripts, including the figures. For a detailed description of all the files, please see below. To run this repository, first download and unzipped the entire repository and open the Rproject file:  meta-analysis_egg_hormones.Rproj. The scripts are named in the order that they should be run, from 000 to 003. For any further information about this repository, please contact: Alfredo Sánchez-Tójar, email: alfredo.tojar@gmail.com.
+The repository consists of an Rproject with 5 scripts and 3 folders containing the data either needed to run these scripts or created by these scripts, including the figures. For a detailed description of all the files, please see below. To run this repository, first download and unzip the entire repository and open the Rproject file:  meta-analysis_egg_hormones.Rproj. The scripts are named in the order that they should be run, from 000 to 003. For any further information about this repository, please contact: Alfredo Sánchez-Tójar, email: alfredo.tojar@gmail.com.
 
 Information about folders and files within:
 Folders:
