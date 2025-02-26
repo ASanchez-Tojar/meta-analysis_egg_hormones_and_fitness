@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/928707242.svg)](https://doi.org/10.5281/zenodo.14930058)
+
 # Short title: Do egg hormones have fitness consequences?
 ## Title: Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis
 **Contributors:** Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar 
@@ -16,7 +18,7 @@
 
 ---
 
-Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar. 2024. Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis. *bioRxiv*. Preprint available at: https://doi.org/10.1101/2024.10.29.620852
+Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar. 2025. Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis. Ecology Letters. Preprint available at: https://doi.org/10.1101/2024.10.29.620852
 
 ---
 
