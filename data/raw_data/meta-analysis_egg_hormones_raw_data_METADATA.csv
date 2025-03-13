@@ -1,10 +1,10 @@
 Variable name,Description,Data type,General classification of variables 
-Include,If the paper fulfills or not all the requirements for being include in the analysis,"Catogorical (levels: yes, no)",Final decision made of the paper
-StudyID,Rayyan number,Catogorical ,General information of the paper
+Include,If the paper fulfills or not all the requirements for being include in the analysis,"Categorical (levels: yes, no)",Final decision made of the paper
+StudyID,Rayyan number,Categorical ,General information of the paper
 GroupID,"Subset of eggs within a study for which we extracted data (e.g., if researchers present the correlation between egg hormones and fitness for one year vs another year). Each of the three persons that extracted data, had its own code: GR_L, GR_N, GR_P, followed by a consecutive number ","Categorical (levels: GR_L_number, GR_N_number, GR_P_number)",
-LaboratoryID,Unique identification of the lab,Catogorical ,
-PopulationID,Unique identification of the population,Catogorical ,
-EffectID,Unique identification of the effect size,Catogorical ,
+LaboratoryID,Unique identification of the lab,Categorical ,
+PopulationID,Unique identification of the population,Categorical ,
+EffectID,Unique identification of the effect size,Categorical ,
 Title,Ttile of the paper,Character,
 Year,Year when it was published,Numeric,
 Authors_all,Surname and initials of all authors,Character,
