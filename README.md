@@ -1,10 +1,12 @@
+[![DOI](https://zenodo.org/badge/928707242.svg)](https://doi.org/10.5281/zenodo.14930058)
+
 # Short title: Do egg hormones have fitness consequences?
 ## Title: Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis
 **Contributors:** Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar 
 
 **Date created:** February 2025
 
-**Identifer:** DOI TBA
+**Identifer:** [10.5281/zenodo.14930059](http://doi.org/10.5281/zenodo.14930059)
 
 **Category:** Project
 
@@ -16,11 +18,11 @@
 
 ---
 
-Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar. 2024. Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis. *bioRxiv*. Preprint available at: https://doi.org/10.1101/2024.10.29.620852
+Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar. 2025. Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis. Ecology Letters. Preprint available at: https://doi.org/10.1101/2024.10.29.620852
 
 ---
 
-The repository consists of an Rproject with 5 scripts and 3 folders containing the data either needed to run these scripts or created by these scripts, including the figures. For a detailed description of all the files, please see below. To run this repository, first download and unzipped the entire repository and open the Rproject file:  meta-analysis_egg_hormones.Rproj. The scripts are named in the order that they should be run, from 000 to 003. For any further information about this repository, please contact: Alfredo Sánchez-Tójar, email: alfredo.tojar@gmail.com.
+The repository consists of an Rproject with 5 scripts and 3 folders containing the data either needed to run these scripts or created by these scripts, including the figures. For a detailed description of all the files, please see below. To run this repository, first download and unzip the entire repository and open the Rproject file:  meta-analysis_egg_hormones.Rproj. The scripts are named in the order that they should be run, from 000 to 003. For any further information about this repository, please contact: Alfredo Sánchez-Tójar, email: alfredo.tojar@gmail.com.
 
 Information about folders and files within:
 Folders:
