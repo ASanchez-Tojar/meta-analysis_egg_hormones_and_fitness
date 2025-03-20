@@ -18,7 +18,7 @@
 
 ---
 
-Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar. 2025. Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis. Ecology Letters. Preprint available at: https://doi.org/10.1101/2024.10.29.620852
+Lucia Mentesana, Michaela Hau, Pietro B. D’Amelio, Nicolas M. Adreani, Alfredo Sánchez-Tójar. 2025. **Do egg hormones have fitness consequences in wild birds? A systematic review and meta-analysis**. *Ecology Letters*, 28(3):e70100. DOI: [10.1111/ele.70100](https://doi.org/10.1111/ele.70100)
 
 ---
 
